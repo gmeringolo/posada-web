@@ -71,7 +71,7 @@ a {
 
 @media (max-width: 1280px) {
     h1{
-        font-size: 45px;
+        font-size: 48px;
         font-family: "Marko One";
         padding: 20px 45px;
     }
@@ -79,7 +79,8 @@ a {
     p{
         font-size: 20px;
         font-family: "Pompiere";
-        margin: 80px 30px 15px;
+        margin: 30px 30px 15px;
+        color: #000000;
     }
 
   .lista {
@@ -94,7 +95,7 @@ a {
     color: #1e5077;
     background: #ffffff9c;
     width: 540px;
-    height: 290px;
-    margin: 80px 350px;
+    height: 240px;
+    margin: 100px 350px;
   }
 }
