@@ -1,161 +1,155 @@
-*{
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-}
-
-body {
   font-family: "Montserrat", sans-serif;
 }
 
-h1{
-    font-size: 70px;
-    font-family: "Marko One";
-    margin: 0;
-}
-
-/*.img {
+header{
   background-image: url("C:/Gia/Web Posada/posada-web/src/assets/img/Casa_azul.jpg");
-  height: 50vh;
+  height: 100vh;
   width: auto;
   background-size: cover;
-}*/
-
-.contenedor {
-  width: 100%;
-  margin-right: 30px;
+  margin-top: -10px;
 }
 
 nav {
-  margin: 30px 130px 0px;
   background-color: #91aec599;
   height: 80px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  width: 90%;
+  margin: 10px 60px;
   border-radius: 50px;
+}
+
+.enlace {
+  /*position: absolute;*/
+  padding: 15px 50px;
 }
 
 .logo {
-  margin: 10px 0px 10px 70px;
-  width: 150px;
-  height: 55px;
+  height: 50px;
+  margin-top: 15px;
 }
 
-li {
+nav ul {
+  float: right;
+  margin-right: 70px;
+}
+
+nav ul li {
   background: #1e5077cc;
-  padding: 20px 20px;
+  display: inline-block;
+  line-height: 40px;
+  margin: 10px 5px;
+  padding: 10px;
+  height: 60px;
+  width: 104px;
   border-radius: 50px;
-  margin-right: 12px;
+  text-align: center;
 }
 
-li:hover{
+nav ul li a {
+  color: #fff;
+  font-size: 16px;
+}
+
+li a:hover {
   background: #47789e;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-.lista {
-  display: flex;
-  width: 30%;
-  margin-right: 100px;
-  justify-content: space-between;
-}
-
-a {
-  text-decoration: none;
+.checkbtn {
+  font-size: 30px;
+  float: right;
+  line-height: 78px;
+  margin-right: 80px;
+  cursor: pointer;
+  display: none;
   color: white;
 }
 
-.titular {
+#box{
+  display: none;
+}
+
+section {
   text-align: center;
   color: #1e5077;
   background: #ffffff9c;
-  width: 880px;
-  height: 400px;
-  margin: 200px 520px;
+  width: 540px;
+  height: 240px;
+  margin: 170px 350px;
 }
 
-/*.checkbtn{
-  font-size: 30px;
-  float: right;
-  line-height: 80px;
-  margin-right: 40px;
-  cursor: pointer;
-  display: none;
+section h1 {
+  font-size: 48px;
+  font-family: "Marko One";
+  padding: 20px 45px;
 }
 
-#check{
-  display: none;
-}*/
+section p {
+  font-size: 20px;
+  font-family: "Pompiere";
+  margin: 30px 30px 15px;
+  color: #212025;
+}
 
-@media (max-width: 1280px) {
-    h1{
-        font-size: 48px;
-        font-family: "Marko One";
-        padding: 20px 45px;
-    }
-
-    p{
-        font-size: 20px;
-        font-family: "Pompiere";
-        margin: 30px 30px 15px;
-        color: #000000;
-    }
-
-    .img {
-      height: 50vh;
-    }
-
-  .lista {
-    display: flex;
-    width: 40%;
-    margin-right: 180px;
-    justify-content: space-between;
+/*resposive para table*/
+@media (max-width: 1002px) {
+  nav {
+    height: 60px;
+    width: 96%;
+    margin-left: 20px;
+  }
+  .enlace {
+    /*position: absolute;*/
+    padding: 15px 40px;
   }
 
-  .titular {
-    text-align: center;
-    color: #1e5077;
-    background: #ffffff9c;
-    width: 540px;
+  .logo {
+    height: 40px;
+    margin-top: 10px;
+  }
+
+  nav ul {
+    margin-right: 40px;
+  }
+
+  nav ul li {
+    line-height: 40px;
+    margin: 5px 5px;
+    padding: 5px;
+    height: 50px;
+    width: 90px;
+    border-radius: 30px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  section {
+    width: 480px;
     height: 240px;
-    margin: 100px 350px;
-  }  
-}
-/*resposive para table*/
-@media (max-width: 800px) {
+    margin: 130px 230px;
+  }
+  
+  section h1 {
+    font-size: 35px;
+    padding: 20px 35px;
+  }
+  
+  section p {
+    font-size: 18px;
+    margin: 50px 20px;
+  }
 }
 
 /*resposive para mobil*/
-@media (max-width: 800px) {  
-
-  nav {
-    margin: 0px 90px 0px;
-    background-color: #91aec599;
-    height: 80px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-radius: 50px;
-  }
- 
-  .contenedor {
-    width: 20%;
-    margin-right: 10px;
-  }
-
-.checkbtn{
- display: block;
-}
-
-.lista{
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  background: #1e5077;
-  top: 80px;
-  left: -30%;
-}
+@media (max-width: 858px) {
+  .checkbtn{
+    display: block;
+   }
 }

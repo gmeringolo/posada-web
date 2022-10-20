@@ -1,8 +1,7 @@
 import React from 'react';
 //css
-import '../assets/css/home.css'
-import Header from '../components/header2';
-//import Banner from '../components/banner.js';
+import Header from '../components/header';
+
 
 function Home() {
     return (
