@@ -1,5 +1,6 @@
 import React from "react";
-import logo from "./logoAzul.png";
+//import logo from "./logoAzul.png";
+import logo2 from "./2.png";
 import "./header.css";
 
 const Header = () => {
@@ -11,7 +12,7 @@ const Header = () => {
         <i class="fa-solid fa-bars"></i>
       </label>
       <a href="#inicio" className="enlace">
-        <img src={logo} class="logo" alt="logo posada" />
+        <img src={logo2} class="logo" alt="logo posada" />
       </a>
       <ul>
         <li class="active">
