@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+header {
+  background-image: url("/public/assets/img/casa_azul.png");
+  height: 100vh;
+  background-size: cover;
+}
+
+.section {
+  text-align: center;
+  color: #1e5077;
+  background: #ffffff9c;
+  max-width: 540px;
+  width: 70%;
+  margin: 170px auto;
+  padding: 10px;
+}
+
+.section h1 {
+  font-size: 48px;
+  font-family: "Marko One";
+  padding: 20px 45px;
+}
+
+.section p {
+  font-size: 20px;
+  font-family: "Pompiere";
+  margin: 30px 30px 15px;
+  color: #212025;
+}
+
+/*resposive para table*/
+@media (max-width: 1002px) {
+  header {
+    background-image: url("/public/assets/img/casa_verde.jpg");
+  }
+  .section {
+    max-width: 480px;
+  }
+  casa_azul.png
+
+  .section h1 {
+    font-size: 40px;
+    padding: 15px 35px;
+  }
+
+  .section p {
+    font-size: 18px;
+    margin: 25px 25px 10px;
+  }
+}
+
+/*resposive para mobil*/
+@media (max-width: 719px) {
+  header {
+    background-image: url("/public/assets/img/casa_roja.jpg");
+  }
+
+  .section {
+    max-width: 350px;
+    margin: 165px auto;
+  }
+
+  .section h1 {
+    font-size: 28px;
+    padding: 15px 35px;
+  }
+
+  .section p {
+    font-size: 13px;
+    margin: 25px 13px 10px;
+  }
+}
