@@ -1,131 +1,146 @@
 nav {
-    background-color: #91aec599;
-    height: 80px;
-    width: 90%;
-    margin: 10px 60px;
-    border-radius: 50px;
+  background-color: #91aec599;
+  height: 80px;
+  width: 90%;
+  margin: 10px 60px;
+  border-radius: 50px;
+}
+
+.enlace {
+  /*position: absolute;*/
+  padding: 15px 50px;
+}
+
+.logo {
+  height: 50px;
+  margin-top: 15px;
+}
+
+nav ul {
+  float: right;
+  margin-right: 70px;
+}
+
+nav ul li {
+  background: #1e5077cc;
+  display: inline-block;
+  line-height: 40px;
+  margin: 10px 5px;
+  padding: 10px;
+  height: 60px;
+  width: 104px;
+  border-radius: 50px;
+  text-align: center;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 16px;
+}
+
+li a:hover {
+  background: #47789e;
+  transition: 0.5s;
+}
+
+.burguer {
+  display: inline;
+  margin: 14px 20px;
+  cursor: pointer;
+  float: right;
+  display: none;
+}
+
+/*resposive para table*/
+@media (max-width: 1002px) {
+  nav {
+    height: 60px;
+    width: 96%;
+    margin-left: 20px;
+  }
+  .enlace {
+    padding: 15px 40px;
   }
 
-  .enlace {
-    /*position: absolute;*/
-    padding: 15px 50px;
-  }
-  
   .logo {
-    height: 50px;
-    margin-top: 15px;
+    height: 40px;
+    margin-top: 10px;
   }
 
   nav ul {
-    float: right;
-    margin-right: 70px;
+    margin-right: 40px;
   }
-  
+
   nav ul li {
-    background: #1e5077cc;
-    display: inline-block;
     line-height: 40px;
-    margin: 10px 5px;
-    padding: 10px;
-    height: 60px;
-    width: 104px;
-    border-radius: 50px;
-    text-align: center;
+    margin: 5px 5px;
+    padding: 5px;
+    height: 50px;
+    width: 90px;
+    border-radius: 30px;
   }
-  
+
   nav ul li a {
-    color: #fff;
-    font-size: 16px;
+    font-size: 14px;
   }
-  
-  li a:hover {
-    background: #47789e;
-    transition: 0.5s;
-  }
-
-  .burguer{
-    display: inline;
-    margin: 14px 20px;
-    cursor: pointer;
-    float: right;
-    display: none;
-  }
-
-  /*resposive para table*/
-@media (max-width: 1002px) {
-    nav {
-      height: 60px;
-      width: 96%;
-      margin-left: 20px;
-    }
-    .enlace {      
-      padding: 15px 40px;
-    }
-  
-    .logo {
-      height: 40px;
-      margin-top: 10px;
-    }
-  
-    nav ul {
-      margin-right: 40px;
-    }
-  
-    nav ul li {
-      line-height: 40px;
-      margin: 5px 5px;
-      padding: 5px;
-      height: 50px;
-      width: 90px;
-      border-radius: 30px;
-    }
-  
-    nav ul li a {
-      font-size: 14px;
-    }
 }
 
 /*resposive para mobil*/
 @media (max-width: 719px) {
   nav {
-    background-color: #16334b99;
+    background-color: #0d253899;
   }
-    .enlace {      
-      padding: 5px 25px;
-    }
-
-    .logo {
-      height: 30px;
-      margin-top: 15px;
-    }
-
-    .burguer{
-      display: block;
-    }
-
-    .burguer.active{
-      display: block;
-      background: #1e5077cc;
-      padding: 0px 0px 11px 141px;
-    } 
-  
-    .links{
-      display: none;
-    }
-
-    .links.active{
-      margin-top: 59px;
-      margin-right: -195px;
-      display: block;
-    }
-
-     nav ul li {
-      display: block;
-      line-height: 15px;
-      margin: 0px;
-      width: 175px;
-      height: 35px;
-      border-radius: 0px;
-    }
+  .enlace {
+    padding: 5px 25px;
   }
-  
+
+  .logo {
+    height: 30px;
+    margin-top: 15px;
+  }
+
+  .burguer {
+    display: block;
+  }
+
+  .burguer.active {
+    display: block;
+    background: #1e5077cc;
+    padding: 0px 0px 11px 141px;
+  }
+
+  .links {
+    display: none;
+  }
+
+  .links.active {
+    margin-top: 59px;
+    margin-right: -195px;
+    display: block;
+  }
+
+  nav ul li {
+    display: block;
+    line-height: 15px;
+    margin: 0px;
+    width: 175px;
+    height: 35px;
+    border-radius: 0px;
+  }
+}
+/*resposive para mobil2*/
+@media (max-width: 400px) {
+
+  .burguer.active {
+    padding: 0px 0px 0px 66px;
+  }
+  .links.active {
+    margin-top: 48px;
+    margin-right: -120px;
+  }
+
+  nav ul li {
+    width: 100px;
+    height: 35px;
+  }
+}
