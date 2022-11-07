@@ -54,8 +54,7 @@ li a:hover {
 /*resposive para table*/
 @media (max-width: 1002px) {
   nav {
-    height: 60px;
-    width: 96%;
+    height: 60px;    
     margin-left: 20px;
   }
   .enlace {

@@ -74,12 +74,16 @@ video {
     p {
       margin: 5px 70px 45px;
     }
+    .casas {
+        margin-bottom: 10px;
+      }
     .img {
-      height: 120px;
+      height: 90px;
+      margin: 4px;
     }
   
     video {
-      width: 470px;
+      width: 354px;
     }
   }
   
