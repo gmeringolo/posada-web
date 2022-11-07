@@ -57,7 +57,7 @@ header {
 }
 
 /*resposive para mobil*/
-@media (max-width: 719px) {
+@media (max-width: 738px) {
   header {
     background-image: url("/public/assets/img/casa_roja.jpg");
   }

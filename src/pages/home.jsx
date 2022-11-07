@@ -1,13 +1,16 @@
 import React from 'react';
 import Header from '../components/header/Header';
+import Casas from '../components/casas/Casas';
 
 
-function Home() {
+
+function home() {
     return (
         <>
-          <Header /> 
+          <Header />
+          <Casas />  
         </>
       );    
     }
 
-export default Home;
+export default home;
