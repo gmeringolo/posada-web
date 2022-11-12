@@ -1,0 +1,185 @@
+.servicios {
+  background: #1e5077;
+  padding-bottom: 70px;
+}
+
+.servicios h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 48px;
+  padding: 40px 45px 40px;
+}
+
+.servicios1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.vista {
+  background: rgba(255, 255, 255, 0.42);
+  width: 375px;
+  height: 250px;
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.63);
+}
+.vista2 {
+  background: rgba(255, 255, 255, 0.42);
+  width: 375px;
+  height: 250px;
+}
+
+.p1 {
+  padding: 71px 36px;
+  margin: 30px 30px;
+  background: rgb(255 255 255 / 10%);
+  border: 0.3px solid #00000026;
+}
+
+.p2 {
+  padding: 60px 36px;
+  margin: 30px 30px;
+  background: rgb(255 255 255 / 10%);
+  border: 0.3px solid #00000026;
+}
+
+.img1 {
+  margin: 0px;
+  box-shadow: 30px 30px 30px rgba(0, 0, 0, 0.63);
+  width: 375px;
+}
+
+.img2 {
+  margin: 0px;
+  width: 375px;
+}
+
+.img2-shadow {
+  box-shadow: -30px 30px 30px rgba(0, 0, 0, 0.63);
+}
+
+.vista2-shadow {
+  box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.63);
+}
+
+/*resposive para tablet*/
+@media (max-width: 1002px) {
+  .servicios h1 {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .p1 {
+    padding: 58px 24px;
+    margin: 30px 30px;
+  }
+
+  .p2 {
+    padding: 48px 23px;
+    margin: 30px 30px;
+  }
+
+  .vista {
+    width: 330px;
+    height: 220px;
+  }
+  .vista2 {
+    width: 330px;
+    height: 220px;
+  }
+
+  .img1 {
+    width: 330px;
+    height: 220px;
+  }
+
+  .img2 {
+    width: 330px;
+    height: 220px;
+  }
+}
+
+/*resposive para tablet2*/
+@media (max-width: 800px) {
+  p {
+    font-size: 17px;
+  }
+
+  .p1 {
+    padding: 54px 18px;
+    margin: 25px 25px;
+  }
+
+  .p2 {
+    padding: 44px 18px;
+    margin: 25px 25px;
+  }
+
+  .vista {
+    width: 300px;
+    height: 200px;
+  }
+  .vista2 {
+    width: 300px;
+    height: 200px;
+  }
+
+  .img1 {
+    width: 300px;
+    height: 200px;
+  }
+
+  .img2 {
+    width: 300px;
+    height: 200px;
+  }
+}
+
+/*resposive para mobil1*/
+@media (max-width: 768px) {
+  .servicios h1 {
+    font-size: 35px;
+  }
+  p {
+    font-size: 15px;
+  }
+
+  .p1 {
+    padding: 31px 29px;
+    margin: 25px 25px;
+  }
+
+  .p2 {
+    padding: 31px 7px;
+    margin: 25px 25px;
+  }
+
+  .vista {
+    width: 250px;
+    height: 165px;
+  }
+  .vista2 {
+    width: 250px;
+    height: 165px;
+  }
+  .img1 {
+    width: 250px;
+    height: 165px;
+  }
+
+  .img2 {
+    width: 250px;
+    height: 165px;
+  }
+}
+
+/*resposive para mobil2*/
+@media (max-width: 650px) {
+  .servicios1 {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
