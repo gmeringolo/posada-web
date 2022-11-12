@@ -81,6 +81,9 @@ video {
 
 /*resposive para mobil2*/
 @media (max-width: 650px) {
+  h1 {
+    font-size: 30px;
+  }
   p {
     margin: 5px 70px 45px;
   }

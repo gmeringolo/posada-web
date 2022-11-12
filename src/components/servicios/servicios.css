@@ -176,6 +176,9 @@
 
 /*resposive para mobil2*/
 @media (max-width: 650px) {
+  .servicios h1 {
+    font-size: 30px;
+  }
   .servicios1 {
     flex-wrap: wrap;
     flex-direction: column;
