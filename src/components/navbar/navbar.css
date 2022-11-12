@@ -1,8 +1,8 @@
 nav {
   background-color: #91aec599;
   height: 80px;
-  width: 90%;
-  margin: 10px 60px;
+  width: 96%;
+  margin: 5px 20px;
   border-radius: 50px;
 }
 
@@ -18,14 +18,14 @@ nav {
 
 nav ul {
   float: right;
-  margin-right: 70px;
+  margin-right: 55px;
 }
 
 nav ul li {
   background: #1e5077cc;
   display: inline-block;
   line-height: 40px;
-  margin: 10px 5px;
+  margin: 10px 3px;
   padding: 10px;
   height: 60px;
   width: 104px;
@@ -38,24 +38,24 @@ nav ul li a {
   font-size: 16px;
 }
 
-li a:hover {
+/*li a:hover {
   background: #47789e;
   transition: 0.5s;
-}
+}*/
 
 .burguer {
   display: inline;
-  margin: 14px 20px;
+  margin: 14px 20px 0px 0px ;
   cursor: pointer;
   float: right;
   display: none;
 }
 
-/*resposive para table*/
+/*resposive para tablet*/
 @media (max-width: 1002px) {
   nav {
     height: 60px;    
-    margin-left: 20px;
+    margin-left: 15px;
   }
   .enlace {
     padding: 15px 40px;
@@ -67,12 +67,11 @@ li a:hover {
   }
 
   nav ul {
-    margin-right: 40px;
+    margin-right: 35px;
   }
 
   nav ul li {
-    line-height: 40px;
-    margin: 5px 5px;
+    margin: 5px 3px;
     padding: 5px;
     height: 50px;
     width: 90px;
@@ -84,9 +83,21 @@ li a:hover {
   }
 }
 
+/*resposive para tablet2*/
+@media (max-width: 768px) {
+  nav ul {
+    margin-right: 35px;
+  }
+  nav ul li {
+    width: 80px;
+  }
+}
+
 /*resposive para mobil*/
-@media (max-width: 738px) {
+@media (max-width: 656px) {
   nav {
+    width: 98%;
+    margin-left: 5px;
     background-color: #0d253899;
   }
   .enlace {
@@ -114,7 +125,7 @@ li a:hover {
 
   .links.active {
     margin-top: 59px;
-    margin-right: -195px;
+    margin-right: -176px;
     display: block;
   }
 
@@ -131,16 +142,48 @@ li a:hover {
 @media (max-width: 400px) {
 
   .burguer.active {
-    padding: 0px 0px 0px 66px;
+    padding-left: 95px;
   }
   
   .links.active {
     margin-top: 48px;
-    margin-right: -120px;
+    margin-right: -130px;
   }
 
   nav ul li {
-    width: 100px;
-    height: 35px;
+    width: 130px;
+  }
+}
+/*resposive para mobil3*/
+@media (max-width: 329px) {
+  .burguer.active {
+    padding-left: 55px;
+  }
+  
+  .links.active {
+    margin-right: -90px;
+  }
+
+  nav ul li {
+    width: 90px;
+  }
+}
+
+/*resposive para mobil4*/
+@media (max-width: 303px) {
+  .logo {
+    height: 26px;
+    margin-top: 19px;
+}
+  .burguer.active {
+    padding-left: 35px;
+  }
+  
+  .links.active {
+    margin-right: -70px;
+  }
+
+  nav ul li {
+    width: 70px;
   }
 }
