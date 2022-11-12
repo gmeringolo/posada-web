@@ -87,16 +87,20 @@ video {
   p {
     margin: 5px 70px 45px;
   }
-  .casas {
-    margin-bottom: 10px;
+
+    .casas {
+      margin-bottom: 10px;
+    flex-direction: column; 
+    align-items: center;
   }
   .img {
-    height: 90px;
-    margin: 4px;
+    height: 250px;
+    margin: 10px;
   }
 
+
   video {
-    width: 354px;
+    width: 315px;
   }
 }
 
@@ -105,10 +109,7 @@ video {
   p {
     margin: 5px 70px 45px;
   }
-  .casas {
-    flex-direction: column; 
-    align-items: center;
-  }
+
   .img {
     height: 190px;
     margin: 10px;
