@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../components/header/Header';
 import Casas from '../components/casas/Casas';
 import Servicios from '../components/servicios/Servicios';
+import Tarifas from '../components/tarifas/Tarifas';
 
 function home() {
     return (
@@ -9,6 +10,7 @@ function home() {
           <Header />
           <Casas /> 
           <Servicios/> 
+          <Tarifas/> 
         </>
       );    
     }
