@@ -1,0 +1,85 @@
+h1 {
+  text-align: center;
+  color: #1e5077;
+  font-size: 48px;
+  padding: 40px 45px 15px;
+}
+p {
+  font-size: 20px;
+  margin: 0px 220px 45px;
+}
+
+.tarifas {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.imgTarifas {
+  width: auto;
+  height: 360px;
+  margin: 20px;
+}
+
+/*resposive para table*/
+@media (max-width: 1002px) {
+  h1 {
+    font-size: 40px;
+  }
+  p {
+    font-size: 18px;
+  }
+  .imgTarifas {
+    height: 360px;
+    margin: 15px;
+  }
+}
+
+/*resposive para tablet2*/
+@media (max-width: 800px) {
+  .imgTarifas {
+    height: 320px;
+  }
+}
+
+/*resposive para mobil1*/
+@media (max-width: 768px) {
+  h1 {
+    font-size: 35px;
+  }
+  p {
+    font-size: 15px;
+    margin: 0px 120px 25px;
+  }
+  .imgTarifas {
+    height: 280px;
+  }
+}
+
+/*resposive para mobil2*/
+@media (max-width: 650px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    margin: 0px 80px 25px;
+  }
+
+  .tarifas {
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .imgTarifas {
+    height: 320px;
+    margin: 10px;
+  }
+}
+
+/*resposive para mobil3*/
+@media (max-width: 365px) {
+  .imgTarifas {
+    height: 250px;
+  }
+}
