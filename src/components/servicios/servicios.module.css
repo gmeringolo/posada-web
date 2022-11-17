@@ -7,6 +7,7 @@
   text-align: center;
   color: #ffffff;
   font-size: 48px;
+  font-family: "Marko One";
   padding: 40px 45px 40px;
 }
 
@@ -28,6 +29,9 @@
 }
 
 .p1 {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Pompiere";
   padding: 71px 36px;
   margin: 30px 30px;
   background: rgb(255 255 255 / 10%);
@@ -35,6 +39,9 @@
 }
 
 .p2 {
+  text-align: center;
+  font-size: 20px;
+  font-family: "Pompiere";
   padding: 60px 36px;
   margin: 30px 30px;
   background: rgb(255 255 255 / 10%);
@@ -52,11 +59,11 @@
   width: 375px;
 }
 
-.img2-shadow {
+.img2Shadow {
   box-shadow: -30px 30px 30px rgba(0, 0, 0, 0.63);
 }
 
-.vista2-shadow {
+.vista2Shadow {
   box-shadow: 0px 30px 30px rgba(0, 0, 0, 0.63);
 }
 
@@ -66,7 +73,7 @@
     font-size: 40px;
   }
 
-  p {
+  .servicios p {
     font-size: 18px;
   }
 
@@ -102,7 +109,7 @@
 
 /*resposive para tablet2*/
 @media (max-width: 800px) {
-  p {
+  .servicios p {
     font-size: 17px;
   }
 
@@ -141,7 +148,7 @@
   .servicios h1 {
     font-size: 35px;
   }
-  p {
+  .servicios p {
     font-size: 15px;
   }
 
@@ -183,6 +190,9 @@
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: center;    
+  }
+  .servicios1:nth-child(even){
+        flex-direction: column-reverse;
   }
 }
