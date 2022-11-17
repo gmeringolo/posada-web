@@ -39,13 +39,13 @@ nav ul li a {
 }
 
 /*li a:hover {
-    background: #47789e;
-    transition: 0.5s;
-  }*/
+  background: #47789e;
+  transition: 0.5s;
+}*/
 
 .burguer {
   display: inline;
-  margin: 14px 20px 0px 0px;
+  margin: 14px 20px 0px 0px ;
   cursor: pointer;
   float: right;
   display: none;
@@ -54,7 +54,7 @@ nav ul li a {
 /*resposive para tablet*/
 @media (max-width: 1002px) {
   nav {
-    height: 60px;
+    height: 60px;    
     margin-left: 15px;
   }
   .enlace {
@@ -140,10 +140,11 @@ nav ul li a {
 }
 /*resposive para mobil2*/
 @media (max-width: 400px) {
+
   .burguer.active {
     padding-left: 95px;
   }
-
+  
   .links.active {
     margin-top: 48px;
     margin-right: -130px;
@@ -158,7 +159,7 @@ nav ul li a {
   .burguer.active {
     padding-left: 55px;
   }
-
+  
   .links.active {
     margin-right: -90px;
   }
@@ -173,11 +174,11 @@ nav ul li a {
   .logo {
     height: 26px;
     margin-top: 19px;
-  }
+}
   .burguer.active {
     padding-left: 35px;
   }
-
+  
   .links.active {
     margin-right: -70px;
   }

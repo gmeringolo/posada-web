@@ -1,4 +1,4 @@
-h1 {
+.textoCasas h1 {
   text-align: center;
   color: #1e5077;
   font-size: 48px;
@@ -6,11 +6,11 @@ h1 {
   padding: 40px 45px 10px;
 }
 
-p {
+.textoCasas p {
   text-align: center;
   font-size: 20px;
   font-family: "Pompiere";
-  margin: 5px 340px 45px;
+  margin: 5px 300px 45px;
   color: #212025;
 }
 
@@ -34,10 +34,10 @@ video {
 
 /*resposive para table*/
 @media (max-width: 1002px) {
-  h1 {
+  .textoCasas h1 {
     font-size: 40px;
   }
-  p {
+  .textoCasas p {
     font-size: 18px;
     margin: 5px 200px 45px;
   }
@@ -63,10 +63,10 @@ video {
 
 /*resposive para mobil1*/
 @media (max-width: 768px) {
-  h1 {
+  .textoCasas h1 {
     font-size: 35px;
   }
-  p {
+  .textoCasas p {
     font-size: 15px;
     margin: 5px 150px 45px;
   }
@@ -81,11 +81,11 @@ video {
 
 /*resposive para mobil2*/
 @media (max-width: 650px) {
-  h1 {
+  .textoCasas h1 {
     font-size: 30px;
   }
-  p {
-    margin: 5px 70px 45px;
+  .textoCasas p {
+    margin: 5px 105px 45px;
   }
 
     .casas {
@@ -106,7 +106,7 @@ video {
 
 /*resposive para mobil3*/
 @media (max-width: 365px) {
-  p {
+  .textoCasas p {
     margin: 5px 70px 45px;
   }
 
