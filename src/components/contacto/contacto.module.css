@@ -2,11 +2,15 @@
   text-align: center;
   color: #1e5077;
   font-size: 48px;
+  font-family: "Marko One";
   padding: 40px 45px 15px;
 }
 .textoContacto p {
+  text-align: center;
   font-size: 20px;
-  margin: 0px 220px 10px;
+  font-family: "Pompiere";
+  margin: 0px 300px 10px;
+  color: #212025;
 }
 .ubicacion {
   display: flex;
@@ -14,24 +18,122 @@
   margin-bottom: 40px;
 }
 
-.imgUbicacion {
+.mapUbicacion {
   width: auto;
   height: 460px;
   margin: 20px;
 }
-.form {
+form {
   width: 460px;
   height: 460px;
   margin: 20px;
-  background: #1e5077;
+  background: #103c5dd6;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  position: relative;
+}
+
+.form h2 {
+  font-family: "Pompiere";
+  text-align: left;
+  color: #ffffff;
+  margin: 20px 40px 5px;
+}
+.form h3 {
+  font-family: "Arial", monospace;
+  font-size: 15px;
+  text-align: left;
+  color: #ffffff;
+  margin: 0px 40px;
 }
 
 .form p {
+  font-family: "Arial", monospace;
+  font-size: 15px;
   text-align: left;
   color: #ffffff;
-  margin-left: 0px;
-  margin-top: 20px;
+  margin: 20px 40px;
 }
+.pCont{
+  margin-top: 5px;
+}
+
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  background: #2a506cbb;
+  color: #e5e5e9;
+  outline: none;
+  resize: none;
+  border: 0;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s;
+  border-bottom: 2px solid #8e8e91;
+}
+input:focus {
+  border-bottom: 2px solid #e1e1e1;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #b7b7b7;
+}
+p:before {
+  content: attr(type);
+  display: block;
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+button {
+  float: right;
+  width: 82.5%;
+  padding: 8px 12px;
+  margin: 8px 40px 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #78788c;
+  border-radius: 5px;
+  background: 0;
+  color: #d8d8d8;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+button:hover {
+  background: #1e5077f5;
+  color: #fff;
+}
+
+/*input,
+textarea {
+  font-family: "Tahoma", sans-serif;
+  border-color: none;
+  text-align: left;
+  color: #1e5077;
+  background-color: #ffffffd5;
+  margin: 5px 5px;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+
+.fecha {
+  width: 150px;
+}
+
+input {
+  width: 370px;
+  height: 30px;
+}
+textarea {
+  width: 370px;
+  height: 70px;
+}*/
 
 /*resposive para table*/
 @media (max-width: 1002px) {

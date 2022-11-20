@@ -4,6 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 Sass
+### `npm i node-sass`
+
+### `npm install -g sass`
 
 ## Libreria style component
 
@@ -23,3 +26,7 @@ https://github.com/JedWatson/classnames
 ### `npm install classnames`
 import classnames from 'classnames';
 
+
+
+npm install --save google-map-react
+import GoogleMapReact from 'google-map-react';
