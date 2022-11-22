@@ -1,11 +1,33 @@
 import React from "react";
 import styles from "./contacto.module.css";
 import GoogleMapReact from "google-map-react";
+import emailjs from "emailjs-com";
 //import ubicacion from "./ubicacion.png";
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Contacto() {
+  function enviarEmail(e) {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "gmailMessagePosada",
+        "template_cygn0vc",
+        e.target,
+        "HBfDHKzCXsYzN1KoE"
+      )
+      .then(
+        (result) => {
+          alert('Mensaje enviado exitosamente!!');
+        },
+        (error) => {
+          alert(error.message);
+        }
+      );
+      e.target.reset();
+  }
+
   const defaultProps = {
     center: {
       lat: 10.99835602,
@@ -20,9 +42,17 @@ function Contacto() {
         <p>Av 3 esq Rambla. Bello horizonte-Canelones</p>
         <p>092 269 002 (Hector)</p>
         <div className={styles.ubicacion}>
-          <div style={{ height: '460px', width: '470px', margin: '20px 10px 20px 20px' }}>
+          <div
+            style={{
+              height: "460px",
+              width: "470px",
+              margin: "20px 10px 20px 20px",
+            }}
+          >
             <GoogleMapReact
-              bootstrapURLKeys={{key: "AIzaSyA3IzZ1MGXTa0GQA7vndmAYo3y-_naCrDY"}}
+              bootstrapURLKeys={{
+                key: "AIzaSyA3IzZ1MGXTa0GQA7vndmAYo3y-_naCrDY",
+              }}
               defaultCenter={defaultProps.center}
               defaultZoom={defaultProps.zoom}
             >
@@ -33,48 +63,28 @@ function Contacto() {
               />
             </GoogleMapReact>
           </div>
-          <form className={styles.form}>
+          <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
             <p type="Nombre:" className="pCont">
-              <input placeholder="Escriba un nombre de contacto.."></input>
+              <input
+                placeholder="Escriba un nombre de contacto.."
+                name="name"
+              ></input>
             </p>
             <p type="Telefono:" className="pCont">
-              <input placeholder="Escriba un telefono de contacto.."></input>
+              <input
+                placeholder="Escriba un telefono de contacto.."
+                name="tel"
+              ></input>
             </p>
             <p type="Mensaje:" className="pCont">
-              <textarea placeholder="Consulte disponibilidad indicando fecha de entrada y salida del alojamiento.."></textarea>
+              <textarea
+                placeholder="Consulte disponibilidad indicando fecha de entrada y salida del alojamiento.."
+                name="msg"
+              ></textarea>
             </p>
             <button>Envíar</button>
-
-            {/* <input
-                type="text"
-                id="fname"
-                name="fname"
-                value="Nombre completo*"></input>
-              <br></br>
-              <input type="text" id="tel" name="tel" value="Telefono*"></input>
-              <br></br>
-              <input type="text" id="email" name="email"></input>
-              <br></br>
-              <input
-                type="date"
-                className="fecha"
-                name="fentr"
-                value="Fecha entrada*"
-              ></input>
-              <input
-                type="date"
-                className="fecha"
-                name="fsal"
-                value="Fecha salida*"
-              ></input>
-              <br></br>
-              <textarea name="textarea" rows="10" cols="50">
-                Mensaje
-              </textarea>
-              <br></br>
-              <input type="submit" value="Enviar"></input>*/}
           </form>
         </div>
       </div>

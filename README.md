@@ -30,3 +30,7 @@ import classnames from 'classnames';
 
 npm install --save google-map-react
 import GoogleMapReact from 'google-map-react';
+
+
+npm install emailjs-com --save
+import emailjs from 'emailjs-com';
