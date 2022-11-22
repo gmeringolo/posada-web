@@ -110,34 +110,9 @@ button:hover {
   color: #fff;
 }
 
-/*input,
-textarea {
-  font-family: "Tahoma", sans-serif;
-  border-color: none;
-  text-align: left;
-  color: #1e5077;
-  background-color: #ffffffd5;
-  margin: 5px 5px;
-  border-radius: 5px;
-  padding-left: 20px;
-}
-
-.fecha {
-  width: 150px;
-}
-
-input {
-  width: 370px;
-  height: 30px;
-}
-textarea {
-  width: 370px;
-  height: 70px;
-}*/
-
 /*resposive para table*/
 @media (max-width: 1002px) {
-  h1 {
+  .textoContacto h1 {
     font-size: 40px;
   }
   .form p {
@@ -167,7 +142,7 @@ textarea {
 
 /*resposive para mobil1*/
 @media (max-width: 768px) {
-  h1 {
+  .textoContacto h1 {
     font-size: 35px;
   }
 
@@ -186,7 +161,7 @@ textarea {
 
 /*resposive para mobil2*/
 @media (max-width: 650px) {
-  h1 {
+  .textoContacto h1 {
     font-size: 30px;
   }
 
