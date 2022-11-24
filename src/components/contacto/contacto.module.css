@@ -9,7 +9,7 @@
   text-align: center;
   font-size: 20px;
   font-family: "Pompiere";
-  margin: 0px 300px 10px;
+  margin: 0px 50px 10px;
   color: #212025;
 }
 .ubicacion {
@@ -19,9 +19,9 @@
 }
 
 .mapUbicacion {
-  width: auto;
+  width: 460px;
   height: 460px;
-  margin: 20px;
+  margin: 20px 10px 20px 20px;
 }
 form {
   width: 460px;
@@ -36,16 +36,17 @@ form {
 
 .form h2 {
   font-family: "Pompiere";
+  font-size: 25px;
   text-align: left;
   color: #ffffff;
-  margin: 20px 40px 5px;
+  margin: 30px 40px 5px;
 }
 .form h3 {
   font-family: "Arial", monospace;
   font-size: 15px;
   text-align: left;
   color: #ffffff;
-  margin: 0px 40px;
+  margin: 0px 40px 30px;
 }
 
 .form p {
@@ -55,15 +56,14 @@ form {
   color: #ffffff;
   margin: 20px 40px;
 }
-.pCont{
+.pCont {
   margin-top: 5px;
 }
-
 
 input,
 textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px 15px 12px;
   margin-top: 5px;
   box-sizing: border-box;
   background: #2a506cbb;
@@ -74,15 +74,20 @@ textarea {
   border-radius: 5px;
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s;
-  border-bottom: 2px solid #8e8e91;
+  border-bottom: 1px solid #8e8e91;
 }
-input:focus {
-  border-bottom: 2px solid #e1e1e1;
+textarea {
+  height: 70px;
+}
+input:focus,
+textarea:focus {
+  border-bottom: 3px solid #e1e1e1;
 }
 
 input::placeholder,
 textarea::placeholder {
   color: #b7b7b7;
+  font-size: 15px;
 }
 p:before {
   content: attr(type);
@@ -93,20 +98,20 @@ p:before {
 }
 
 button {
-  float: right;
+  float: center;
   width: 82.5%;
-  padding: 8px 12px;
-  margin: 8px 40px 0;
+  padding: 9px;
+  margin: 0px 40px;
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #78788c;
+  border: 1px solid #8e8e91;
   border-radius: 5px;
-  background: 0;
+  background: #1e445ed6;
   color: #d8d8d8;
   cursor: pointer;
   transition: all 0.3s;
 }
 button:hover {
-  background: #1e5077f5;
+  background: #062237f5;
   color: #fff;
 }
 
@@ -115,28 +120,81 @@ button:hover {
   .textoContacto h1 {
     font-size: 40px;
   }
-  .form p {
+  .textoContacto p {
     font-size: 18px;
-  }
-  .imgUbicacion {
-    height: 370px;
-    margin: 15px;
   }
   .form {
     width: 370px;
-    height: 370px;
+    height: 400px;
     margin: 15px;
+  }
+  .form h2 {
+    font-size: 20px;
+    margin: 25px 40px 5px;
+  }
+  .form h3 {
+    font-size: 12px;
+    margin: 0px 40px 20px;
+  }
+  .form p {
+    margin: 15px 40px;
+  }
+  .mapUbicacion {
+    width: 370px;
+    height: 400px;
+    margin: 15px;
+  }
+  .pCont {
+    margin-top: 3px;
+  }
+  textarea {
+    height: 60px;
+  }
+  input::placeholder,
+  textarea::placeholder {
+
+    font-size: 13px;
+  }
+
+  button {
+    float: center;
+    width: 78%;
+    margin: 0px 40px;
   }
 }
 
 /*resposive para tablet2*/
-@media (max-width: 800px) {
-  .imgTarifas {
-    height: 320px;
+@media (max-width: 819px) {
+  .textoContacto p {
+    font-size: 18px;
   }
   .form {
     width: 320px;
-    height: 320px;
+    height: 400px;
+  }
+  .imgUbicacion {
+    width: 350px;
+    height: 400px;
+  }
+  .form h2 {
+    font-size: 20px;
+    margin: 25px 20px 5px;
+  }
+  .form h3 {
+    font-size: 12px;
+    margin: 0px 20px 20px;
+  }
+  .form p {
+    margin: 15px 20px;
+  }
+  button {
+    float: center;
+    width: 87%;
+    margin: 0px 20px;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    font-size: 12px;
   }
 }
 
@@ -145,17 +203,40 @@ button:hover {
   .textoContacto h1 {
     font-size: 35px;
   }
+  .ubicacion {
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
 
   .imgUbicacion {
-    height: 280px;
+    width: 280px;
+    height: 400px;
   }
   .form {
-    width: 280px;
-    height: 280px;
+    width: 370px;
+    height: 400px;
+  }
+  .form h2 {
+    margin: 25px 30px 5px;
+  }
+  .form h3 {
+    margin: 0px 30px 20px;
   }
   .form p {
     font-size: 15px;
-    margin: 0px 120px 25px;
+    margin: 0px 30px 15px;
+  }
+  .pCont {
+    margin-top: 3px;
+  }
+  input,
+  textarea {
+    padding: 15px 5px 10px;
+  }
+  button {
+    width: 84%;
+    margin: 0px 30px;
   }
 }
 
@@ -164,13 +245,8 @@ button:hover {
   .textoContacto h1 {
     font-size: 30px;
   }
-
-  .ubicacion {
-    margin-bottom: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-  .imgUbicacion {
+  .mapUbicacion {
+    width: 320px;
     height: 320px;
     margin: 10px;
   }
@@ -186,11 +262,36 @@ button:hover {
 
 /*resposive para mobil3*/
 @media (max-width: 365px) {
-  .imgUbicacion {
+  .mapUbicacion {
+    width: 250px;
     height: 250px;
   }
   .form {
     width: 250px;
-    height: 250px;
+    height: 380px;
+    margin-bottom: 50px;
+  }
+  .form h2 {
+    font-size: 18px;
+    margin: 20px 20px 5px;
+  }
+  .form h3 {
+    margin: 0px 20px 20px;
+  }
+  .form p {
+    font-size: 15px;
+    margin: 0px 20px 15px;
+  }
+  .pCont {
+    margin-top: 2px;
+  }
+  input,
+  textarea {
+    padding: 10px 5px 10px;
+  }
+  button {
+    width: 83%;
+    margin: 0px 20px;
   }
 }
+
