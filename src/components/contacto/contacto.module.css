@@ -152,7 +152,6 @@ button:hover {
   }
   input::placeholder,
   textarea::placeholder {
-
     font-size: 13px;
   }
 
@@ -248,15 +247,19 @@ button:hover {
   .mapUbicacion {
     width: 320px;
     height: 320px;
-    margin: 10px;
+    margin: 10px 10px 20px;
   }
   .form {
     width: 320px;
-    height: 320px;
-    margin: 10px;
+    height: 440px;
+    margin: 0px 30px 50px;
   }
   .form p {
-    margin: 0px 80px 25px;
+    margin: 0px 30px 25px;
+  }
+  button {
+    width: 81%;
+    margin: 0px 30px;
   }
 }
 
@@ -268,8 +271,7 @@ button:hover {
   }
   .form {
     width: 250px;
-    height: 380px;
-    margin-bottom: 50px;
+    height: 400px;
   }
   .form h2 {
     font-size: 18px;
@@ -287,11 +289,10 @@ button:hover {
   }
   input,
   textarea {
-    padding: 10px 5px 10px;
+    padding: 8px 5px 10px;
   }
   button {
-    width: 83%;
+    width: 81%;
     margin: 0px 20px;
   }
 }
-
