@@ -1,10 +1,9 @@
 import React from "react";
-import styles from"./servicios.module.css";
+import styles from "./servicios.module.css";
 import vista from "./vistaSup.png";
 import living from "./living.jpeg";
 import dorm from "./dorm.jpeg";
 import deck from "./deck.jpeg";
-import classnames from 'classnames';
 
 function Servicios() {
   return (
@@ -21,8 +20,12 @@ function Servicios() {
         </div>
 
         <div className={styles.servicios1}>
-          <img src={living} className={classnames(styles.img2, styles.img2Shadow)} alt="vista interior living" />
-          <div className={classnames(styles.vista2, styles.vista2Shadow)}>
+          <img
+            src={living}
+            className={styles.img2}
+            alt="vista interior living"
+          />
+          <div className={styles.vista}>
             <p className={styles.p2}>
               Cocina completa integrada. Estar con cama marinera, wifi y
               televisor 32¨con direct tv.
@@ -41,9 +44,11 @@ function Servicios() {
         </div>
 
         <div className={styles.servicios1}>
-          <img src={deck} className={classnames(styles.img2, styles.img2Shadow)} alt="vista interior living" />
-          <div className={classnames(styles.vista2, styles.vista2Shadow)}>
-            <p className={styles.p1}>Deck techado con parrillero pileta, mesa y sillas</p>
+          <img src={deck} className={styles.img2} alt="vista interior living" />
+          <div className={styles.vista}>
+            <p className={styles.p1}>
+              Deck techado con parrillero pileta, mesa y sillas
+            </p>
           </div>
         </div>
       </div>

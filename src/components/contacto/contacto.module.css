@@ -2,13 +2,13 @@
   text-align: center;
   color: #1e5077;
   font-size: 48px;
-  font-family: "Marko One";
+  font-family: 'Courgette', cursive;
   padding: 40px 45px 15px;
 }
 .textoContacto p {
   text-align: center;
   font-size: 20px;
-  font-family: "Pompiere";
+  font-family: 'Abel', sans-serif;
   margin: 0px 50px 10px;
   color: #212025;
 }
@@ -30,27 +30,26 @@ form {
   background: #103c5dd6;
   border-radius: 8px;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
   position: relative;
 }
 
 .form h2 {
-  font-family: "Pompiere";
+  font-family: 'Courgette', cursive;
   font-size: 25px;
   text-align: left;
   color: #ffffff;
-  margin: 30px 40px 5px;
+  margin: 25px 40px 5px;
 }
 .form h3 {
-  font-family: "Arial", monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 15px;
   text-align: left;
   color: #ffffff;
-  margin: 0px 40px 30px;
+  margin: 0px 40px 25px;
 }
 
 .form p {
-  font-family: "Arial", monospace;
+  font-family: 'Nunito', sans-serif;
   font-size: 15px;
   text-align: left;
   color: #ffffff;
@@ -72,7 +71,7 @@ textarea {
   resize: none;
   border: 0;
   border-radius: 5px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Abel', sans-serif;
   transition: all 0.3s;
   border-bottom: 1px solid #8e8e91;
 }
@@ -102,7 +101,7 @@ button {
   width: 82.5%;
   padding: 9px;
   margin: 0px 40px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Abel', sans-serif;
   border: 1px solid #8e8e91;
   border-radius: 5px;
   background: #1e445ed6;
@@ -130,14 +129,14 @@ button:hover {
   }
   .form h2 {
     font-size: 20px;
-    margin: 25px 40px 5px;
+    margin: 20px 40px 5px;
   }
   .form h3 {
     font-size: 12px;
-    margin: 0px 40px 20px;
+    margin: 0px 40px 15px;
   }
   .form p {
-    margin: 15px 40px;
+    margin: 10px 40px;
   }
   .mapUbicacion {
     width: 370px;
@@ -177,14 +176,14 @@ button:hover {
   }
   .form h2 {
     font-size: 20px;
-    margin: 25px 20px 5px;
+    margin: 20px 20px 5px;
   }
   .form h3 {
     font-size: 12px;
-    margin: 0px 20px 20px;
+    margin: 0px 20px 15px;
   }
   .form p {
-    margin: 15px 20px;
+    margin: 10px 20px;
   }
   button {
     float: center;
@@ -217,14 +216,14 @@ button:hover {
     height: 400px;
   }
   .form h2 {
-    margin: 25px 30px 5px;
+    margin: 20px 30px 5px;
   }
   .form h3 {
-    margin: 0px 30px 20px;
+    margin: 0px 30px 15px;
   }
   .form p {
     font-size: 15px;
-    margin: 0px 30px 15px;
+    margin: 0px 30px 12px;
   }
   .pCont {
     margin-top: 3px;
@@ -251,11 +250,11 @@ button:hover {
   }
   .form {
     width: 320px;
-    height: 440px;
+    height: 400px;
     margin: 0px 30px 50px;
   }
   .form p {
-    margin: 0px 30px 25px;
+    margin: 0px 30px 10px;
   }
   button {
     width: 81%;

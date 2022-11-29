@@ -3,7 +3,7 @@
   text-decoration: none;
   list-style: none;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Nunito', sans-serif;
 }
 
 header {
@@ -24,13 +24,13 @@ header {
 
 .section h1 {
   font-size: 48px;
-  font-family: "Marko One";
+  font-family: 'Courgette', cursive;
   padding: 20px 45px;
 }
 
 .section p {
   font-size: 20px;
-  font-family: "Pompiere";
+  font-family: 'Abel', sans-serif;
   margin: 30px 30px 15px;
   color: #212025;
 }
