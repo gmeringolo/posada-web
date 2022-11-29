@@ -51,6 +51,7 @@ function Servicios() {
             </p>
           </div>
         </div>
+        <p className={styles.p}> No incluyen servicio de ropa blanca (sábanas y toallas)</p>
       </div>
     </>
   );

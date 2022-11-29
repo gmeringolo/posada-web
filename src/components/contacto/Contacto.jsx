@@ -19,13 +19,13 @@ function Contacto() {
       )
       .then(
         (result) => {
-          alert('Mensaje enviado exitosamente!!');
+          alert("Mensaje enviado exitosamente!!");
         },
         (error) => {
           alert(error.message);
         }
       );
-      e.target.reset();
+    e.target.reset();
   }
 
   /*const defaultProps = {
@@ -63,29 +63,31 @@ function Contacto() {
               />
             </GoogleMapReact>
             </div>*/}
-           <img src={ubicacion} className={styles.mapUbicacion} alt="Promo primavera" /> 
+          <img
+            src={ubicacion}
+            className={styles.mapUbicacion}
+            alt="Promo primavera"
+          />
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
-            <p type="Nombre:" className="pCont">
-              <input
-                placeholder="Escriba un nombre de contacto.."
-                name="name"
-              ></input>
-            </p>
-            <p type="Telefono:" className="pCont">
-              <input
-                placeholder="Escriba un telefono de contacto.."
-                name="tel"
-              ></input>
-            </p>
-            <p type="Mensaje:" className="pCont">
+            <label htmlFor="name">Nombre:</label>
+            <input
+              placeholder="Escriba un nombre de contacto.."
+              name="name"
+            ></input>
+            <label htmlFor="tel">Telefono:</label>
+
+            <input
+              placeholder="Escriba un telefono de contacto.."
+              name="tel"
+            ></input>
+            <label htmlFor="msg">Mensaje:</label>
               <textarea
                 placeholder="Consulte disponibilidad indicando fecha de entrada y salida del alojamiento.."
                 name="msg"
               ></textarea>
-            </p>
-            <button>Envíar</button>
+            <button type="submit">Envíar</button>
           </form>
         </div>
       </div>
