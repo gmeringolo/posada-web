@@ -19,13 +19,13 @@ function Contacto() {
       )
       .then(
         (result) => {
-          alert('Mensaje enviado exitosamente!!');
+          alert("Mensaje enviado exitosamente!!");
         },
         (error) => {
           alert(error.message);
         }
       );
-      e.target.reset();
+    e.target.reset();
   }
 
   /*const defaultProps = {
@@ -63,29 +63,41 @@ function Contacto() {
               />
             </GoogleMapReact>
             </div>*/}
-           <img src={ubicacion} className={styles.mapUbicacion} alt="Promo primavera" /> 
+          <img
+            src={ubicacion}
+            className={styles.mapUbicacion}
+            alt="Promo primavera"
+          />
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
-            <p type="Nombre:" className="pCont">
-              <input
-                placeholder="Escriba un nombre de contacto.."
-                name="name"
-              ></input>
-            </p>
-            <p type="Telefono:" className="pCont">
-              <input
-                placeholder="Escriba un telefono de contacto.."
-                name="tel"
-              ></input>
-            </p>
-            <p type="Mensaje:" className="pCont">
-              <textarea
-                placeholder="Consulte disponibilidad indicando fecha de entrada y salida del alojamiento.."
-                name="msg"
-              ></textarea>
-            </p>
-            <button>Envíar</button>
+            <label htmlFor="name">Nombre*:</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Escriba un nombre de contacto..."
+              required
+            ></input>
+            <label htmlFor="tel">Telefono*:</label>
+
+            <input
+              type="tel"
+              id="tel"
+              name="tel"
+              placeholder="Escriba un celular de contacto (9 números)..."
+              required
+              pattern={9}
+            ></input>
+            <label htmlFor="msg">Mensaje*:</label>
+            <textarea
+              type="text"
+              id="msg"
+              name="msg"
+              placeholder="Consulte disponibilidad indicando cantidad de personas, fecha de entrada y salida del alojamiento..."
+              required
+            ></textarea>
+            <button type="submit">Envíar</button>
           </form>
         </div>
       </div>

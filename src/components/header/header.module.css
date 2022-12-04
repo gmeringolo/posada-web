@@ -1,10 +1,4 @@
-* {
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
-}
+
 
 header {
   background-image: url("/public/assets/img/casa_azul.png");

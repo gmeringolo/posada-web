@@ -1,0 +1,49 @@
+@use "sass:map";
+@import "./base/minireset.css";
+@import "./fonts";
+@import "./colors";
+
+* {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+html,
+body {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.14px;
+  color: map.get($colors, "text-primary");
+  background-color: map.get($colors, "background-primary");
+  overflow-x: hidden;
+}
+
+.title-1 {
+  font-family: map.get($font-family,"Courgette");
+  text-align: center;
+  font-size: 40px;
+  line-height: 41px;
+  font-weight: 900;
+  letter-spacing: 0.35px;
+}
+
+.title-2 {
+  @include font-family-helvetica("Helvetica Neue Bold");
+
+  font-size: 28px;
+  line-height: 28px;
+  font-weight: bold;
+  letter-spacing: 0.24px;
+}
+
+.title-3 {
+  @include font-family-helvetica("Helvetica Neue Bold");
+
+  font-size: 21px;
+  line-height: 24px;
+  font-weight: bold;
+  letter-spacing: 0.18px;
+}

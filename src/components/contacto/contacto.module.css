@@ -48,32 +48,29 @@ form {
   margin: 0px 40px 25px;
 }
 
-.form p {
+label {
   font-family: 'Nunito', sans-serif;
   font-size: 15px;
   text-align: left;
   color: #ffffff;
-  margin: 20px 40px;
-}
-.pCont {
-  margin-top: 5px;
+  margin: 40px;
 }
 
 input,
 textarea {
-  width: 100%;
-  padding: 12px 15px 12px;
-  margin-top: 5px;
+  width: 83%;
+  padding: 12px 10px 12px;
+  margin: 10px 40px;
   box-sizing: border-box;
   background: #2a506cbb;
-  color: #e5e5e9;
+  color: #ebebeb;
   outline: none;
   resize: none;
   border: 0;
   border-radius: 5px;
   font-family: 'Abel', sans-serif;
   transition: all 0.3s;
-  border-bottom: 1px solid #8e8e91;
+  border-bottom: 1px solid #c0c0c1;
 }
 textarea {
   height: 70px;
@@ -83,22 +80,24 @@ textarea:focus {
   border-bottom: 3px solid #e1e1e1;
 }
 
+/*texto dentro del input*/
 input::placeholder,
 textarea::placeholder {
-  color: #b7b7b7;
+  color: #d4d4d4;
   font-size: 15px;
 }
-p:before {
+
+/*p:before {
   content: attr(type);
   display: block;
   margin: 10px 0 0;
   font-size: 14px;
-  color: #ffffff;
-}
+  color: #817979;
+}*/
 
 button {
   float: center;
-  width: 82.5%;
+  width: 83%;
   padding: 9px;
   margin: 0px 40px;
   font-family: 'Abel', sans-serif;
@@ -135,19 +134,23 @@ button:hover {
     font-size: 12px;
     margin: 0px 40px 15px;
   }
-  .form p {
-    margin: 10px 40px;
+  label {    
+    margin: 10px 40px 5px;
   }
   .mapUbicacion {
     width: 370px;
     height: 400px;
     margin: 15px;
   }
-  .pCont {
-    margin-top: 3px;
+  input {
+    width: 78%;
+    padding: 8px 15px 8px;
+    margin: 8px 40px;
   }
   textarea {
+    width: 78%;
     height: 60px;
+    margin: 8px 40px 12px;
   }
   input::placeholder,
   textarea::placeholder {
@@ -182,8 +185,16 @@ button:hover {
     font-size: 12px;
     margin: 0px 20px 15px;
   }
-  .form p {
-    margin: 10px 20px;
+  label {
+    margin: 10px 20px 5px;
+  }
+  input {
+    width: 87%;
+    margin: 8px 20px;
+  }
+  textarea {
+    width: 87%;
+    margin: 8px 20px 12px;
   }
   button {
     float: center;
@@ -213,7 +224,7 @@ button:hover {
   }
   .form {
     width: 370px;
-    height: 400px;
+    height: 390px;
   }
   .form h2 {
     margin: 20px 30px 5px;
@@ -221,16 +232,15 @@ button:hover {
   .form h3 {
     margin: 0px 30px 15px;
   }
-  .form p {
+  label {
     font-size: 15px;
     margin: 0px 30px 12px;
   }
-  .pCont {
-    margin-top: 3px;
-  }
   input,
   textarea {
-    padding: 15px 5px 10px;
+    width: 84%;
+    padding: 8px 5px 8px;
+    margin: 8px 30px;
   }
   button {
     width: 84%;
@@ -253,8 +263,12 @@ button:hover {
     height: 400px;
     margin: 0px 30px 50px;
   }
-  .form p {
+  label {
     margin: 0px 30px 10px;
+  }
+  input,
+  textarea {
+    width: 81%;
   }
   button {
     width: 81%;
@@ -279,16 +293,14 @@ button:hover {
   .form h3 {
     margin: 0px 20px 20px;
   }
-  .form p {
+  label {
     font-size: 15px;
     margin: 0px 20px 15px;
   }
-  .pCont {
-    margin-top: 2px;
-  }
+ 
   input,
   textarea {
-    padding: 8px 5px 10px;
+    margin: 8px 20px;
   }
   button {
     width: 81%;

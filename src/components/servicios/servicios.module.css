@@ -11,6 +11,14 @@
   padding: 40px 45px 40px;
 }
 
+.p {
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Abel', sans-serif;
+  margin: 0px 50px 10px;
+  color: #ffffff;
+}
+
 .servicios1 {
   display: flex;
   justify-content: center;
