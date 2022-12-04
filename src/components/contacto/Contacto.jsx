@@ -37,7 +37,7 @@ function Contacto() {
   };*/
   return (
     <>
-      <div className={styles.textoContacto}>
+      <div className={styles.textoContacto} id="contacto">
         <h1>Contacto</h1>
         <p>Av 3 esq Rambla. Bello horizonte-Canelones</p>
         <p>092 269 002 (Hector)</p>
@@ -63,11 +63,11 @@ function Contacto() {
               />
             </GoogleMapReact>
             </div>*/}
-          <img
+          <a href="https://goo.gl/maps/neJxXrmBx4yZpGGEA" target="_blanck"><img
             src={ubicacion}
             className={styles.mapUbicacion}
             alt="Promo primavera"
-          />
+          /></a>
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
