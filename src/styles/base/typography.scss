@@ -1,0 +1,40 @@
+/* ToDo: preload fonts in layout */
+
+@font-face {
+  font-family: "Helvetica Rounded Black";
+  src:
+    url("/assets/fonts/helvetica-rounded-black/font.woff2") format("woff2"),
+    url("/assets/fonts/helvetica-rounded-black/font.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Regular";
+  src:
+    url("/assets/fonts/helvetica-neue-regular/font.woff2") format("woff2"),
+    url("/assets/fonts/helvetica-neue-regular/font.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Helvetica Neue Bold";
+  src:
+    url("/assets/fonts/helvetica-neue-bold/font.woff2") format("woff2"),
+    url("/assets/fonts/helvetica-neue-bold/font.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@mixin font-family-helvetica($variant) {
+  font-family:
+    $variant,
+    HelveticaNeue-Light,
+    "Helvetica Neue Light",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "Lucida Grande",
+    sans-serif;
+}

@@ -59,18 +59,18 @@ label {
 input,
 textarea {
   width: 83%;
-  padding: 12px 15px 12px;
+  padding: 12px 10px 12px;
   margin: 10px 40px;
   box-sizing: border-box;
   background: #2a506cbb;
-  color: #e5e5e9;
+  color: #ebebeb;
   outline: none;
   resize: none;
   border: 0;
   border-radius: 5px;
   font-family: 'Abel', sans-serif;
   transition: all 0.3s;
-  border-bottom: 1px solid #8e8e91;
+  border-bottom: 1px solid #c0c0c1;
 }
 textarea {
   height: 70px;
@@ -80,18 +80,20 @@ textarea:focus {
   border-bottom: 3px solid #e1e1e1;
 }
 
+/*texto dentro del input*/
 input::placeholder,
 textarea::placeholder {
-  color: #b7b7b7;
+  color: #d4d4d4;
   font-size: 15px;
 }
-p:before {
+
+/*p:before {
   content: attr(type);
   display: block;
   margin: 10px 0 0;
   font-size: 14px;
-  color: #ffffff;
-}
+  color: #817979;
+}*/
 
 button {
   float: center;

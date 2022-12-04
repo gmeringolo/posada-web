@@ -1,0 +1,88 @@
+@import "../../styles/colors.scss";
+@import "../../styles/fonts";
+@import "../../styles/breakpoints";
+
+* {
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+.footer {
+  display: flex;
+  background-color: $footer-background;
+  margin-bottom: 1px;
+  padding: 15px;
+  height: 150px;
+  justify-content: space-evenly;
+  align-items: center;
+  color: $text-white;
+  font-size: 15px;
+
+  a {
+    color: $text-white;
+  }
+
+  &_enlace {
+    display: flex;
+    align-items: center;
+  }
+  &_contacto {
+
+    p {
+      padding: 2px;
+    }
+    @include tablet3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+      }
+  }
+  &_redes {
+    margin-top: 80px;
+    a {
+      padding: 4px;
+      img {
+        width: 40px;
+        @include tablet3 {
+          width: 30px;
+        }
+      }
+    }
+    @include tablet3 {
+        margin-top: 20px;
+      }
+  }
+  @include tablet3 {
+    font-size: 14px;
+    flex-direction: column;
+    height: 230px;
+  }
+  @include mobil1 {
+    font-size: 12px;
+  }
+}
+
+.copyright {
+  padding: 10px;
+  background-color: $footer-background;
+  color: $text-white;
+  font-size: 15px;
+
+  p {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    //margin-left: -40px;
+
+    @include tablet3 {
+      font-size: 14px;
+    }
+    @include mobil1 {
+      font-size: 12px;
+    }
+  }
+}

@@ -71,22 +71,32 @@ function Contacto() {
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
-            <label htmlFor="name">Nombre:</label>
+            <label htmlFor="name">Nombre*:</label>
             <input
-              placeholder="Escriba un nombre de contacto.."
+              type="text"
+              id="name"
               name="name"
+              placeholder="Escriba un nombre de contacto..."
+              required
             ></input>
-            <label htmlFor="tel">Telefono:</label>
+            <label htmlFor="tel">Telefono*:</label>
 
             <input
-              placeholder="Escriba un telefono de contacto.."
+              type="tel"
+              id="tel"
               name="tel"
+              placeholder="Escriba un celular de contacto (9 números)..."
+              required
+              pattern={9}
             ></input>
-            <label htmlFor="msg">Mensaje:</label>
-              <textarea
-                placeholder="Consulte disponibilidad indicando fecha de entrada y salida del alojamiento.."
-                name="msg"
-              ></textarea>
+            <label htmlFor="msg">Mensaje*:</label>
+            <textarea
+              type="text"
+              id="msg"
+              name="msg"
+              placeholder="Consulte disponibilidad indicando cantidad de personas, fecha de entrada y salida del alojamiento..."
+              required
+            ></textarea>
             <button type="submit">Envíar</button>
           </form>
         </div>
