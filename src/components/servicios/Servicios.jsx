@@ -8,7 +8,7 @@ import deck from "./deck.jpeg";
 function Servicios() {
   return (
     <>
-      <div className={styles.servicios}>
+      <div className={styles.servicios} id="servicios">
         <h1>Servicios</h1>
         <div className={styles.servicios1}>
           <div className={styles.vista}>

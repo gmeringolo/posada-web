@@ -9,7 +9,7 @@ import turismo from "./turismo.png";
 function Tarifas() {
   return (
     <>
-      <div className={styles.textoTarifas}>
+      <div className={styles.textoTarifas} id="tarifas">
         <h1>Tarifas y Promociones</h1>
         <p>Precios temporada 2022-2023</p>
         <div className={styles.tarifas}>

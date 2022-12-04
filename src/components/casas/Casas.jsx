@@ -9,7 +9,7 @@ import poster from "./casa_verde_video.jpg";
 function Casas() {
   return (
     <>
-      <div className={styles.textoCasas}>
+      <div className={styles.textoCasas} id="casas">
         <h1>Casas</h1>
         <p>
           El predio cuenta con 3 casas de 1 domritorio, diseñadas para brindarle
