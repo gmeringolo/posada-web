@@ -4,7 +4,7 @@ import vista from "./vistaSup.png";
 import living from "./living.jpeg";
 import dorm from "./dorm.jpeg";
 import deck from "./deck.jpeg";
-import lina from "./lina.jpg";
+import lina from "./lina2.jpg";
 
 function Servicios() {
   return (
