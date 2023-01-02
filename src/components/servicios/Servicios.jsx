@@ -56,7 +56,7 @@ function Servicios() {
         <div className={styles.servicios1}>
           <div className={styles.vista}>
             <p className={styles.p2}>
-              Las mascotas son parte de nuestra familia, asi que nos encanta que las traigan
+              Las mascotas son parte de la familia, por eso nos encanta que las traigan
             </p>
           </div>
           <img src={lina} className={styles.img1} alt="vista perra en deck" />
