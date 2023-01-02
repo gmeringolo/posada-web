@@ -4,6 +4,7 @@ import vista from "./vistaSup.png";
 import living from "./living.jpeg";
 import dorm from "./dorm.jpeg";
 import deck from "./deck.jpeg";
+import lina from "./lina.jpg";
 
 function Servicios() {
   return (
@@ -13,7 +14,7 @@ function Servicios() {
         <div className={styles.servicios1}>
           <div className={styles.vista}>
             <p className={styles.p1}>
-              Cada casa cuenta con 100 m2 techados y de uso exclusivo.
+              Cada casa cuenta con 50 m2 techados y de uso exclusivo.
             </p>
           </div>
           <img src={vista} className={styles.img1} alt="vista interior casa" />
@@ -51,6 +52,16 @@ function Servicios() {
             </p>
           </div>
         </div>
+
+        <div className={styles.servicios1}>
+          <div className={styles.vista}>
+            <p className={styles.p2}>
+              Las mascotas son parte de nuestra familia, asi que nos encanta que las traigan
+            </p>
+          </div>
+          <img src={lina} className={styles.img1} alt="vista perra en deck" />
+        </div>
+
         <p className={styles.p}> No incluyen servicio de ropa blanca (sábanas y toallas)</p>
       </div>
     </>
