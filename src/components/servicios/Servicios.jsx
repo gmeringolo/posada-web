@@ -28,8 +28,8 @@ function Servicios() {
           />
           <div className={styles.vista}>
             <p className={styles.p2}>
-              Cocina completa integrada. sala de estar con cama marinera, wifi y
-              televisor 32¨con direct tv.
+              Cocina completa integrada. Living con cama marinera, wifi y
+              televisor con direct tv.
             </p>
           </div>
         </div>
