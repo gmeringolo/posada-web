@@ -12,8 +12,8 @@ function Casas() {
       <div className={styles.textoCasas} id="casas">
         <h1>Casas</h1>
         <p>
-          El predio cuenta con 3 casas de 1 domritorio, diseñadas para brindarle
-          al usuario comodidad e indenepndencia.
+          El predio cuenta con 3 casas de 1 dormitorio, diseñadas para brindarle
+          al usuario comodidad e independencia.
         </p>
         <div className={styles.casas}>
           <img src={roja} className={styles.img} alt="casa roja" />
