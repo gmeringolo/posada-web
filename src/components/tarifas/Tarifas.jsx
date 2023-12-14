@@ -1,31 +1,35 @@
 import React from "react";
 import styles from "./tarifas.module.css";
-//import promo from "./promo.jpeg";
-import precios from "./tarifas.jpg";
+import precios from "./tarifas24.jpg";
 import baja from "./baja.png";
 import marzo from "./marzo.png";
-import turismo from "./turismo.png";
-import enero from "./promEnero.jpeg";
+import primavera from "./promo.png";
+
 
 function Tarifas() {
   return (
     <>
       <div className={styles.textoTarifas} id="tarifas">
         <h1>Tarifas y Promociones</h1>
-        <p>Precios temporada 2023-2024</p>
+        <p>Precios temporada 2024</p>
         <div className={styles.tarifas}>
-          <img
-            src={baja}
-            className={styles.imgTarifas}
-            alt="precio temp baja 2023"
-          />
+
           <img src={precios} className={styles.imgTarifas} alt="Tarifas 2024" />
-          <img src={enero} className={styles.imgTarifas} alt="Promo enero" />
           <img
             src={marzo}
             className={styles.imgTarifas}
-            alt="Precio marzo 2023"
+            alt="Precio marzo 2024"
           />
+          <img
+            src={baja}
+            className={styles.imgTarifas}
+            alt="precio temp baja 2024"
+          />
+          <img
+            src={primavera}
+            className={styles.imgTarifas}
+            alt="precio primavera 2024"
+          />      
         </div>
       </div>
     </>
