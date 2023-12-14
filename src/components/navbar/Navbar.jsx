@@ -13,7 +13,6 @@ function Navbar() {
      * Para acualizar el valor a true creamos una variable llamando al setClick con el valor opuesto a clicked
      */
     const [clicked, setClicked]= useState(false);
-    console.log(clicked);
 
     const handleClick = () =>{
         //cuando esta true lo pasa a false y vice versa

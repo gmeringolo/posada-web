@@ -36,7 +36,7 @@ function Footer() {
         </div>
       </footer>
       <div className={styles.copyright}>
-        <p>Copyright© 2022 Posada Horizonte</p>
+        <p>Copyright© 2024 Posada Horizonte</p>
       </div>
     </>
   );

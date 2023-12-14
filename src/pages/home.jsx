@@ -23,7 +23,7 @@ function home() {
           target="_blank"
           rel="noreferrer"
         >
-          <img class={styles.boton} src={icono} alt="" />
+          <img className={styles.boton} src={icono} alt="" />
         </a>
       </div>
       <Footer />

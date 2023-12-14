@@ -85,9 +85,8 @@ function Contacto() {
               type="tel"
               id="tel"
               name="tel"
-              placeholder="Escriba un celular de contacto (9 números)..."
+              placeholder="Escriba un celular de contacto"
               required
-              pattern={9}
             ></input>
             <label htmlFor="msg">Mensaje*:</label>
             <textarea
