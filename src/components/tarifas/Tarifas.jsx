@@ -3,7 +3,7 @@ import styles from "./tarifas.module.css";
 import precios from "./tarifas24.jpg";
 import baja from "./baja.png";
 import marzo from "./marzo.png";
-import primavera from "./promo.png";
+import primavera from "./promo.jpeg";
 
 
 function Tarifas() {
