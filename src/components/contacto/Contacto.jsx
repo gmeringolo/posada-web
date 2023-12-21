@@ -3,6 +3,8 @@ import styles from "./contacto.module.css";
 //import GoogleMapReact from "google-map-react";
 import emailjs from "emailjs-com";
 import ubicacion from "./ubicacion.png";
+//import { Wrapper, Status } from "@googlemaps/react-wrapper";
+//import {APIProvider, Map} from '@vis.gl/react-google-maps';
 
 //const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -63,11 +65,12 @@ function Contacto() {
               />
             </GoogleMapReact>
             </div>*/}
-          <a href="https://goo.gl/maps/neJxXrmBx4yZpGGEA" target="_blanck"><img
-            src={ubicacion}
-            className={styles.mapUbicacion}
-            alt="Promo primavera"
-          /></a>
+
+            <a href="https://goo.gl/maps/neJxXrmBx4yZpGGEA" target="_blanck"><img
+                src={ubicacion}
+                className={styles.mapUbicacion}
+                alt="mapa de ubicación"
+            /></a>
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>

@@ -1,24 +1,22 @@
 .containerBoton{
-    background-color: #2e6329;
-    border: 1px solid #fff;
+    background-color: #ffffff;
     position: fixed;
     z-index: 999;
     border-radius: 50%;
     bottom: 20px;
     right: 25px;
-    padding: 15px;
+    padding: 4px 4px 0px;
     transition: ease 0.3s;
-    animation: efecto 1.2s infinite;
+    animation: efecto 2s infinite;
 }
 
-.containerBoton:hover{
+/*.containerBoton:hover{
     transform: scale(1.1);
     transition: 0.3s;
-}
+}*/
 
 .boton{
     width: 40px;
-    transition: ease 1s;
 }
 
 @keyframes efecto{
@@ -32,9 +30,6 @@
 
 /*resposive para mobil*/
 @media (max-width: 650px) {
-    .containerBoton{
-        padding: 10px;
-    }
     .boton{
         width: 30px;
     }

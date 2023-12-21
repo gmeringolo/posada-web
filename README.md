@@ -34,3 +34,7 @@ import GoogleMapReact from 'google-map-react';
 
 npm install emailjs-com --save
 import emailjs from 'emailjs-com';
+
+
+## Google maps
+### `npm install $vis.gl/react-google-maps`
