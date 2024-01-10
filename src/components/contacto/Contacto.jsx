@@ -82,13 +82,13 @@ function Contacto() {
               placeholder="Escriba un nombre de contacto..."
               required
             ></input>
-            <label htmlFor="tel">Telefono*:</label>
+            <label htmlFor="email">Email*:</label>
 
             <input
-              type="tel"
-              id="tel"
-              name="tel"
-              placeholder="Escriba un celular de contacto"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Escriba un correo electrónico"
               required
             ></input>
             <label htmlFor="msg">Mensaje*:</label>
@@ -99,7 +99,7 @@ function Contacto() {
               placeholder="Consulte disponibilidad indicando cantidad de personas, fecha de entrada y salida del alojamiento..."
               required
             ></textarea>
-            <button type="submit">Envíar</button>
+            <button type="submit">Enviar</button>
           </form>
         </div>
       </div>
