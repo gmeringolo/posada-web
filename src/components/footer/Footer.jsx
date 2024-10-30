@@ -27,8 +27,8 @@ function Footer() {
         <a href="https://www.facebook.com/posadahorizonte" target="_blanck" className={styles.facebook}>
           <img src={Face} alt="facebook" />
         </a>
-        <a href="https://es-l.airbnb.com/rooms/10986271?adults=2&check_in=2022-12-09&check_out=2022-12-16&source_impression_id=p3_1670102933_Dqk9mqMd9fYEqpcX" target="_blanck" className={styles.airbnb}>
-          <img src={Air} alt="Instagram" />
+        <a href="https://www.airbnb.com.ar/rooms/707961511570571728?guests=1&adults=1&s=67&unique_share_id=1a37a3d2-2b19-43ba-8470-1c0b86584f83" target="_blanck" className={styles.airbnb}>
+          <img src={Air} alt="Airbnb" />
         </a>
         <a href="https://wa.me/+59899667726?text=Para%20consultar%20disponibilidad,%20indicar%20fecha%20de%20entrada%20y%20salida" target="_blanck" className={styles.whatsapp}>
           <img src={Whats} alt="whatsapp" />
@@ -36,7 +36,7 @@ function Footer() {
         </div>
       </footer>
       <div className={styles.copyright}>
-        <p>Copyright© 2024 Posada Horizonte</p>
+        <p>Copyright© 2025 Gianella Meringolo</p>
       </div>
     </>
   );

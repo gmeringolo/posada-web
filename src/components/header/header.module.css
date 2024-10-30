@@ -24,6 +24,7 @@ header {
 
 .section p {
   font-size: 20px;
+  font-weight: 600;
   font-family: 'Abel', sans-serif;
   margin: 30px 30px 15px;
   color: #212025;
