@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import  "./navbar.css";
-//import styles from "./navbar.module.css";
 import logo2 from "./2.png";
 import BtnMenu from './BtnMenu';
 

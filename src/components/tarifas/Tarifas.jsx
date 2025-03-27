@@ -11,16 +11,9 @@ function Tarifas() {
     <>
       <div className={styles.textoTarifas} id="tarifas">
         <h1>Tarifas y Promociones</h1>
-        <p>Precios temporada 2024</p>
+        <p>Precios temporada 2025</p>
         <div className={styles.tarifas}>
-
         <img
-            src={primavera}
-            className={styles.imgTarifas}
-            alt="precio primavera 2024"
-          />  
-          <img src={precios} className={styles.imgTarifas} alt="Tarifas 2025" />
-          <img
             src={marzo}
             className={styles.imgTarifas}
             alt="Precio marzo 2025"
@@ -29,7 +22,15 @@ function Tarifas() {
             src={baja}
             className={styles.imgTarifas}
             alt="precio temp baja 2024"
-          />    
+          />
+          <img
+            src={primavera}
+            className={styles.imgTarifas}
+            alt="precio primavera 2024"
+          />
+          <img src={precios} className={styles.imgTarifas} alt="Tarifas 2025" />
+
+
         </div>
       </div>
     </>
