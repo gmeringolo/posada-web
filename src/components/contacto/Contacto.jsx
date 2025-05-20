@@ -1,14 +1,18 @@
 import React from "react";
 import styles from "./contacto.module.css";
-//import GoogleMapReact from "google-map-react";
+import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 import emailjs from "emailjs-com";
-import ubicacion from "./ubicacion.png";
-//import { Wrapper, Status } from "@googlemaps/react-wrapper";
-//import {APIProvider, Map} from '@vis.gl/react-google-maps';
-
-//const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Contacto() {
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: "AIzaSyA3IzZ1MGXTa0GQA7vndmAYo3y-_naCrDY",
+  });
+
+  const center = {
+    lat: -34.774915,
+    lng: -55.643852,
+  };
+
   function enviarEmail(e) {
     e.preventDefault();
 
@@ -44,33 +48,17 @@ function Contacto() {
         <p>Av 3 esq Rambla. Bello horizonte-Canelones</p>
         <p>092 269 002 (Hector)</p>
         <div className={styles.ubicacion}>
-          {/*<div className="mapUbicacion"
-            style={{
-              height: "460px",
-              width: "470px",
-              margin: "20px 10px 20px 20px",
-            }}
-          >
-            <GoogleMapReact
-              bootstrapURLKeys={{
-                key: "AIzaSyA3IzZ1MGXTa0GQA7vndmAYo3y-_naCrDY",
-              }}
-              defaultCenter={defaultProps.center}
-              defaultZoom={defaultProps.zoom}
-            >
-              <AnyReactComponent
-                lat={-34.774915}
-                lng={-55.643852}
-                text="Posada Horizonte"
-              />
-            </GoogleMapReact>
-            </div>*/}
-
-            <a href="https://goo.gl/maps/neJxXrmBx4yZpGGEA" target="_blanck"><img
-                src={ubicacion}
-                className={styles.mapUbicacion}
-                alt="mapa de ubicación"
-            /></a>
+          <div className={styles.mapUbicacion}>
+            {isLoaded && (
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '100%' }}
+                center={center}
+                zoom={15}
+              >
+                <Marker position={center} />
+              </GoogleMap>
+            )}
+          </div>
           <form className={styles.form} onSubmit={enviarEmail}>
             <h2>Formulario</h2>
             <h3>Consulte disponibilidad</h3>
