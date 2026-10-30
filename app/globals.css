@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+@theme {
+  /* Azul principal de Posada Horizonte (#1E5077) y su escala */
+  --color-primary-50: #eef5fa;
+  --color-primary-100: #d6e6f1;
+  --color-primary-200: #b0cde3;
+  --color-primary-300: #7fadcf;
+  --color-primary-400: #4c87b6;
+  --color-primary-500: #2d6a9a;
+  --color-primary-600: #1e5077;
+  --color-primary-700: #1a4466;
+  --color-primary-800: #173955;
+  --color-primary-900: #142f46;
+  --color-primary-950: #0c1d2c;
+
+  /* Color secundario para botones: mostaza / arena */
+  --color-accent: #e0a43a;
+  --color-accent-hover: #cc8f26;
+  --color-accent-soft: #fbf0da;
+
+  /* Neutros */
+  --color-sand: #faf7f2;
+  --color-ink: #212025;
+  --color-muted: #5b5a63;
+
+  /* Colores de las casas */
+  --color-casa-roja: #c8372d;
+  --color-casa-azul: #1f63c6;
+  --color-casa-verde: #3c9a3c;
+  --color-casa-mostaza: #d9a21b;
+
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #0f7a41;
+
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-serif), Georgia, serif;
+  --font-script: var(--font-dancing), cursive;
+
+  --shadow-soft: 0 10px 30px -12px rgb(12 29 44 / 0.25);
+  --shadow-card: 0 4px 20px -6px rgb(12 29 44 / 0.15);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal tracking-tight text-primary-900;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .contenedor {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .seccion {
+    @apply py-20 sm:py-28;
+  }
+
+  /* Aparición suave al hacer scroll */
+  .aparecer {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s ease,
+      transform 0.7s ease;
+  }
+  .aparecer.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .campo {
+    @apply w-full rounded-xl border border-primary-100 bg-white px-4 py-3 text-base text-ink shadow-sm transition placeholder:text-muted/70 focus:border-primary-400 focus:ring-4 focus:ring-primary-100 focus:outline-none;
+  }
+
+  .etiqueta {
+    @apply mb-1.5 block text-sm font-semibold text-primary-900;
+  }
+
+  .scroll-x {
+    scrollbar-width: none;
+  }
+  .scroll-x::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes latido {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgb(37 211 102 / 0);
+  }
+}
+
+.latido {
+  animation: latido 2.6s ease-in-out infinite;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+  Formulario "fantasma" para Netlify Forms.
+  Netlify lo lee al publicar para saber qué campos tiene el formulario "consulta".
+  Si agregás un campo al formulario de Contacto, agregalo también acá.
+-->
+<html lang="es">
+  <body>
+    <form name="consulta" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="consulta" />
+      <input name="bot-field" />
+      <input name="nombre" />
+      <input name="email" type="email" />
+      <input name="telefono" />
+      <input name="entrada" type="date" />
+      <input name="salida" type="date" />
+      <select name="personas"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      <select name="casa"><option>Indistinta</option><option>Roja</option><option>Azul</option><option>Verde</option><option>Mostaza</option></select>
+      <input type="radio" name="mascota" value="No" /><input type="radio" name="mascota" value="Sí" />
+      <textarea name="mensaje"></textarea>
+    </form>
+  </body>
+</html>

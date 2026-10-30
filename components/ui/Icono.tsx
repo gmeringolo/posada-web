@@ -1,0 +1,58 @@
+import {
+  AirVent,
+  Bath,
+  BedDouble,
+  Building2,
+  Bus,
+  CalendarCheck,
+  CalendarX,
+  Clock,
+  CookingPot,
+  Flame,
+  Laptop,
+  MapPin,
+  PawPrint,
+  Plane,
+  ShoppingBasket,
+  Sun,
+  TreePalm,
+  Tv,
+  Umbrella,
+  Users,
+  Wallet,
+  Waves,
+  Wifi,
+  type LucideIcon,
+} from "lucide-react";
+
+/** Íconos que se pueden usar desde data/site.ts por nombre. */
+const ICONOS: Record<string, LucideIcon> = {
+  AirVent,
+  Bath,
+  BedDouble,
+  Building2,
+  Bus,
+  CalendarCheck,
+  CalendarX,
+  Clock,
+  CookingPot,
+  Flame,
+  Laptop,
+  MapPin,
+  PawPrint,
+  Plane,
+  Palmtree: TreePalm,
+  ShoppingBasket,
+  Sun,
+  Tv,
+  Umbrella,
+  Users,
+  Wallet,
+  Waves,
+  Wifi,
+};
+
+export function Icono({ nombre, className = "size-6" }: { nombre: string; className?: string }) {
+  const C = ICONOS[nombre] ?? MapPin;
+  return <C className={className} aria-hidden="true" strokeWidth={1.8} />;
+}
