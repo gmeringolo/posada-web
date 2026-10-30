@@ -7,12 +7,12 @@ export function PreguntasFrecuentes() {
   const lista = preguntasFrecuentes.filter((p) => p.respuesta);
   if (!lista.length) return null;
   return (
-    <section id="preguntas" className="seccion" aria-labelledby="faq-titulo">
+    <section id="preguntas" className="seccion bg-sand" aria-labelledby="faq-titulo">
       <div className="contenedor max-w-3xl">
         <TituloSeccion id="faq-titulo" etiqueta="Preguntas frecuentes" titulo="Todo lo que nos suelen preguntar" />
         <div className="space-y-3">
           {lista.map((p) => (
-            <details key={p.pregunta} className="group aparecer rounded-2xl bg-sand ring-1 ring-primary-100/70 open:bg-white open:shadow-card">
+            <details key={p.pregunta} className="group aparecer rounded-2xl bg-white ring-1 ring-primary-100/70 open:shadow-card">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left font-bold text-primary-900 [&::-webkit-details-marker]:hidden">
                 {p.pregunta}
                 <ChevronDown className="size-5 shrink-0 text-primary-500 transition group-open:rotate-180" aria-hidden="true" />

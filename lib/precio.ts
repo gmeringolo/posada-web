@@ -5,7 +5,8 @@ export type Tipo = "1dorm" | "mostaza";
 
 export type Tarifa = {
   tipo: Tipo;
-  nombre: string; // "Enero", "Fin de año y Navidad"…
+  nombre: string; // "Enero", "Fin de año y enero"…
+  fechas?: string; // texto opcional con las fechas, ej. "23/12 al 31/01"
   desde: string; // "MM-DD", inclusive
   hasta: string; // "MM-DD", inclusive (puede cruzar el año)
   precioNoche: number;

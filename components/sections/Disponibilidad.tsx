@@ -338,7 +338,7 @@ export function Disponibilidad() {
   }
 
   return (
-    <section id="disponibilidad" className="seccion" aria-labelledby="disp-titulo">
+    <section id="disponibilidad" className="seccion bg-sand" aria-labelledby="disp-titulo">
       <div className="contenedor">
         <TituloSeccion
           id="disp-titulo"

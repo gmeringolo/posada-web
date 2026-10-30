@@ -1,14 +1,13 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images, X } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { filtrosGaleria, fotos, type Foto } from "@/data/fotos";
-import { videos } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
 import { useEstado } from "@/components/layout/Estado";
 
-function Visor({ lista, indice, onCerrar, onCambiar }: { lista: Foto[]; indice: number; onCerrar: () => void; onCambiar: (i: number) => void }) {
+export function Visor({ lista, indice, onCerrar, onCambiar }: { lista: Foto[]; indice: number; onCerrar: () => void; onCambiar: (i: number) => void }) {
   const foto = lista[indice];
   const toque = useRef<number | null>(null);
   const cerrarRef = useRef<HTMLButtonElement>(null);
@@ -94,38 +93,22 @@ function Visor({ lista, indice, onCerrar, onCambiar }: { lista: Foto[]; indice: 
   );
 }
 
-function Video({ v }: { v: (typeof videos)[number] }) {
-  const [reproducir, setReproducir] = useState(false);
-  return (
-    <figure className="aparecer overflow-hidden rounded-2xl bg-primary-950 shadow-card">
-      <div className="relative mx-auto aspect-[9/16] max-h-[640px]">
-        {reproducir ? (
-          <video src={v.src} poster={v.poster} controls autoPlay playsInline preload="none" className="size-full bg-black object-contain">
-            Tu navegador no puede reproducir este video.
-          </video>
-        ) : (
-          <button
-            type="button"
-            className="group relative size-full"
-            aria-label={`Reproducir video: ${v.titulo}`}
-            onClick={() => {
-              setReproducir(true);
-              trackEvent("video_play", { video: v.titulo });
-            }}
-          >
-            <img src={v.poster} alt="" loading="lazy" className="size-full object-cover opacity-90 transition group-hover:opacity-100" />
-            <span className="absolute inset-0 grid place-items-center">
-              <span className="grid size-16 place-items-center rounded-full bg-accent text-ink shadow-soft transition group-hover:scale-110">
-                <Play className="ml-1 size-7 fill-current" aria-hidden="true" />
-              </span>
-            </span>
-          </button>
-        )}
-      </div>
-      <figcaption className="p-4 text-center text-sm font-semibold text-white/90">{v.titulo}</figcaption>
-    </figure>
-  );
-}
+/** Fotos que se muestran en el mosaico cuando el filtro es "Todas" (las demás se ven en el visor). */
+const DESTACADAS = [
+  "/images/exterior/casas-colores.webp",
+  "/images/mostaza/barbacoa.webp",
+  "/images/casas-1dorm/living-deck.webp",
+  "/images/casas-1dorm/deck-mesa.webp",
+  "/images/mostaza/dormitorio.webp",
+];
+
+const POSICIONES = [
+  "col-span-2 row-span-1 md:row-span-2", // foto grande
+  "",
+  "",
+  "",
+  "",
+];
 
 export function Galeria() {
   const { filtroGaleria, setFiltroGaleria } = useEstado();
@@ -133,13 +116,24 @@ export function Galeria() {
 
   const filtrosConFotos = filtrosGaleria.filter((f) => f.id === "todas" || fotos.some((x) => x.categoria === f.id));
   const lista = filtroGaleria === "todas" ? fotos : fotos.filter((f) => f.categoria === filtroGaleria);
+  const mosaico =
+    filtroGaleria === "todas"
+      ? (DESTACADAS.map((src) => fotos.find((f) => f.src === src)).filter(Boolean) as Foto[])
+      : lista.slice(0, 5);
+  const restantes = lista.length - mosaico.length;
+
+  function abrir(foto: Foto) {
+    const i = lista.findIndex((f) => f.src === foto.src);
+    setAbierta(Math.max(0, i));
+    trackEvent("gallery_open", { foto: foto.src });
+  }
 
   return (
-    <section id="galeria" className="seccion bg-sand" aria-labelledby="galeria-titulo">
+    <section id="galeria" className="pantalla bg-sand" aria-labelledby="galeria-titulo">
       <div className="contenedor">
-        <TituloSeccion id="galeria-titulo" etiqueta="Galería" titulo="Mirá las casas por dentro y por fuera" />
+        <TituloSeccion id="galeria-titulo" etiqueta="Galería" titulo="Mirá las casas por dentro y por fuera" compacto />
 
-        <div className="scroll-x -mx-5 mb-8 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0" role="group" aria-label="Filtrar fotos">
+        <div className="scroll-x -mx-5 mb-6 flex gap-2 overflow-x-auto px-5 sm:mx-0 sm:flex-wrap sm:justify-center sm:px-0" role="group" aria-label="Filtrar fotos">
           {filtrosConFotos.map((f) => (
             <button
               key={f.id}
@@ -155,42 +149,47 @@ export function Galeria() {
           ))}
         </div>
 
-        <ul className="columns-2 gap-3 sm:gap-4 md:columns-3 lg:columns-4">
-          {lista.map((f, i) => (
-            <li key={f.src} className="mb-3 break-inside-avoid sm:mb-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setAbierta(i);
-                  trackEvent("gallery_open", { foto: f.src });
-                }}
-                className="group block w-full overflow-hidden rounded-2xl bg-primary-100"
-                aria-label={`Ampliar foto: ${f.alt}`}
-              >
-                <img
-                  src={f.thumb}
-                  alt={f.alt}
-                  width={f.width}
-                  height={f.height}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full transition duration-500 group-hover:scale-[1.04]"
-                />
-              </button>
-            </li>
-          ))}
+        <ul className="grid auto-rows-[clamp(110px,17svh,230px)] grid-cols-2 gap-2.5 sm:gap-3 md:grid-cols-4 md:auto-rows-[clamp(130px,24svh,290px)]">
+          {mosaico.map((f, i) => {
+            const ultima = i === mosaico.length - 1 && restantes > 0;
+            return (
+              <li key={f.src} className={POSICIONES[i] ?? ""}>
+                <button
+                  type="button"
+                  onClick={() => abrir(f)}
+                  className="group relative block size-full overflow-hidden rounded-2xl bg-primary-100"
+                  aria-label={ultima ? `Ver las ${lista.length} fotos` : `Ampliar foto: ${f.alt}`}
+                >
+                  <img
+                    src={i === 0 ? f.src : f.thumb}
+                    alt={f.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="size-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  />
+                  {ultima && (
+                    <span className="absolute inset-0 grid place-items-center bg-primary-950/60 text-white transition group-hover:bg-primary-950/70">
+                      <span className="text-center">
+                        <span className="block font-display text-3xl sm:text-4xl">+{restantes}</span>
+                        <span className="text-sm font-bold">fotos</span>
+                      </span>
+                    </span>
+                  )}
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
-        {videos.length > 0 && (
-          <div className="mt-16">
-            <h3 className="mb-6 text-center text-2xl sm:text-3xl">Recorré la casa en video</h3>
-            <div className="mx-auto grid max-w-3xl gap-6 sm:grid-cols-2">
-              {videos.map((v) => (
-                <Video key={v.src} v={v} />
-              ))}
-            </div>
-          </div>
-        )}
+        <div className="mt-6 text-center">
+          <button
+            type="button"
+            onClick={() => abrir(lista[0])}
+            className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-6 py-3 font-bold text-white shadow-card transition hover:bg-primary-700"
+          >
+            <Images className="size-5" aria-hidden="true" /> Ver las {lista.length} fotos
+          </button>
+        </div>
       </div>
 
       {abierta !== null && lista[abierta] && (

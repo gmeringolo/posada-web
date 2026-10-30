@@ -44,7 +44,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 0;
     -webkit-tap-highlight-color: transparent;
   }
 
@@ -90,6 +90,30 @@
 
   .seccion {
     @apply py-20 sm:py-28;
+  }
+
+  /* Secciones con imágenes: ocupan el alto de la pantalla, como la portada.
+     El espacio de arriba deja lugar al menú fijo (72 px). */
+  .pantalla {
+    @apply flex min-h-svh flex-col justify-center pt-[calc(72px+1.25rem)] pb-8 sm:pt-[calc(72px+1.75rem)] sm:pb-10;
+  }
+  @media (max-height: 820px) {
+    .pantalla {
+      padding-top: calc(72px + 1rem);
+      padding-bottom: 1.5rem;
+    }
+  }
+
+  /* Carrusel en celular, grilla en pantallas grandes */
+  .carrusel {
+    @apply -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 lg:mx-0 lg:grid lg:grid-cols-2 lg:gap-8 lg:overflow-visible lg:px-0 lg:pb-0;
+    scrollbar-width: none;
+  }
+  .carrusel::-webkit-scrollbar {
+    display: none;
+  }
+  .carrusel > * {
+    @apply w-[86vw] max-w-[440px] shrink-0 snap-center lg:w-auto lg:max-w-none;
   }
 
   /* Aparición suave al hacer scroll */

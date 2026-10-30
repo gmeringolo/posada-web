@@ -137,7 +137,7 @@ export const notaRopaBlanca = "No incluyen sábanas ni toallas.";
 export const idealPara: { icono: string; titulo: string; texto: string }[] = [
   { icono: "Users", titulo: "Familias", texto: "Casas independientes, parrillero propio y la playa a media cuadra." },
   { icono: "PawPrint", titulo: "Con mascotas", texto: "Las mascotas son parte de la familia: nos encanta que las traigan." },
-  { icono: "Sun", titulo: "Escapadas de fin de semana", texto: "Con la promo de primavera: 2 noches a precio especial." },
+  { icono: "Sun", titulo: "Escapadas de fin de semana", texto: "De abril a noviembre, viernes a domingo a precio especial." },
   { icono: "Laptop", titulo: "Teletrabajo y estadías largas", texto: "Wi-Fi, tranquilidad y abiertos todo el año." },
 ];
 
@@ -151,8 +151,9 @@ export const idealPara: { icono: string; titulo: string; texto: string }[] = [
 export const temporada = "Temporada verano 2026–2027";
 
 export const tarifas: Tarifa[] = [
-  // Casas de 1 dormitorio. TODO confirmar desde qué fecha empieza "Fin de año" (por ahora 20/12).
-  { tipo: "1dorm", nombre: "Fin de año, Navidad y enero", desde: "12-20", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
+  // Casas de 1 dormitorio
+  { tipo: "1dorm", nombre: "Diciembre", fechas: "1 al 22", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
+  { tipo: "1dorm", nombre: "Fin de año y enero", fechas: "23/12 al 31/01", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD" },
   { tipo: "1dorm", nombre: "Marzo", desde: "03-01", hasta: "03-31", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
@@ -164,12 +165,12 @@ export const tarifas: Tarifa[] = [
 export const minimoNochesMostaza = 15;
 
 export const promos: Promo[] = [
-  // TODO confirmar el rango exacto de la promo de primavera (por ahora 21/09 al 19/12)
+  // Fin de semana de viernes a domingo, del 1 de abril al 30 de noviembre
   {
     tipo: "1dorm",
-    nombre: "Promo primavera",
-    desde: "09-21",
-    hasta: "12-19",
+    nombre: "Promo fin de semana",
+    desde: "04-01",
+    hasta: "11-30",
     noches: 2,
     precioTotal: 4500,
     moneda: "UYU",
@@ -187,10 +188,15 @@ export const preciosFueraDeTemporada: { tipo: TipoCasa; detalle: string }[] = [
 /* ------------------------------------------------------------------ */
 
 export const antesDeReservar: { icono: string; titulo: string; texto: string }[] = [
-  { icono: "Clock", titulo: "Entrada y salida", texto: "" }, // TODO confirmar: ej. "Check-in desde las 14 h · Check-out hasta las 10 h"
-  { icono: "Wallet", titulo: "Seña y pagos", texto: "" }, // TODO confirmar: seña y formas de pago
-  { icono: "CalendarX", titulo: "Cancelaciones", texto: "" }, // TODO confirmar: política de cancelación
-  { icono: "PawPrint", titulo: "Mascotas", texto: "" }, // TODO confirmar: cantidad, tamaño, costo extra
+  { icono: "Clock", titulo: "Entrada y salida", texto: "Check-in a las 15 h · Check-out a las 12 h." },
+  { icono: "Wallet", titulo: "Seña", texto: "Para confirmar la reserva pedimos una seña del 50 % del total." },
+  {
+    icono: "CalendarX",
+    titulo: "Cancelación flexible",
+    texto: "Si cancelás hasta 5 días antes del check-in, te devolvemos la seña. Después de esa fecha, la seña no se devuelve.",
+  },
+  { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
+  { icono: "Car", titulo: "Estacionamiento", texto: "En la entrada del complejo." },
   { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas: traé las tuyas." },
 ];
 
@@ -226,6 +232,14 @@ export const opiniones: Opinion[] = [
       "Confortable, equipado solo traé tus sábanas y toallas. A media cuadra de la rambla. Cruzás y tenés la escalerilla hacia la playa. A media cuadra el Chiringuito. Comercios cerca. Hermoso y una gran Paz. Lo recomiendo.",
   },
   {
+    nombre: "Mónica P.",
+    plataforma: "google",
+    estrellas: 5,
+    fecha: "2022",
+    texto:
+      "Muy lindo lugar, si buscás tranquilidad es el lugar ideal para descansar, cerquita del mar, súper recomendable",
+  },
+  {
     nombre: "Bernardo H.",
     plataforma: "google",
     estrellas: 4,
@@ -248,11 +262,11 @@ export const calificaciones: Record<"google" | "airbnb", { promedio: number; can
 export const zona = {
   intro:
     "Bello Horizonte es un balneario tranquilo de la Costa de Oro, sobre la Ruta Interbalnearia. Calles arboladas, playas amplias y silencio: ideal para descansar a menos de una hora de Montevideo.",
-  // Distancias aproximadas en auto. TODO confirmar y completar almacén y parada de ómnibus.
+  // Distancias aproximadas en auto. TODO confirmar Atlántida, aeropuerto, Montevideo y Punta del Este. Almacén vacío = no se muestra.
   distancias: [
     { icono: "Waves", lugar: "Playa", distancia: "Media cuadra" },
     { icono: "ShoppingBasket", lugar: "Almacén", distancia: "" },
-    { icono: "Bus", lugar: "Parada de ómnibus", distancia: "" },
+    { icono: "Bus", lugar: "Parada del 711 (Club Bello Horizonte)", distancia: "2 cuadras" },
     { icono: "MapPin", lugar: "Atlántida", distancia: "≈ 15 min" },
     { icono: "Plane", lugar: "Aeropuerto de Carrasco", distancia: "≈ 35 min" },
     { icono: "Building2", lugar: "Montevideo", distancia: "≈ 1 h" },
@@ -262,7 +276,8 @@ export const zona = {
   queHacer: [] as { titulo: string; texto: string; foto?: string }[],
   comoLlegar: {
     auto: "Por la Ruta Interbalnearia hasta el km 57, entrada a Bello Horizonte. Seguí hacia la rambla: estamos en Av. 3 esquina Rambla.",
-    omnibus: "", // TODO confirmar: líneas y parada más cercana
+    omnibus:
+      "Tomá el 711 Costa Azul y bajate en la parada del Club Bello Horizonte: desde ahí son 2 cuadras caminando.",
   },
 };
 
@@ -273,21 +288,33 @@ export const zona = {
 export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
   {
     pregunta: "¿Puedo ir con mi mascota?",
-    respuesta: "Sí, aceptamos mascotas: son parte de la familia. Consultanos por WhatsApp si viajás con más de una.",
+    respuesta: "Sí, aceptamos todas las mascotas: son parte de la familia.",
   },
   {
     pregunta: "¿Las casas tienen sábanas y toallas?",
     respuesta: "No, las casas no incluyen sábanas ni toallas. Todo lo demás está equipado: cocina, vajilla para 6, heladera, microondas y parrillero.",
   },
-  { pregunta: "¿Cuál es el horario de entrada y salida?", respuesta: "" }, // TODO confirmar
-  { pregunta: "¿Cómo reservo y cuánto es la seña? ¿Qué formas de pago aceptan?", respuesta: "" }, // TODO confirmar
-  { pregunta: "¿Qué pasa si tengo que cancelar?", respuesta: "" }, // TODO confirmar
+  { pregunta: "¿Cuál es el horario de entrada y salida?", respuesta: "El check-in es a las 15 h y el check-out a las 12 h." },
+  {
+    pregunta: "¿Cómo reservo?",
+    respuesta:
+      "Consultá disponibilidad por WhatsApp o con el formulario. Para confirmar la reserva pedimos una seña del 50 % del total.",
+  },
+  {
+    pregunta: "¿Qué pasa si tengo que cancelar?",
+    respuesta:
+      "Tenemos cancelación flexible: si cancelás hasta 5 días antes de la fecha de check-in, te devolvemos la seña. Si cancelás después, la seña no se devuelve.",
+  },
   {
     pregunta: "¿Alquilan fuera de temporada?",
-    respuesta: "Sí, estamos abiertos todo el año. Fuera del verano consultá precios por fin de semana, semana o mes por WhatsApp.",
+    respuesta:
+      "Sí, estamos abiertos todo el año. De abril a noviembre, en las casas de 1 dormitorio, el fin de semana (viernes a domingo) sale $ 4.500. Para otras fechas o estadías más largas, consultanos por WhatsApp.",
   },
-  { pregunta: "¿Hay estacionamiento?", respuesta: "" }, // TODO confirmar
-  { pregunta: "¿Cómo llego en ómnibus?", respuesta: "" }, // TODO confirmar
+  { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
+  {
+    pregunta: "¿Cómo llego en ómnibus?",
+    respuesta: "Con el 711 Costa Azul: bajate en la parada del Club Bello Horizonte, que queda a 2 cuadras.",
+  },
   {
     pregunta: "¿Cuántas personas entran en cada casa?",
     respuesta:

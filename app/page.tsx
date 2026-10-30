@@ -12,7 +12,8 @@ import { LaZona } from "@/components/sections/LaZona";
 import { Opiniones } from "@/components/sections/Opiniones";
 import { PreguntasFrecuentes } from "@/components/sections/PreguntasFrecuentes";
 import { Servicios } from "@/components/sections/Servicios";
-import { Tarifas } from "@/components/sections/Tarifas";
+import { PromosYCondiciones, Tarifas } from "@/components/sections/Tarifas";
+import { Videos } from "@/components/sections/Videos";
 import { opiniones } from "@/data/site";
 
 /**
@@ -30,8 +31,10 @@ export default function Home() {
         <Servicios />
         <IdealPara />
         <Galeria />
+        <Videos />
         <Opiniones />
         <Tarifas />
+        <PromosYCondiciones />
         <Disponibilidad />
         <LaZona />
         <PreguntasFrecuentes />

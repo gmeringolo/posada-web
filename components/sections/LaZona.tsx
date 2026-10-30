@@ -9,34 +9,63 @@ import { TituloSeccion } from "@/components/ui/TituloSeccion";
 export function LaZona() {
   const distancias = zona.distancias.filter((d) => d.distancia);
   return (
-    <section id="zona" className="seccion bg-sand" aria-labelledby="zona-titulo">
+    <section id="zona" className="pantalla" aria-labelledby="zona-titulo">
       <div className="contenedor">
-        <TituloSeccion id="zona-titulo" etiqueta="La zona" titulo="Bello Horizonte, en la Costa de Oro" intro={zona.intro} />
+        <TituloSeccion id="zona-titulo" etiqueta="La zona" titulo="Bello Horizonte, en la Costa de Oro" intro={zona.intro} compacto />
 
-        <div className="grid gap-8 lg:grid-cols-5">
-          <div className="aparecer overflow-hidden rounded-3xl lg:col-span-3">
-            <img
-              src="/images/exterior/casa-verde-jardin.webp"
-              alt="Jardín y casas de Posada Horizonte en Bello Horizonte"
-              loading="lazy"
-              className="size-full max-h-[460px] object-cover"
-            />
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
+          {/* Foto + cómo llegar */}
+          <div className="flex flex-col gap-4 lg:col-span-3">
+            <div className="aparecer overflow-hidden rounded-3xl">
+              <img
+                src="/images/exterior/casa-verde-jardin.webp"
+                alt="Jardín y casas de Posada Horizonte en Bello Horizonte"
+                loading="lazy"
+                className="h-[clamp(160px,28svh,360px)] w-full object-cover"
+              />
+            </div>
+            <div className={`grid gap-4 ${zona.comoLlegar.omnibus ? "sm:grid-cols-2" : ""}`}>
+              <div className="aparecer rounded-2xl bg-primary-900 p-5 text-white">
+                <p className="flex items-center gap-2 font-bold">
+                  <Car className="size-5 text-accent" aria-hidden="true" /> En auto
+                </p>
+                <p className="mt-1.5 text-sm text-white/85">{zona.comoLlegar.auto}</p>
+              </div>
+              {zona.comoLlegar.omnibus && (
+                <div className="aparecer rounded-2xl bg-sand p-5 ring-1 ring-primary-100/70">
+                  <p className="flex items-center gap-2 font-bold text-primary-900">
+                    <Bus className="size-5 text-primary-500" aria-hidden="true" /> En ómnibus
+                  </p>
+                  <p className="mt-1.5 text-sm text-muted">{zona.comoLlegar.omnibus}</p>
+                </div>
+              )}
+            </div>
           </div>
 
-          <div className="lg:col-span-2">
-            <h3 className="mb-4 text-2xl">Distancias aproximadas</h3>
-            <ul className="divide-y divide-primary-100 rounded-3xl bg-white px-5 shadow-card ring-1 ring-primary-100/70">
+          {/* Distancias */}
+          <div className="flex flex-col lg:col-span-2">
+            <h3 className="mb-3 text-2xl">Distancias</h3>
+            <ul className="divide-y divide-primary-100 rounded-3xl bg-sand px-5 ring-1 ring-primary-100/70">
               {distancias.map((d) => (
-                <li key={d.lugar} className="flex items-center gap-4 py-3.5">
-                  <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-primary-50 text-primary-600">
+                <li key={d.lugar} className="flex items-center gap-3 py-2.5 [@media(max-height:820px)]:py-2">
+                  <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white text-primary-600 shadow-sm">
                     <Icono nombre={d.icono} className="size-5" />
                   </span>
-                  <span className="flex-1 font-semibold text-primary-900">{d.lugar}</span>
-                  <span className="text-right text-sm font-bold text-primary-600">{d.distancia}</span>
+                  <span className="flex-1 text-[0.95rem] font-semibold text-primary-900">{d.lugar}</span>
+                  <span className="text-right text-sm font-bold whitespace-nowrap text-primary-600">{d.distancia}</span>
                 </li>
               ))}
             </ul>
             <p className="mt-2 text-xs text-muted">Tiempos en auto, aproximados.</p>
+            <a
+              href={enlaces.comoLlegar}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackEvent("directions_click", { ubicacion: "zona" })}
+              className="mt-4 inline-flex items-center justify-center gap-2 self-start rounded-full bg-accent px-5 py-3 font-bold text-ink hover:bg-accent-hover"
+            >
+              <Navigation className="size-5" aria-hidden="true" /> Cómo llegar en Google Maps
+            </a>
           </div>
         </div>
 
@@ -56,32 +85,6 @@ export function LaZona() {
             </ul>
           </div>
         )}
-
-        <div className={`mt-14 grid gap-5 ${zona.comoLlegar.omnibus ? "md:grid-cols-2" : ""}`}>
-          <div className="aparecer rounded-3xl bg-primary-900 p-6 text-white sm:p-8">
-            <h3 className="flex items-center gap-3 text-2xl text-white">
-              <Car className="size-7 text-accent" aria-hidden="true" /> Cómo llegar en auto
-            </h3>
-            <p className="mt-3 text-white/85">{zona.comoLlegar.auto}</p>
-            <a
-              href={enlaces.comoLlegar}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("directions_click", { ubicacion: "zona" })}
-              className="mt-5 inline-flex items-center gap-2 rounded-full bg-accent px-5 py-3 font-bold text-ink hover:bg-accent-hover"
-            >
-              <Navigation className="size-5" aria-hidden="true" /> Abrir en Google Maps
-            </a>
-          </div>
-          {zona.comoLlegar.omnibus && (
-            <div className="aparecer rounded-3xl bg-white p-6 shadow-card ring-1 ring-primary-100/70 sm:p-8">
-              <h3 className="flex items-center gap-3 text-2xl">
-                <Bus className="size-7 text-primary-500" aria-hidden="true" /> En ómnibus
-              </h3>
-              <p className="mt-3 text-muted">{zona.comoLlegar.omnibus}</p>
-            </div>
-          )}
-        </div>
       </div>
     </section>
   );

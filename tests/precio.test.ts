@@ -85,6 +85,30 @@ describe("calcularPrecio", () => {
     const r = calcularPrecio("1dorm", "2027-01-10", "2027-01-17", tarifasSitio, promosSitio);
     expect(r).toMatchObject({ estado: "ok", total: 490, moneda: "USD" });
   });
+
+  it("sitio: diciembre cambia de US$ 50 a US$ 70 el 23", () => {
+    // noches del 20, 21 y 22 a 50; del 23 y 24 a 70
+    const r = calcularPrecio("1dorm", "2026-12-20", "2026-12-25", tarifasSitio, promosSitio);
+    expect(r).toMatchObject({ estado: "ok", total: 3 * 50 + 2 * 70 });
+  });
+
+  it("sitio: promo de fin de semana de abril a noviembre", () => {
+    // 7 de mayo de 2027 es viernes
+    expect(calcularPrecio("1dorm", "2027-05-07", "2027-05-09", tarifasSitio, promosSitio)).toMatchObject({
+      estado: "ok",
+      total: 4500,
+      moneda: "UYU",
+    });
+    // 27 de noviembre de 2026 es viernes: último fin de semana de la promo
+    expect(calcularPrecio("1dorm", "2026-11-27", "2026-11-29", tarifasSitio, promosSitio)).toMatchObject({ estado: "ok", total: 4500 });
+    // entre semana en mayo: a consultar
+    expect(calcularPrecio("1dorm", "2027-05-10", "2027-05-12", tarifasSitio, promosSitio).estado).toBe("consultar");
+  });
+
+  it("sitio: la Mostaza en diciembre queda a consultar", () => {
+    const r = calcularPrecio("mostaza", "2026-12-05", "2026-12-25", tarifasSitio, promosSitio);
+    expect(r).toMatchObject({ estado: "consultar" });
+  });
 });
 
 describe("formatos", () => {

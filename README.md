@@ -38,7 +38,7 @@ app/
 components/
   sections/           ← una sección por archivo
     Hero.tsx  Casas.tsx  Servicios.tsx  IdealPara.tsx  Galeria.tsx
-    Opiniones.tsx  Tarifas.tsx  Disponibilidad.tsx  LaZona.tsx
+    Videos.tsx  Opiniones.tsx  Tarifas.tsx  Disponibilidad.tsx  LaZona.tsx
     PreguntasFrecuentes.tsx  Contacto.tsx
   layout/             ← menú, pie, botón de WhatsApp, Analytics
   ui/                 ← botones, logo, íconos
@@ -53,14 +53,16 @@ supabase/
   disponibilidad.sql  ← función para la consulta de disponibilidad
 ```
 
+Las secciones con fotos (portada, casas, galería, video, tarifas y la zona) usan la clase `pantalla` (en `app/globals.css`): ocupan el alto del navegador y su contenido se ajusta para entrar en una pantalla. En el celular, las casas, las tarifas y los videos se deslizan de costado.
+
 ---
 
 ## Editar el contenido
 
 Todo se edita en **`data/site.ts`**. Si un dato queda vacío (`""` o `[]`), ese bloque **no aparece** en la web. Los datos pendientes están marcados con `TODO confirmar`.
 
-- **Precios:** lista `tarifas`. Cada período tiene fechas `"MM-DD"` (desde y hasta, inclusive) y precio por noche. La sección Tarifas y el precio estimado de Disponibilidad usan la misma lista: se cambia en un solo lugar.
-- **Promo de primavera:** lista `promos`.
+- **Precios:** lista `tarifas`. Cada período tiene fechas `"MM-DD"` (desde y hasta, inclusive), precio por noche y, opcional, un texto `fechas` que se ve debajo del nombre. La sección Tarifas y el precio estimado de Disponibilidad usan la misma lista: se cambia en un solo lugar.
+- **Promo de fin de semana:** lista `promos` (hoy: casas de 1 dormitorio, viernes a domingo, $ 4.500, del 1/4 al 30/11).
 - **Precios fuera de temporada:** `preciosFueraDeTemporada`.
 - **Check-in, seña, cancelación, mascotas:** `antesDeReservar`.
 - **Opiniones:** `opiniones` (solo reales, copiadas de Google o Airbnb) y `calificaciones` (promedio y cantidad; con `promedio: 0` no se muestra).
@@ -85,7 +87,7 @@ El archivo `netlify.toml` ya le dice a Netlify cómo armar la web (`npm run buil
 ### Formulario (Netlify Forms)
 
 1. Después del primer deploy, entrá a **Forms** en Netlify: tiene que aparecer el formulario **consulta**. Si no aparece, revisá en *Site configuration → Forms* que la detección de formularios esté activada y volvé a publicar.
-2. Para recibir cada consulta por email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, elegí el formulario `consulta` y poné el email.
+2. Para recibir cada consulta por email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, elegí el formulario `consulta` y poné **gmeringolo@gmail.com**.
 3. Si agregás un campo al formulario (`components/sections/Contacto.tsx`), agregalo también en `public/__forms.html`.
 
 ### Google Analytics 4
@@ -114,7 +116,7 @@ Si la función no existe o Supabase no responde, la sección muestra el precio e
 ## Checklist de lanzamiento
 
 - [ ] Ejecutar `supabase/disponibilidad.sql` en Supabase y probar una consulta con una reserva cargada.
-- [ ] Configurar el email de aviso de Netlify Forms y mandar un formulario de prueba.
+- [ ] Configurar el aviso de Netlify Forms a gmeringolo@gmail.com y mandar un formulario de prueba.
 - [ ] Probar los botones de WhatsApp desde un celular.
 - [ ] Cargar `NEXT_PUBLIC_GA_ID` y verificar en GA4 (*Informes → Tiempo real*) que llegan los eventos.
 - [ ] **Perfil de Empresa de Google:** verificar que la ficha esté reclamada; poner la web, el WhatsApp y fotos nuevas; responder todas las opiniones.
