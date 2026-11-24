@@ -55,7 +55,6 @@ export function LaZona() {
                 </li>
               ))}
             </ul>
-            <p className="border-t border-primary-100 py-2.5 text-xs text-muted">Tiempos en auto, aproximados.</p>
           </div>
         </div>
 

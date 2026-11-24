@@ -21,6 +21,7 @@ export const negocio = {
   url: "https://posadahorizonteuy.com",
   // Un único número para toda la web
   telefonoVisible: "096 269 002",
+  contacto: "Héctor Meringolo", // nombre que se muestra junto al teléfono
   telefonoInternacional: "+59896269002",
   whatsapp: "59896269002",
   direccion: "Av. 3 esq. Rambla",

@@ -1,9 +1,7 @@
 import { MapPin, Phone } from "lucide-react";
 import { enlaces, negocio } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
-import { AirbnbIcon, FacebookIcon, GoogleIcon, InstagramIcon, WhatsAppIcon } from "@/components/ui/IconosMarca";
-import { linkWhatsApp } from "@/lib/whatsapp";
-import { mensajeWhatsAppGeneral } from "@/data/site";
+import { AirbnbIcon, FacebookIcon, GoogleIcon, InstagramIcon } from "@/components/ui/IconosMarca";
 
 export function Footer() {
   const redes = [
@@ -11,7 +9,6 @@ export function Footer() {
     { href: enlaces.facebook, nombre: "Facebook", Icono: FacebookIcon },
     { href: enlaces.airbnb, nombre: "Airbnb", Icono: AirbnbIcon },
     { href: enlaces.googleMaps, nombre: "Google Maps", Icono: GoogleIcon },
-    { href: linkWhatsApp(mensajeWhatsAppGeneral), nombre: "WhatsApp", Icono: WhatsAppIcon },
   ].filter((r) => r.href);
   const anio = new Date().getFullYear();
 
@@ -20,10 +17,10 @@ export function Footer() {
       <div className="contenedor grid gap-10 md:grid-cols-3">
         <div>
           <a href="#inicio" aria-label="Volver al inicio">
-            <Logo variante="blanco" />
+            <Logo variante="blanco" tamano="grande" />
           </a>
           <p className="mt-4 max-w-xs text-sm text-white/70">
-            Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones. Abierto todo el año.
+            Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones.
           </p>
         </div>
         <div>
@@ -40,6 +37,7 @@ export function Footer() {
               <a href={`tel:${negocio.telefonoInternacional}`} className="hover:text-white hover:underline">
                 {negocio.telefonoVisible}
               </a>
+              <span className="text-white/60">({negocio.contacto})</span>
             </li>
           </ul>
         </div>

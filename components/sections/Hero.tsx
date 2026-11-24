@@ -1,6 +1,5 @@
-import { PawPrint, Star, Users, Waves } from "lucide-react";
+import { Images, PawPrint, Star, Users, Waves } from "lucide-react";
 import { calificaciones } from "@/data/site";
-import { LinkWhatsApp } from "@/components/ui/LinkWhatsApp";
 import { BotonLink } from "@/components/ui/Boton";
 
 function SelloConfianza() {
@@ -52,7 +51,9 @@ export function Hero() {
             <BotonLink href="#disponibilidad" variante="acento" tamano="lg">
               Ver disponibilidad
             </BotonLink>
-            <LinkWhatsApp ubicacion="hero" variante="contorno-claro" tamano="lg" />
+            <BotonLink href="#galeria" variante="contorno-claro" tamano="lg">
+              <Images className="size-5" aria-hidden="true" /> Ver galería
+            </BotonLink>
           </div>
           <SelloConfianza />
           <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-[0.95rem] font-semibold text-white">
