@@ -39,10 +39,10 @@ export function Hero() {
       <div className="contenedor">
         <div className="max-w-2xl">
           <p className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-[0.65rem] font-extrabold tracking-[0.15em] text-ink uppercase">
-            Bello Horizonte · Canelones
+            Alquiler temporal · Bello Horizonte
           </p>
           <h1 className="text-[2.6rem] leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-            Alquiler temporal de casas
+            Tu casa a media cuadra del mar
           </h1>
           <p className="mt-5 max-w-xl text-lg text-white/90 sm:text-xl">
             Cuatro casas totalmente equipadas para 4 personas con parrillero techado independiente.

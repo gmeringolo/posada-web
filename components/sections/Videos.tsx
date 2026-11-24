@@ -43,7 +43,7 @@ export function Videos() {
   return (
     <section id="videos" className="pantalla bg-primary-900" aria-labelledby="videos-titulo">
       <div className="contenedor">
-        <TituloSeccion id="videos-titulo" etiqueta="Video" titulo="Recorré la casa en video" claro compacto />
+        <TituloSeccion id="videos-titulo" etiqueta="Video" titulo="Recorré el interior de la casa Azul" claro compacto />
         {videos.map((v) => (
           <Video key={v.src} v={v} />
         ))}

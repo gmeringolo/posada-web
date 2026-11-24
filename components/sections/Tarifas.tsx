@@ -8,7 +8,6 @@ import {
   preciosFueraDeTemporada,
   promos,
   tarifas,
-  temporada,
   tiposDeCasa,
   type TipoCasa,
 } from "@/data/site";
@@ -104,7 +103,7 @@ export function Tarifas() {
       <div className="contenedor">
         <TituloSeccion
           id="tarifas-titulo"
-          etiqueta={temporada}
+          etiqueta="Tarifas"
           titulo="Tarifas temporada 2026–2027"
           intro="Precios por casa y por noche, para hasta 4 personas."
           compacto

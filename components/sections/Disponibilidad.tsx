@@ -408,7 +408,7 @@ export function Disponibilidad() {
         <TituloSeccion
           id="disp-titulo"
           etiqueta="Disponibilidad"
-          titulo="Consultá fechas y precio al instante"
+          titulo="Consultá fechas y precios"
           intro="Elegí tus fechas y te mostramos qué casas están libres y cuánto sale la estadía."
         />
 

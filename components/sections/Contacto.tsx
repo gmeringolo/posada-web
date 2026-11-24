@@ -293,7 +293,7 @@ export function Contacto() {
           id="contacto-titulo"
           etiqueta="Contacto"
           titulo="Consultá sin compromiso"
-          intro="Escribinos por WhatsApp o dejanos tus datos y te respondemos a la brevedad."
+          intro="Envianos tus datos y te respondemos a la brevedad."
         />
 
         <div className="grid gap-8 lg:grid-cols-2">

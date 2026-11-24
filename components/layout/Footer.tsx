@@ -23,16 +23,16 @@ export function Footer() {
             Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones.
           </p>
         </div>
-        <div className="md:justify-self-center md:text-center">
+        <div className="md:justify-self-center">
           <p className="mb-3 font-bold text-white">Contacto</p>
           <ul className="space-y-2.5 text-sm">
-            <li className="flex items-start gap-2.5 md:justify-center">
+            <li className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
               <a href={enlaces.googleMaps} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline">
                 {negocio.direccion}, {negocio.localidad}, {negocio.departamento}
               </a>
             </li>
-            <li className="flex items-center gap-2.5 md:justify-center">
+            <li className="flex items-center gap-2.5">
               <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
               <a href={`tel:${negocio.telefonoInternacional}`} className="hover:text-white hover:underline">
                 {negocio.telefonoVisible}

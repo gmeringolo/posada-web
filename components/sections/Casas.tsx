@@ -96,7 +96,7 @@ export function Casas() {
         <TituloSeccion
           id="casas-titulo"
           etiqueta="Las casas"
-          titulo="Casas en alquiler en Bello Horizonte"
+          titulo="Nuestras casas en alquiler"
           intro="Cuatro casas independientes, todas para hasta 4 personas. Las Roja, Azul y Verde son iguales por dentro; la Mostaza es la más amplia."
           compacto
         />
