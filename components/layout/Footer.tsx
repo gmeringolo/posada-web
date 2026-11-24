@@ -23,7 +23,7 @@ export function Footer() {
             Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones.
           </p>
         </div>
-        <div>
+        <div className="md:justify-self-center">
           <p className="mb-3 font-bold text-white">Contacto</p>
           <ul className="space-y-2.5 text-sm">
             <li className="flex items-start gap-2.5">
@@ -41,9 +41,9 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="md:justify-self-end md:text-right">
           <p className="mb-3 font-bold text-white">Seguinos</p>
-          <ul className="flex flex-wrap gap-2.5">
+          <ul className="flex flex-wrap gap-2.5 md:justify-end">
             {redes.map(({ href, nombre, Icono }) => (
               <li key={nombre}>
                 <a

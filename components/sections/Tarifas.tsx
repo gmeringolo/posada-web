@@ -195,7 +195,7 @@ export function PromosYCondiciones() {
                   </span>
                   <div>
                     <p className="font-bold text-primary-900">{a.titulo}</p>
-                    <p className="text-[0.95rem] text-muted">{a.texto}</p>
+                    <p className="text-[0.95rem] whitespace-pre-line text-muted">{a.texto}</p>
                   </div>
                 </li>
               ))}

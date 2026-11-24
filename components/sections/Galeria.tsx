@@ -95,7 +95,7 @@ export function Visor({ lista, indice, onCerrar, onCambiar }: { lista: Foto[]; i
 
 /** Fotos que se muestran en el mosaico cuando el filtro es "Todas" (las demás se ven en el visor). */
 const DESTACADAS = [
-  "/images/exterior/casas-colores.webp",
+  "/images/exterior/casa-azul-deck.webp",
   "/images/mostaza/barbacoa.webp",
   "/images/casas-1dorm/living-deck.webp",
   "/images/casas-1dorm/deck-mesa.webp",
@@ -187,7 +187,7 @@ export function Galeria() {
             onClick={() => abrir(lista[0])}
             className="inline-flex items-center gap-2 rounded-full bg-primary-600 px-6 py-3 font-bold text-white shadow-card transition hover:bg-primary-700"
           >
-            <Images className="size-5" aria-hidden="true" /> Ver las {lista.length} fotos
+            <Images className="size-5" aria-hidden="true" /> Ver más
           </button>
         </div>
       </div>

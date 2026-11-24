@@ -17,8 +17,8 @@ export function LaZona() {
           <div className="flex flex-col gap-4 lg:col-span-3">
             <div className="aparecer overflow-hidden rounded-3xl">
               <img
-                src="/images/exterior/casa-verde-jardin.webp"
-                alt="Jardín y casas de Posada Horizonte en Bello Horizonte"
+                src="/images/playa/bajada-playa.webp"
+                alt="Bajada de madera entre los médanos hacia la playa de Bello Horizonte"
                 loading="lazy"
                 className="h-[clamp(160px,28svh,360px)] w-full object-cover"
               />

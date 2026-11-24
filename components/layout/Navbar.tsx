@@ -7,10 +7,10 @@ import { Logo } from "@/components/ui/Logo";
 const LINKS = [
   { href: "#casas", texto: "Casas" },
   { href: "#galeria", texto: "Galería" },
-  { href: "#opiniones", texto: "Opiniones" },
   { href: "#tarifas", texto: "Tarifas" },
   { href: "#disponibilidad", texto: "Disponibilidad" },
   { href: "#zona", texto: "La zona" },
+  { href: "#opiniones", texto: "Opiniones" },
 ];
 
 export function Navbar({ conOpiniones }: { conOpiniones: boolean }) {

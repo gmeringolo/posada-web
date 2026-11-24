@@ -153,8 +153,8 @@ export const temporada = "Temporada verano 2026–2027";
 
 export const tarifas: Tarifa[] = [
   // Casas de 1 dormitorio
-  { tipo: "1dorm", nombre: "Diciembre", fechas: "1 al 22", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
-  { tipo: "1dorm", nombre: "Enero", fechas: "23/12 al 31/01", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
+  { tipo: "1dorm", nombre: "Diciembre", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
+  { tipo: "1dorm", nombre: "Enero", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
@@ -191,16 +191,16 @@ export const preciosFueraDeTemporada: { tipo: TipoCasa; detalle: string }[] = [
 /* ------------------------------------------------------------------ */
 
 export const antesDeReservar: { icono: string; titulo: string; texto: string }[] = [
-  { icono: "Clock", titulo: "Entrada y salida", texto: "Check-in a las 15 h · Check-out a las 12 h." },
+  { icono: "Clock", titulo: "Entrada y salida", texto: "Check-in a las 15 h\nCheck-out a las 12 h" },
   { icono: "Wallet", titulo: "Seña", texto: "Para confirmar la reserva pedimos una seña del 50 % del total." },
   {
     icono: "CalendarX",
     titulo: "Cancelación flexible",
-    texto: "Si cancelás hasta 5 días antes del check-in, te devolvemos la seña. Después de esa fecha, la seña no se devuelve.",
+    texto: "Si cancelás hasta 5 días antes del check-in, te devolvemos la seña.",
   },
   { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
   { icono: "Car", titulo: "Estacionamiento", texto: "En la entrada del complejo." },
-  { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas: traé las tuyas." },
+  { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas." },
 ];
 
 /* ------------------------------------------------------------------ */

@@ -26,16 +26,15 @@ export const filtrosGaleria: { id: "todas" | CategoriaFoto; nombre: string }[] =
 ];
 
 export const fotos: Foto[] = [
-  { src: "/images/exterior/casas-colores.webp", thumb: "/images/exterior/casas-colores-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casas contenedor roja, azul y verde con deck techado en Bello Horizonte" },
   { src: "/images/exterior/fila-casas.webp", thumb: "/images/exterior/fila-casas-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Las casas roja, azul y verde rodeadas de jardín en Bello Horizonte" },
   { src: "/images/exterior/casa-verde-deck.webp", thumb: "/images/exterior/casa-verde-deck-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casa verde con deck techado y flores en Bello Horizonte" },
   { src: "/images/exterior/casa-verde-jardin.webp", thumb: "/images/exterior/casa-verde-jardin-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casa verde y jardín con césped en Bello Horizonte" },
-  { src: "/images/exterior/casa-verde-lateral.webp", thumb: "/images/exterior/casa-verde-lateral-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Vista lateral de la casa verde en Bello Horizonte" },
   { src: "/images/exterior/casa-roja-deck.webp", thumb: "/images/exterior/casa-roja-deck-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casa roja con deck techado en Bello Horizonte" },
   { src: "/images/exterior/casa-azul.webp", thumb: "/images/exterior/casa-azul-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casa azul rodeada de vegetación en Bello Horizonte" },
   { src: "/images/exterior/casa-azul-deck.webp", thumb: "/images/exterior/casa-azul-deck-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Deck techado de la casa azul en Bello Horizonte" },
-  { src: "/images/exterior/atardecer.webp", thumb: "/images/exterior/atardecer-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Las casas al atardecer en Bello Horizonte" },
-  { src: "/images/exterior/casa-verde-tarde.webp", thumb: "/images/exterior/casa-verde-tarde-sm.webp", width: 1600, height: 1056, categoria: "exterior", ambiente: "exterior", alt: "Casa verde con la luz de la tarde en Bello Horizonte" },
+  { src: "/images/playa/bajada-playa.webp", thumb: "/images/playa/bajada-playa-sm.webp", width: 1072, height: 906, categoria: "exterior", ambiente: "playa", alt: "Bajada de madera entre los médanos hacia la playa" },
+  { src: "/images/playa/playa-orilla.webp", thumb: "/images/playa/playa-orilla-sm.webp", width: 1072, height: 906, categoria: "exterior", ambiente: "playa", alt: "Orilla de la playa de Bello Horizonte con el mar azul" },
+  { src: "/images/playa/playa-sombrilla.webp", thumb: "/images/playa/playa-sombrilla-sm.webp", width: 1072, height: 906, categoria: "exterior", ambiente: "playa", alt: "Sillas y sombrilla en la playa de Bello Horizonte" },
   { src: "/images/casas-1dorm/living-deck.webp", thumb: "/images/casas-1dorm/living-deck-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "living", alt: "Living con cama marinera y salida al deck" },
   { src: "/images/casas-1dorm/living.webp", thumb: "/images/casas-1dorm/living-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "living", alt: "Living y cocina integrada de una casa de 1 dormitorio" },
   { src: "/images/casas-1dorm/living-cocina.webp", thumb: "/images/casas-1dorm/living-cocina-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "living", alt: "Living con cama marinera y cocina" },
@@ -46,6 +45,7 @@ export const fotos: Foto[] = [
   { src: "/images/casas-1dorm/deck-mesa.webp", thumb: "/images/casas-1dorm/deck-mesa-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "deck", alt: "Deck techado con mesa y sillas" },
   { src: "/images/casas-1dorm/deck-picada.webp", thumb: "/images/casas-1dorm/deck-picada-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "deck", alt: "Mesa en el deck lista para comer afuera" },
   { src: "/images/casas-1dorm/deck-parrillero.webp", thumb: "/images/casas-1dorm/deck-parrillero-sm.webp", width: 1200, height: 1600, categoria: "1dorm", ambiente: "deck", alt: "Deck techado con parrillero" },
+  { src: "/images/casas-1dorm/plano-1dorm.webp", thumb: "/images/casas-1dorm/plano-1dorm-sm.webp", width: 1072, height: 906, categoria: "1dorm", ambiente: "living", alt: "Plano 3D de la casa de 1 dormitorio con el deck techado" },
   { src: "/images/mostaza/barbacoa.webp", thumb: "/images/mostaza/barbacoa-sm.webp", width: 1600, height: 1600, categoria: "mostaza", ambiente: "parrillero", alt: "Barbacoa vidriada con mesa para 6 en la casa Mostaza" },
   { src: "/images/mostaza/barbacoa-mesa.webp", thumb: "/images/mostaza/barbacoa-mesa-sm.webp", width: 1600, height: 1600, categoria: "mostaza", ambiente: "parrillero", alt: "Mesa de madera y sillas de mimbre en la barbacoa" },
   { src: "/images/mostaza/barbacoa-ventanales.webp", thumb: "/images/mostaza/barbacoa-ventanales-sm.webp", width: 1600, height: 1600, categoria: "mostaza", ambiente: "parrillero", alt: "Barbacoa con ventanales al jardín" },

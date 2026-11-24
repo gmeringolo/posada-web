@@ -32,13 +32,13 @@ export default function Home() {
         <IdealPara />
         <Galeria />
         <Videos />
-        <Opiniones />
         <Tarifas />
         <PromosYCondiciones />
         <Disponibilidad />
         <LaZona />
         <PreguntasFrecuentes />
         <Contacto />
+        <Opiniones />
       </main>
       <Footer />
       <BotonWhatsAppFlotante />
