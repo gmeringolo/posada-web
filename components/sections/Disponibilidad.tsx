@@ -177,6 +177,7 @@ function FormularioReserva({
   onCerrar: () => void;
 }) {
   const [envio, setEnvio] = useState<Envio>("inicial");
+  const [respaldo, setRespaldo] = useState("");
   const [adultos, setAdultos] = useState(Math.max(1, personas));
   const [menores, setMenores] = useState(0);
   const n = contarNoches(entrada, salida);
@@ -195,7 +196,24 @@ function FormularioReserva({
       await enviarFormularioNetlify(form);
       setEnvio("ok");
       trackEvent("reserva_submit", { tipo, noches: n, personas: adultos + menores });
-    } catch {
+    } catch (err) {
+      console.warn("[reserva]", err);
+      // Si no se pudo enviar, armamos el mismo pedido para mandarlo por WhatsApp
+      const d = new FormData(form);
+      const v = (k: string) => String(d.get(k) ?? "").trim();
+      setRespaldo(
+        [
+          "Hola! Quiero hacer una consulta de reserva.",
+          `Casa: ${casa}`,
+          `Entrada: ${formatoCorto(entrada)} · Salida: ${formatoCorto(salida)} (${n} noches)`,
+          `Nombre: ${v("nombre")} · Teléfono: ${v("telefono")}`,
+          `Adultos: ${v("adultos")} · Menores: ${v("menores")} · Mascotas: ${v("mascotas")}`,
+          ok ? `Total: ${formatoPrecio(ok.total, ok.moneda)}` : "",
+          v("mensaje") ? `Mensaje: ${v("mensaje")}` : "",
+        ]
+          .filter(Boolean)
+          .join("\n"),
+      );
       setEnvio("error");
     }
   }
@@ -205,8 +223,14 @@ function FormularioReserva({
       <div className="grid place-items-center rounded-3xl bg-white p-6 text-center shadow-card ring-1 ring-primary-100/70" role="status">
         <div>
           <CircleCheck className="mx-auto size-14 text-green-600" aria-hidden="true" />
-          <p className="mt-4 font-display text-2xl text-primary-900">¡Recibimos tu pedido de reserva!</p>
-          <p className="mt-2 text-muted">Te contactamos a la brevedad para confirmarla y coordinar la seña.</p>
+          <p className="mt-4 font-display text-2xl text-primary-900">¡Recibimos tu consulta de reserva!</p>
+          <div className="mt-4 rounded-2xl bg-accent-soft p-4 text-left text-sm text-primary-900">
+            <p className="font-bold">Todavía no es una reserva confirmada.</p>
+            <p className="mt-1">
+              Es una consulta: la disponibilidad que muestra la web es orientativa. A la brevedad te escribimos por WhatsApp para
+              confirmarte que la casa quedó reservada y coordinar la seña del 50 %.
+            </p>
+          </div>
           <button type="button" className="mt-6 font-bold text-primary-600 underline" onClick={onCerrar}>
             Volver
           </button>
@@ -242,7 +266,7 @@ function FormularioReserva({
 
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl sm:text-2xl">Reservar</h3>
+          <h3 className="text-xl sm:text-2xl">Consulta de reserva</h3>
           <p className="mt-0.5 text-sm font-semibold text-muted">
             {tiposDeCasa[tipo].titulo} · {formatoCorto(entrada).slice(0, 5)} al {formatoCorto(salida).slice(0, 5)} · {n} noches
           </p>
@@ -310,9 +334,14 @@ function FormularioReserva({
         <input id="r-mensaje" name="mensaje" className="campo" placeholder="Algo que quieras contarnos (opcional)" />
       </div>
       {envio === "error" && (
-        <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
-          No pudimos enviar tu pedido. Probá de nuevo o escribinos por WhatsApp.
-        </p>
+        <div role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
+          <p>No pudimos enviar tu consulta. Mandala por WhatsApp con un toque: ya va con todos tus datos.</p>
+          {respaldo && (
+            <LinkWhatsApp ubicacion="reserva-respaldo" mensaje={respaldo} tamano="sm" className="mt-2.5 w-full">
+              Enviar por WhatsApp
+            </LinkWhatsApp>
+          )}
+        </div>
       )}
       <button
         type="submit"
@@ -325,15 +354,13 @@ function FormularioReserva({
           </>
         ) : (
           <>
-            <Send className="size-5" aria-hidden="true" /> Enviar pedido de reserva
+            <Send className="size-5" aria-hidden="true" /> Enviar consulta de reserva
           </>
         )}
       </button>
-      {ok && (
-        <p className="mt-2 text-center text-xs text-muted">
-          Total {formatoPrecio(ok.total, ok.moneda)} · seña del 50 % para confirmar
-        </p>
-      )}
+      <p className="mt-2 text-center text-xs text-muted">
+        {ok && <>Total {formatoPrecio(ok.total, ok.moneda)} · </>}Es una consulta: te confirmamos la reserva por WhatsApp.
+      </p>
     </form>
   );
 }
@@ -510,9 +537,6 @@ export function Disponibilidad() {
           </div>
         )}
 
-        <p className="mt-6 text-center text-sm font-semibold text-primary-800">
-          La disponibilidad es orientativa. Confirmamos tu reserva por WhatsApp.
-        </p>
       </div>
     </section>
   );

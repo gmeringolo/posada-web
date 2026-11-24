@@ -159,10 +159,10 @@ export function PromosYCondiciones() {
           )}
 
           <div className="aparecer rounded-3xl bg-primary-900 p-6 text-white shadow-card sm:p-8">
-            <p className="text-sm font-bold tracking-[0.15em] text-accent uppercase">Fuera de temporada</p>
+            <p className="text-sm font-bold tracking-[0.15em] text-accent uppercase">Fuera de temporada · marzo a noviembre</p>
             <h3 className="mt-2 text-2xl text-white sm:text-3xl">Abiertos todo el año</h3>
             <p className="mt-3 text-white/85">
-              ¿Una semana, un mes o una estadía larga para teletrabajar? Consultanos y te pasamos el precio para tus fechas.
+              Precios por casa y por noche, para hasta 4 personas. ¿Una estadía larga para teletrabajar? Consultanos.
             </p>
             {preciosFueraDeTemporada.length > 0 && (
               <ul className="mt-4 space-y-1.5">

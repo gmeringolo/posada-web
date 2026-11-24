@@ -179,9 +179,10 @@ export const promos: Promo[] = [
   },
 ];
 
-/** Precios fuera de temporada (abril a noviembre). Vacío = solo se muestra "Consultá". */
+/** Precios fuera de temporada (marzo a noviembre). Vacío = solo se muestra "Consultá". */
 export const preciosFueraDeTemporada: { tipo: TipoCasa; detalle: string }[] = [
-  // Ejemplo: { tipo: "1dorm", detalle: "US$ 300 por semana" },
+  { tipo: "1dorm", detalle: "US$ 50 por noche (mínimo 2 noches)" },
+  { tipo: "mostaza", detalle: "US$ 80 por noche (mínimo 15 noches)" },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -300,7 +301,7 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
   {
     pregunta: "¿Alquilan fuera de temporada?",
     respuesta:
-      "Sí, estamos abiertos todo el año. De abril a noviembre, en las casas de 1 dormitorio, el fin de semana (viernes a domingo) sale $ 4.500. Para otras fechas o estadías más largas, consultanos por WhatsApp.",
+      "Sí, estamos abiertos todo el año. De marzo a noviembre las casas de 1 dormitorio salen US$ 50 la noche (mínimo 2 noches) y la casa Mostaza US$ 80 la noche (mínimo 15 noches). Además, de abril a noviembre el fin de semana de viernes a domingo en las casas de 1 dormitorio sale $ 4.500. Para estadías largas, consultanos por WhatsApp.",
   },
   { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
   {
