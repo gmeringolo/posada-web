@@ -145,7 +145,10 @@ export function PromosYCondiciones() {
                 <p className="mt-1.5 text-xs font-bold">Marzo a noviembre</p>
                 <p className="mt-3 text-lg font-bold">Viernes a domingo · {promo.noches} noches</p>
                 <p className="text-5xl font-extrabold">{formatoPrecio(promo.precioTotal, promo.moneda)}</p>
-                <p className="mt-1 text-sm font-semibold">Válido para casas de 1 dormitorio. Con late check-out sujeto a disponibilidad.</p>
+                <p className="mt-1 text-sm font-semibold">Válido para casas de 1 dormitorio.
+                  <br />
+                  Con late check-out sujeto a disponibilidad.
+                </p>
                 <LinkWhatsApp
                   ubicacion="tarifas-promo"
                   mensaje={`Hola! Quiero consultar por la ${promo.nombre} (viernes a domingo, ${promo.noches} noches). Fechas: …`}

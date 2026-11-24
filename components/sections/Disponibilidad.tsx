@@ -1,7 +1,7 @@
 "use client";
 
 import { AlertCircle, ArrowLeft, CalendarSearch, CircleCheck, CircleX, Info, LoaderCircle, Send } from "lucide-react";
-import { useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { enviarFormularioNetlify, MENSAJE_ERROR_ENVIO } from "@/lib/formularios";
@@ -177,6 +177,11 @@ function FormularioReserva({
   onCerrar: () => void;
 }) {
   const [envio, setEnvio] = useState<Envio>("inicial");
+  const exito = useRef<HTMLDivElement>(null);
+  // Al enviar, llevamos el mensaje de éxito al centro de la pantalla (sobre todo en celular)
+  useEffect(() => {
+    if (envio === "ok") exito.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [envio]);
   const [adultos, setAdultos] = useState(Math.max(1, personas));
   const [menores, setMenores] = useState(0);
   const n = contarNoches(entrada, salida);
@@ -203,15 +208,15 @@ function FormularioReserva({
 
   if (envio === "ok")
     return (
-      <div className="grid place-items-center rounded-3xl bg-white p-6 text-center shadow-card ring-1 ring-primary-100/70" role="status">
+      <div ref={exito} className="grid place-items-center rounded-3xl bg-white p-6 text-center shadow-card ring-1 ring-primary-100/70" role="status">
         <div>
           <CircleCheck className="mx-auto size-14 text-green-600" aria-hidden="true" />
           <p className="mt-4 font-display text-2xl text-primary-900">¡Recibimos tu consulta de reserva!</p>
-          <div className="mt-4 rounded-2xl bg-accent-soft p-4 text-left text-sm text-primary-900">
+          <div className="mt-4 rounded-2xl bg-accent-soft p-4 text-sm text-primary-900">
             <p className="font-bold">Todavía no es una reserva confirmada.</p>
-            <p className="mt-1">
-              Es una consulta: la disponibilidad que muestra la web es orientativa. A la brevedad te escribimos por WhatsApp para
-              confirmarte que la casa quedó reservada y coordinar la seña del 50 %.
+            <p className="mt-2">
+              La disponibilidad que muestra la web es orientativa. A la brevedad te escribimos por WhatsApp para confirmarte la
+              reserva y para coordinar la seña del 50 %.
             </p>
           </div>
           <button type="button" className="mt-6 font-bold text-primary-600 underline" onClick={onCerrar}>
@@ -268,7 +273,7 @@ function FormularioReserva({
         </div>
         <div>
           <label htmlFor="r-tel" className="etiqueta">
-            Teléfono / WhatsApp *
+            Teléfono *
           </label>
           <input id="r-tel" name="telefono" type="tel" required autoComplete="tel" className="campo" placeholder="099 123 456" />
         </div>

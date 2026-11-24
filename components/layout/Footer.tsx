@@ -13,7 +13,7 @@ export function Footer() {
   const anio = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-950 pt-14 pb-6 text-white/85">
+    <footer className="bg-primary-950 pt-14 pb-16 text-white/85 sm:pb-6">
       <div className="contenedor grid gap-10 md:grid-cols-3">
         <div>
           <a href="#inicio" aria-label="Volver al inicio">
@@ -66,8 +66,10 @@ export function Footer() {
         </div>
       </div>
       <div className="contenedor mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/60 sm:flex-row">
-        <p>
-          © {anio} {negocio.nombre} · Diseño y desarrollo: Gianella Meringolo
+        <p className="text-center sm:text-left">
+          <span className="block sm:inline">© {anio} {negocio.nombre}, todos los derechos reservados.</span>
+          <span className="hidden sm:inline"> · </span>
+          <span className="mt-1 block sm:mt-0 sm:inline">Diseño y desarrollo: Gianella Meringolo</span>
         </p>
       </div>
     </footer>

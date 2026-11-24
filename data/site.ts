@@ -163,7 +163,7 @@ export const tarifas: Tarifa[] = [
   { tipo: "mostaza", nombre: "Fin de año", desde: "12-23", hasta: "12-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, oculta: true },
   { tipo: "mostaza", nombre: "Enero", desde: "01-01", hasta: "01-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
   { tipo: "mostaza", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 90, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
-  { tipo: "mostaza", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 80, moneda: "USD", minimoNoches: 15, oculta: true }, // temporada baja: solo se anuncian las de 1 dormitorio
+  { tipo: "mostaza", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 80, moneda: "USD", minimoNoches: 15 },
 ];
 
 /** Estadía mínima (en noches) de cada tipo de casa. */
@@ -306,7 +306,7 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
   {
     pregunta: "¿Alquilan fuera de temporada?",
     respuesta:
-      "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale $ 2.000 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad.",
+      "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale $ 2.000 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad. La casa Mostaza sale US$ 80 la noche (mínimo 15 noches).",
   },
   { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
   {

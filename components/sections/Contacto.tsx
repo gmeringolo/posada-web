@@ -49,6 +49,11 @@ function MapaGoogle() {
 function Formulario() {
   const { consulta } = useEstado();
   const [envio, setEnvio] = useState<Envio>("inicial");
+  const exito = useRef<HTMLDivElement>(null);
+  // Al enviar, el formulario se achica: llevamos el mensaje de éxito al centro de la pantalla
+  useEffect(() => {
+    if (envio === "ok") exito.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [envio]);
   // Valores iniciales: lo que venga precargado desde Disponibilidad
   const [entrada, setEntrada] = useState(consulta.entrada ?? "");
   const [salida, setSalida] = useState(consulta.salida ?? "");
@@ -83,6 +88,7 @@ function Formulario() {
     <div className="h-full rounded-3xl bg-sand p-5 ring-1 ring-primary-100/70 sm:p-8">
       {envio === "ok" ? (
         <div
+          ref={exito}
           className="grid h-full min-h-80 place-items-center text-center"
           role="status"
         >
@@ -124,7 +130,7 @@ function Formulario() {
           </p>
           <div className="sm:col-span-2 lg:col-span-1">
             <label htmlFor="c-nombre" className="etiqueta">
-              Nombre *
+              Nombre y apellido *
             </label>
             <input
               id="c-nombre"
@@ -137,12 +143,13 @@ function Formulario() {
           </div>
           <div>
             <label htmlFor="c-tel" className="etiqueta">
-              Teléfono / WhatsApp
+              Teléfono *
             </label>
             <input
               id="c-tel"
               name="telefono"
               type="tel"
+              required
               autoComplete="tel"
               className="campo"
               placeholder="099 123 456"
@@ -150,13 +157,12 @@ function Formulario() {
           </div>
           <div className="lg:col-span-2">
             <label htmlFor="c-email" className="etiqueta">
-              Email *
+              Email
             </label>
             <input
               id="c-email"
               name="email"
               type="email"
-              required
               autoComplete="email"
               className="campo"
               placeholder="tu@email.com"

@@ -23,7 +23,9 @@ export function PreguntasFrecuentes() {
         </div>
         <div className="mt-10 text-center">
           <p className="mb-4 font-semibold text-primary-900">¿Tenés otra pregunta?</p>
-          <LinkWhatsApp ubicacion="preguntas" mensaje="Hola! Tengo una consulta: " />
+          <LinkWhatsApp ubicacion="preguntas" mensaje="Hola! Tengo una consulta: ">
+            Consultar
+          </LinkWhatsApp>
         </div>
       </div>
     </section>
