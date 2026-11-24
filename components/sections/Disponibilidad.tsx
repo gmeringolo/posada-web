@@ -219,7 +219,7 @@ function TarjetaResultado({
                 salida,
                 personas,
                 tipo,
-                casa: tipo === "mostaza" ? "Mostaza" : "Indistinta",
+                casa: tipo === "mostaza" ? "2 dormitorios" : "1 dormitorio",
                 precio: precio.estado === "ok" ? formatoPrecio(precio.total, precio.moneda) : "",
               });
               irA("contacto");

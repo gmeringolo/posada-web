@@ -100,13 +100,13 @@ export const tiposDeCasa: Record<
   },
   mostaza: {
     titulo: "Casa Mostaza",
-    subtitulo: "La más amplia, con barbacoa vidriada",
+    subtitulo: "La más amplia, con barbacoa cerrada",
     resumen: ["2 dormitorios", "Hasta 4 personas", "Estadía mínima 15 noches"],
     camas: ["Dormitorio 1: cama de 2 plazas", "Dormitorio 2: cama marinera"],
     descripcion:
-      "Living con biblioteca, cocina equipada y una barbacoa vidriada con parrillero y mesa para 6, rodeada de verde.",
+      "Living con biblioteca, cocina equipada y una barbacoa cerrada con parrillero y mesa para 6, rodeada de verde.",
     foto: "/images/mostaza/barbacoa-sm.webp",
-    fotoAlt: "Barbacoa vidriada con mesa de madera en la casa Mostaza",
+    fotoAlt: "Barbacoa cerrada con mesa de madera en la casa Mostaza",
   },
 };
 
@@ -137,8 +137,8 @@ export const notaRopaBlanca = "No incluyen sábanas ni toallas.";
 export const idealPara: { icono: string; titulo: string; texto: string }[] = [
   { icono: "Users", titulo: "Familias", texto: "Casas independientes, parrillero propio y la playa a media cuadra." },
   { icono: "PawPrint", titulo: "Con mascotas", texto: "Las mascotas son parte de la familia: nos encanta que las traigan." },
-  { icono: "Sun", titulo: "Escapadas de fin de semana", texto: "De abril a noviembre, viernes a domingo a precio especial." },
-  { icono: "Laptop", titulo: "Teletrabajo y estadías largas", texto: "Wi-Fi, tranquilidad y abiertos todo el año." },
+  { icono: "Sun", titulo: "Escapadas de fin de semana", texto: "Precio especial para fines de semana en temporada baja." },
+  { icono: "Laptop", titulo: "Teletrabajo", texto: "Wi-Fi y tranquilidad todo el año." },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -239,14 +239,6 @@ export const opiniones: Opinion[] = [
     texto:
       "Muy lindo lugar, si buscás tranquilidad es el lugar ideal para descansar, cerquita del mar, súper recomendable",
   },
-  {
-    nombre: "Bernardo H.",
-    plataforma: "google",
-    estrellas: 4,
-    fecha: "2018",
-    texto:
-      "El lugar es acogedor, las instalaciones son correctas. Hay buena sombra para los vehículos. Corre buen aire. El parrillero es cómodo, amplio. A 50 mts de la playa. Precio acorde. Muy recomendable.",
-  },
 ];
 
 /** Calificación promedio por plataforma. `promedio: 0` = no se muestra. */
@@ -262,7 +254,7 @@ export const calificaciones: Record<"google" | "airbnb", { promedio: number; can
 export const zona = {
   intro:
     "Bello Horizonte es un balneario tranquilo de la Costa de Oro, sobre la Ruta Interbalnearia. Calles arboladas, playas amplias y silencio: ideal para descansar a menos de una hora de Montevideo.",
-  // Distancias aproximadas en auto. TODO confirmar Atlántida, aeropuerto, Montevideo y Punta del Este. Almacén vacío = no se muestra.
+  // Distancias aproximadas en auto. TODO confirmar Atlántida, aeropuerto y Montevideo. Almacén vacío = no se muestra.
   distancias: [
     { icono: "Waves", lugar: "Playa", distancia: "Media cuadra" },
     { icono: "ShoppingBasket", lugar: "Almacén", distancia: "" },
@@ -270,7 +262,6 @@ export const zona = {
     { icono: "MapPin", lugar: "Atlántida", distancia: "≈ 15 min" },
     { icono: "Plane", lugar: "Aeropuerto de Carrasco", distancia: "≈ 35 min" },
     { icono: "Building2", lugar: "Montevideo", distancia: "≈ 1 h" },
-    { icono: "Palmtree", lugar: "Punta del Este", distancia: "≈ 1 h 10 min" },
   ],
   // Qué hacer cerca (vacío = no se muestra). TODO confirmar con la posada.
   queHacer: [] as { titulo: string; texto: string; foto?: string }[],

@@ -1,8 +1,7 @@
 "use client";
 
-import { Bus, Car, Navigation } from "lucide-react";
-import { enlaces, zona } from "@/data/site";
-import { trackEvent } from "@/lib/analytics";
+import { Bus, Car } from "lucide-react";
+import { zona } from "@/data/site";
 import { Icono } from "@/components/ui/Icono";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
 
@@ -57,15 +56,6 @@ export function LaZona() {
               ))}
             </ul>
             <p className="mt-2 text-xs text-muted">Tiempos en auto, aproximados.</p>
-            <a
-              href={enlaces.comoLlegar}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("directions_click", { ubicacion: "zona" })}
-              className="mt-4 inline-flex items-center justify-center gap-2 self-start rounded-full bg-accent px-5 py-3 font-bold text-ink hover:bg-accent-hover"
-            >
-              <Navigation className="size-5" aria-hidden="true" /> Cómo llegar en Google Maps
-            </a>
           </div>
         </div>
 

@@ -13,9 +13,9 @@ export function BotonWhatsAppFlotante() {
       rel="noopener noreferrer"
       aria-label="Consultar por WhatsApp"
       onClick={() => trackEvent("whatsapp_click", { ubicacion: "flotante" })}
-      className="latido fixed right-4 bottom-4 z-40 grid size-14 place-items-center rounded-full bg-whatsapp text-white shadow-soft transition hover:scale-105 sm:right-6 sm:bottom-6 sm:size-16"
+      className="fixed right-4 bottom-4 z-40 grid size-12 place-items-center rounded-full border-2 border-white bg-whatsapp text-white shadow-soft sm:right-6 sm:bottom-6"
     >
-      <WhatsAppIcon className="size-8 sm:size-9" color="white" />
+      <WhatsAppIcon className="size-6" color="white" />
     </a>
   );
 }

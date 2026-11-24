@@ -1,11 +1,10 @@
 "use client";
 
-import { CircleCheck, LoaderCircle, MapPin, Navigation, Phone, Send } from "lucide-react";
+import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { enlaces, negocio } from "@/data/site";
+import { enlaces } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
-import { LinkWhatsApp } from "@/components/ui/LinkWhatsApp";
 import { useEstado } from "@/components/layout/Estado";
 
 type Envio = "inicial" | "enviando" | "ok" | "error";
@@ -22,7 +21,7 @@ function MapaGoogle() {
     return () => io.disconnect();
   }, []);
   return (
-    <div ref={ref} className="h-[320px] overflow-hidden rounded-2xl bg-primary-50 ring-1 ring-primary-100 sm:h-[360px]">
+    <div ref={ref} className="h-[320px] overflow-hidden rounded-3xl bg-primary-50 ring-1 ring-primary-100 sm:h-[360px] lg:h-full">
       {visible && (
         <iframe
           src={enlaces.mapaEmbed}
@@ -44,7 +43,7 @@ function Formulario() {
   const [entrada, setEntrada] = useState(consulta.entrada ?? "");
   const [salida, setSalida] = useState(consulta.salida ?? "");
   const [personas, setPersonas] = useState(String(consulta.personas ?? 2));
-  const [casa, setCasa] = useState(consulta.casa ?? "Indistinta");
+  const [casa, setCasa] = useState(consulta.casa ?? "1 dormitorio");
   const [mensaje, setMensaje] = useState(
     consulta.precio ? `Hola! Vi en la web un precio estimado de ${consulta.precio}. Quiero confirmar la disponibilidad.` : "",
   );
@@ -69,13 +68,14 @@ function Formulario() {
       setEntrada("");
       setSalida("");
       setMensaje("");
+      setCasa("1 dormitorio");
     } catch {
       setEnvio("error");
     }
   }
 
   return (
-          <div className="rounded-3xl bg-sand p-5 ring-1 ring-primary-100/70 sm:p-8">
+          <div className="h-full rounded-3xl bg-sand p-5 ring-1 ring-primary-100/70 sm:p-8">
             {envio === "ok" ? (
               <div className="grid h-full min-h-80 place-items-center text-center" role="status">
                 <div>
@@ -150,22 +150,22 @@ function Formulario() {
                     ))}
                   </select>
                 </div>
-                <div>
-                  <label htmlFor="c-casa" className="etiqueta">
-                    Casa de preferencia
-                  </label>
-                  <select id="c-casa" name="casa" className="campo" value={casa} onChange={(e) => setCasa(e.target.value)}>
-                    {["Indistinta", "Roja", "Azul", "Verde", "Mostaza"].map((c) => (
-                      <option key={c}>{c}</option>
-                    ))}
-                  </select>
-                </div>
                 <fieldset className="sm:col-span-2">
-                  <legend className="etiqueta">¿Viajás con mascota?</legend>
-                  <div className="flex gap-3">
-                    {["No", "Sí"].map((v) => (
-                      <label key={v} className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-4 py-2.5 ring-1 ring-primary-100 has-checked:ring-2 has-checked:ring-primary-500">
-                        <input type="radio" name="mascota" value={v} defaultChecked={v === "No"} className="accent-primary-600" />
+                  <legend className="etiqueta">Casa de preferencia</legend>
+                  <div className="flex flex-wrap gap-3">
+                    {["1 dormitorio", "2 dormitorios"].map((v) => (
+                      <label
+                        key={v}
+                        className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-4 py-2.5 ring-1 ring-primary-100 has-checked:ring-2 has-checked:ring-primary-500"
+                      >
+                        <input
+                          type="radio"
+                          name="casa"
+                          value={v}
+                          checked={casa === v}
+                          onChange={() => setCasa(v)}
+                          className="accent-primary-600"
+                        />
                         {v}
                       </label>
                     ))}
@@ -229,37 +229,9 @@ export function Contacto() {
           {/* Formulario (se vuelve a montar al precargar datos) */}
           <Formulario key={versionFormulario} />
 
-          {/* Datos, WhatsApp y mapa */}
-          <div className="aparecer flex flex-col gap-5">
-            <div className="rounded-3xl bg-primary-900 p-6 text-white sm:p-8">
-              <p className="text-lg font-bold">La forma más rápida de consultar</p>
-              <p className="mt-1 text-white/80">Escribinos y te respondemos a la brevedad.</p>
-              <LinkWhatsApp ubicacion="contacto" tamano="lg" className="mt-5 w-full sm:w-auto">
-                Escribinos al {negocio.telefonoVisible}
-              </LinkWhatsApp>
-              <ul className="mt-6 space-y-3 text-white/90">
-                <li className="flex items-center gap-3">
-                  <MapPin className="size-5 shrink-0 text-accent" aria-hidden="true" />
-                  {negocio.direccion}, {negocio.localidad}, {negocio.departamento}
-                </li>
-                <li className="flex items-center gap-3">
-                  <Phone className="size-5 shrink-0 text-accent" aria-hidden="true" />
-                  <a href={`tel:${negocio.telefonoInternacional}`} className="hover:underline">
-                    {negocio.telefonoVisible}
-                  </a>
-                </li>
-              </ul>
-            </div>
+          {/* Mapa: ocupa la misma altura que el formulario */}
+          <div className="aparecer">
             <MapaGoogle />
-            <a
-              href={enlaces.comoLlegar}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => trackEvent("directions_click", { ubicacion: "contacto" })}
-              className="inline-flex items-center justify-center gap-2 self-start rounded-full border-2 border-primary-600 px-5 py-2.5 font-bold text-primary-700 transition hover:bg-primary-600 hover:text-white"
-            >
-              <Navigation className="size-5" aria-hidden="true" /> Cómo llegar
-            </a>
           </div>
         </div>
       </div>

@@ -43,10 +43,10 @@ export function Hero() {
             Bello Horizonte · Canelones
           </p>
           <h1 className="text-[2.6rem] leading-[1.05] text-white sm:text-6xl lg:text-7xl">
-            Casas totalmente equipadas a media cuadra de la playa
+            Alquiler temporal de casas
           </h1>
           <p className="mt-5 max-w-xl text-lg text-white/90 sm:text-xl">
-            Cuatro casas independientes para hasta 4 personas, con parrillero propio y lugar para tu mascota. Abierto todo el año.
+            Cuatro casas totalmente equipadas para 4 personas con parrillero techado independiente.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <BotonLink href="#disponibilidad" variante="acento" tamano="lg">

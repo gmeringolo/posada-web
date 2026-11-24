@@ -67,9 +67,6 @@ export function Footer() {
         <p>
           © {anio} {negocio.nombre} · Diseño y desarrollo: Gianella Meringolo
         </p>
-        <a href={enlaces.appReservas} className="hover:text-white/90 hover:underline" rel="nofollow">
-          Ingreso posada
-        </a>
       </div>
     </footer>
   );

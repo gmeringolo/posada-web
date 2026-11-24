@@ -145,16 +145,3 @@
   }
 }
 
-@keyframes latido {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgb(37 211 102 / 0.45);
-  }
-  50% {
-    box-shadow: 0 0 0 12px rgb(37 211 102 / 0);
-  }
-}
-
-.latido {
-  animation: latido 2.6s ease-in-out infinite;
-}
