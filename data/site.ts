@@ -154,15 +154,16 @@ export const tarifas: Tarifa[] = [
   // Casas de 1 dormitorio
   { tipo: "1dorm", nombre: "Diciembre", fechas: "1 al 22", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
   { tipo: "1dorm", nombre: "Fin de año y enero", fechas: "23/12 al 31/01", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
-  { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD" },
+  { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Marzo", desde: "03-01", hasta: "03-31", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
   { tipo: "mostaza", nombre: "Enero", desde: "01-01", hasta: "01-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
-  { tipo: "mostaza", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 90, moneda: "USD", minimoNoches: 15 },
+  { tipo: "mostaza", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 90, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
   { tipo: "mostaza", nombre: "Marzo", desde: "03-01", hasta: "03-31", precioNoche: 80, moneda: "USD", minimoNoches: 15 },
 ];
 
-export const minimoNochesMostaza = 15;
+/** Estadía mínima (en noches) de cada tipo de casa. */
+export const minimoNoches: Record<TipoCasa, number> = { "1dorm": 2, mostaza: 15 };
 
 export const promos: Promo[] = [
   // Fin de semana de viernes a domingo, del 1 de abril al 30 de noviembre

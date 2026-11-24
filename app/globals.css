@@ -89,17 +89,17 @@
   }
 
   .seccion {
-    @apply py-20 sm:py-28;
+    @apply pt-12 pb-20 sm:pt-16 sm:pb-28;
   }
 
-  /* Secciones con imágenes: ocupan el alto de la pantalla, como la portada.
+  /* Secciones con imágenes: margen superior reducido.
      El espacio de arriba deja lugar al menú fijo (72 px). */
   .pantalla {
-    @apply flex min-h-svh flex-col justify-center pt-[calc(72px+1.25rem)] pb-8 sm:pt-[calc(72px+1.75rem)] sm:pb-10;
+    @apply flex flex-col pt-[calc(72px+0.5rem)] pb-8 sm:pt-[calc(72px+0.75rem)] sm:pb-10;
   }
   @media (max-height: 820px) {
     .pantalla {
-      padding-top: calc(72px + 1rem);
+      padding-top: calc(72px + 0.25rem);
       padding-bottom: 1.5rem;
     }
   }

@@ -42,9 +42,9 @@ export function LaZona() {
           </div>
 
           {/* Distancias */}
-          <div className="flex flex-col lg:col-span-2">
-            <h3 className="mb-3 text-2xl">Distancias</h3>
-            <ul className="divide-y divide-primary-100 rounded-3xl bg-sand px-5 ring-1 ring-primary-100/70">
+          <div className="flex flex-col rounded-3xl bg-sand px-5 py-2 ring-1 ring-primary-100/70 lg:col-span-2">
+            <h3 className="sr-only">Distancias</h3>
+            <ul className="flex flex-1 flex-col justify-around divide-y divide-primary-100">
               {distancias.map((d) => (
                 <li key={d.lugar} className="flex items-center gap-3 py-2.5 [@media(max-height:820px)]:py-2">
                   <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white text-primary-600 shadow-sm">
@@ -55,7 +55,7 @@ export function LaZona() {
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-xs text-muted">Tiempos en auto, aproximados.</p>
+            <p className="border-t border-primary-100 py-2.5 text-xs text-muted">Tiempos en auto, aproximados.</p>
           </div>
         </div>
 

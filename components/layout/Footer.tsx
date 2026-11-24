@@ -16,7 +16,7 @@ export function Footer() {
   const anio = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-950 pt-14 pb-24 text-white/85 sm:pb-14">
+    <footer className="bg-primary-950 pt-14 pb-6 text-white/85">
       <div className="contenedor grid gap-10 md:grid-cols-3">
         <div>
           <a href="#inicio" aria-label="Volver al inicio">

@@ -2,7 +2,7 @@
 
 import { AlertCircle, CalendarSearch, ChevronLeft, ChevronRight, CircleCheck, CircleX, Info, LoaderCircle } from "lucide-react";
 import { useEffect, useMemo, useState, useSyncExternalStore, type FormEvent } from "react";
-import { casas, minimoNochesMostaza, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
+import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import {
   casasLibres,
@@ -126,7 +126,8 @@ function TarjetaResultado({
   const precio = calcularPrecio(tipo, entrada, salida, tarifas, promos);
   const total = tipo === "1dorm" ? 3 : 1;
   const libres = carga === "ok" ? casasLibres(tipo, entrada, salida, reservas) : [];
-  const bajoMinimo = tipo === "mostaza" && n < minimoNochesMostaza;
+  const minimo = minimoNoches[tipo];
+  const bajoMinimo = n < minimo;
   const hayLugar = carga === "ok" && libres.length > 0 && !bajoMinimo;
   const sugerencias =
     carga === "ok" && !bajoMinimo && libres.length === 0 ? fechasLibresCercanas(tipo, entrada, n, reservas, { minimo: hoy }) : [];
@@ -134,7 +135,7 @@ function TarjetaResultado({
 
   let estado: { icono: typeof CircleCheck; texto: string; clase: string };
   if (bajoMinimo)
-    estado = { icono: Info, texto: `La casa Mostaza tiene estadía mínima de ${minimoNochesMostaza} noches`, clase: "text-accent-hover" };
+    estado = { icono: Info, texto: `${tipo === "mostaza" ? "La casa Mostaza tiene" : "Las casas de 1 dormitorio tienen"} estadía mínima de ${minimo} noches`, clase: "text-accent-hover" };
   else if (carga === "cargando") estado = { icono: LoaderCircle, texto: "Consultando disponibilidad…", clase: "text-primary-500" };
   else if (carga === "error") estado = { icono: AlertCircle, texto: "No pudimos verificar la disponibilidad", clase: "text-muted" };
   else if (libres.length > 0)
@@ -230,8 +231,8 @@ function TarjetaResultado({
         </div>
       )}
       {bajoMinimo && (
-        <Boton variante="suave" tamano="sm" className="mt-4" onClick={() => onSugerencia(entrada, sumarDias(entrada, minimoNochesMostaza))}>
-          Ver {minimoNochesMostaza} noches desde el {formatoCorto(entrada).slice(0, 5)}
+        <Boton variante="suave" tamano="sm" className="mt-4" onClick={() => onSugerencia(entrada, sumarDias(entrada, minimo))}>
+          Ver {minimo} noches desde el {formatoCorto(entrada).slice(0, 5)}
         </Boton>
       )}
     </article>

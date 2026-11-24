@@ -1,11 +1,10 @@
 "use client";
 
-import { CalendarRange, Info, Sparkles } from "lucide-react";
+import { CalendarRange, Sparkles } from "lucide-react";
 import {
   antesDeReservar,
   casas,
-  minimoNochesMostaza,
-  notaRopaBlanca,
+  minimoNoches,
   preciosFueraDeTemporada,
   promos,
   tarifas,
@@ -57,12 +56,6 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
         </div>
       </div>
       <div className="p-5 sm:p-6">
-        {tipo === "mostaza" && (
-          <p className="mb-4 flex items-center gap-2 rounded-xl bg-accent-soft px-4 py-2.5 text-sm font-bold text-primary-900">
-            <CalendarRange className="size-5 shrink-0 text-accent-hover" aria-hidden="true" />
-            Estadía mínima: {minimoNochesMostaza} noches
-          </p>
-        )}
         <ul className={`grid grid-cols-2 gap-3 ${lista.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
           {lista.map((x) => (
             <li key={x.nombre} className="relative flex flex-col justify-center rounded-2xl bg-sand px-2 pt-5 pb-3 text-center ring-1 ring-primary-100/70">
@@ -78,7 +71,11 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
             </li>
           ))}
         </ul>
-        <div className="mt-4">
+        <p className="mt-4 flex items-center justify-center gap-2 text-sm font-bold text-primary-900">
+          <CalendarRange className="size-5 shrink-0 text-accent-hover" aria-hidden="true" />
+          Estadía mínima: {minimoNoches[tipo]} noches
+        </p>
+        <div className="mt-3">
           <BotonDisponibilidad tipo={tipo} />
         </div>
       </div>
@@ -102,17 +99,6 @@ export function Tarifas() {
           <Bloque tipo="mostaza" foto="/images/mostaza/barbacoa-ventanales-sm.webp" />
         </div>
         <p className="mt-3 text-center text-sm font-semibold text-primary-600 lg:hidden" aria-hidden="true">Deslizá para ver la casa Mostaza →</p>
-        <ul className="mt-5 hidden flex-col items-center gap-1.5 text-center text-sm font-semibold text-primary-800 sm:flex sm:flex-row sm:justify-center sm:gap-6">
-          <li className="inline-flex items-center gap-1.5">
-            <Info className="size-4 text-accent-hover" aria-hidden="true" /> Precios por casa (hasta 4 personas)
-          </li>
-          <li className="inline-flex items-center gap-1.5">
-            <Info className="size-4 text-accent-hover" aria-hidden="true" /> {notaRopaBlanca}
-          </li>
-          <li className="inline-flex items-center gap-1.5">
-            <Info className="size-4 text-accent-hover" aria-hidden="true" /> Seña del 50 % para reservar
-          </li>
-        </ul>
       </div>
     </section>
   );
