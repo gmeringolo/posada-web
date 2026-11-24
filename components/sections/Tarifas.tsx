@@ -37,7 +37,7 @@ function BotonDisponibilidad({ tipo }: { tipo: TipoCasa }) {
 
 function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
   const t = tiposDeCasa[tipo];
-  const lista = tarifas.filter((x) => x.tipo === tipo);
+  const lista = tarifas.filter((x) => x.tipo === tipo && !x.oculta);
   const colores = casas.filter((c) => c.tipo === tipo);
   if (!lista.length) return null;
   const columnas = lista.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3";
@@ -159,7 +159,7 @@ export function PromosYCondiciones() {
           )}
 
           <div className="aparecer rounded-3xl bg-primary-900 p-6 text-white shadow-card sm:p-8">
-            <p className="text-sm font-bold tracking-[0.15em] text-accent uppercase">Fuera de temporada · marzo a noviembre</p>
+            <p className="text-xs font-bold tracking-[0.15em] text-accent uppercase">Fuera de temporada · marzo a noviembre</p>
             <h3 className="mt-2 text-2xl text-white sm:text-3xl">Abiertos todo el año</h3>
             <p className="mt-3 text-white/85">
               Precios por casa y por noche, para hasta 4 personas. ¿Una estadía larga para teletrabajar? Consultanos.

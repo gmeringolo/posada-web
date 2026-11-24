@@ -13,6 +13,8 @@ export type Tarifa = {
   moneda: Moneda;
   minimoNoches?: number;
   temporadaAlta?: boolean;
+  /** true = se usa para calcular el precio pero no se muestra en la sección Tarifas. */
+  oculta?: boolean;
 };
 
 export type Promo = {

@@ -23,16 +23,16 @@ export function Footer() {
             Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones.
           </p>
         </div>
-        <div className="md:justify-self-center">
+        <div className="md:justify-self-center md:text-center">
           <p className="mb-3 font-bold text-white">Contacto</p>
           <ul className="space-y-2.5 text-sm">
-            <li className="flex items-start gap-2.5">
+            <li className="flex items-start gap-2.5 md:justify-center">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
               <a href={enlaces.googleMaps} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline">
                 {negocio.direccion}, {negocio.localidad}, {negocio.departamento}
               </a>
             </li>
-            <li className="flex items-center gap-2.5">
+            <li className="flex items-center gap-2.5 md:justify-center">
               <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
               <a href={`tel:${negocio.telefonoInternacional}`} className="hover:text-white hover:underline">
                 {negocio.telefonoVisible}
@@ -41,9 +41,9 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div className="md:justify-self-end md:text-right">
+        <div className="md:mr-6 md:justify-self-end">
           <p className="mb-3 font-bold text-white">Seguinos</p>
-          <ul className="flex flex-wrap gap-2.5 md:justify-end">
+          <ul className="flex flex-wrap gap-3">
             {redes.map(({ href, nombre, Icono }) => (
               <li key={nombre}>
                 <a

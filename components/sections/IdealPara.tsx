@@ -5,7 +5,7 @@ export function IdealPara() {
   return (
     <section className="bg-primary-900 pt-10 pb-10 text-white sm:pt-12 sm:pb-12" aria-labelledby="ideal-titulo">
       <div className="contenedor">
-        <h2 id="ideal-titulo" className="aparecer mb-10 text-center text-3xl text-white sm:text-4xl">
+        <h2 id="ideal-titulo" className="aparecer mb-10 text-center text-[1.7rem] text-white sm:text-[2.1rem]">
           Ideal para…
         </h2>
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">

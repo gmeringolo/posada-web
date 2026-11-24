@@ -244,7 +244,7 @@ function FormularioReserva({
       <input type="hidden" name="moneda" value={ok?.moneda ?? ""} />
       <input type="hidden" name="precio_noche" value={precioNoche ?? "a consultar"} />
       <input type="hidden" name="total" value={ok ? ok.total : "a consultar"} />
-      <input type="hidden" name="sena" value={ok ? Math.round(ok.total / 2) : "a consultar"} />
+      <input type="hidden" name="sena" value="0" />
       <input type="hidden" name="detalle_precio" value={ok ? textoDesglose(ok) : ""} />
 
       <div className="flex items-start justify-between gap-3">

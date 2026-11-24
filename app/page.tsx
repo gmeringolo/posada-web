@@ -36,8 +36,8 @@ export default function Home() {
         <PromosYCondiciones />
         <Disponibilidad />
         <LaZona />
-        <PreguntasFrecuentes />
         <Contacto />
+        <PreguntasFrecuentes />
         <Opiniones />
       </main>
       <Footer />

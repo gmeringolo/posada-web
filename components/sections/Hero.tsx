@@ -38,7 +38,7 @@ export function Hero() {
 
       <div className="contenedor">
         <div className="max-w-2xl">
-          <p className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-xs font-extrabold tracking-[0.15em] text-ink uppercase">
+          <p className="mb-4 inline-block rounded-full bg-accent px-3 py-1 text-[0.65rem] font-extrabold tracking-[0.15em] text-ink uppercase">
             Bello Horizonte · Canelones
           </p>
           <h1 className="text-[2.6rem] leading-[1.05] text-white sm:text-6xl lg:text-7xl">

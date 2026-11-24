@@ -158,6 +158,9 @@ export const tarifas: Tarifa[] = [
   { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
+  // Diciembre: se cotiza en Disponibilidad pero no se muestra en Tarifas (oculta)
+  { tipo: "mostaza", nombre: "Diciembre", desde: "12-01", hasta: "12-22", precioNoche: 80, moneda: "USD", minimoNoches: 15, oculta: true },
+  { tipo: "mostaza", nombre: "Fin de año", desde: "12-23", hasta: "12-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, oculta: true },
   { tipo: "mostaza", nombre: "Enero", desde: "01-01", hasta: "01-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
   { tipo: "mostaza", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 90, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
   { tipo: "mostaza", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 80, moneda: "USD", minimoNoches: 15 },
