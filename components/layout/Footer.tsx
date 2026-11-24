@@ -1,4 +1,4 @@
-import { MapPin, Phone } from "lucide-react";
+import { Globe, MapPin, Phone } from "lucide-react";
 import { enlaces, negocio } from "@/data/site";
 import { Logo } from "@/components/ui/Logo";
 import { AirbnbIcon, FacebookIcon, GoogleIcon, InstagramIcon } from "@/components/ui/IconosMarca";
@@ -20,7 +20,7 @@ export function Footer() {
             <Logo variante="blanco" tamano="grande" />
           </a>
           <p className="mt-4 max-w-xs text-sm text-white/70">
-            Casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Canelones.
+            Casas en alquiler temporario, totalmente equipadas y a media cuadra de la playa en Bello Horizonte. Para descansar en familia, con tu mascota o teletrabajando.
           </p>
         </div>
         <div className="md:justify-self-center">
@@ -29,8 +29,12 @@ export function Footer() {
             <li className="flex items-start gap-2.5">
               <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
               <a href={enlaces.googleMaps} target="_blank" rel="noopener noreferrer" className="hover:text-white hover:underline">
-                {negocio.direccion}, {negocio.localidad}, {negocio.departamento}
+                {negocio.direccion}, {negocio.localidad}
               </a>
+            </li>
+            <li className="flex items-center gap-2.5">
+              <Globe className="size-4 shrink-0 text-accent" aria-hidden="true" />
+              {negocio.departamento}, Uruguay
             </li>
             <li className="flex items-center gap-2.5">
               <Phone className="size-4 shrink-0 text-accent" aria-hidden="true" />
