@@ -1,0 +1,36 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Dominio sin www y siempre con HTTPS
+[[redirects]]
+  from = "https://www.posadahorizonteuy.com/*"
+  to = "https://posadahorizonteuy.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://posadahorizonteuy.com/*"
+  to = "https://posadahorizonteuy.com/:splat"
+  status = 301
+  force = true
+
+# Caché larga para fotos y videos
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--
+  Formularios "fantasma" para Netlify Forms.
+  Netlify los lee al publicar para saber qué campos tiene cada formulario:
+  - "consulta": formulario de Contacto (informativo).
+  - "reserva": pedido de reserva desde Disponibilidad (con los datos que carga la app de reservas).
+  Si agregás un campo a alguno de los formularios, agregalo también acá.
+-->
+<html lang="es">
+  <body>
+    <form name="consulta" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="consulta" />
+      <input name="bot-field" />
+      <input name="nombre" />
+      <input name="telefono" />
+      <input name="email" type="email" />
+      <input name="entrada" type="date" />
+      <input name="salida" type="date" />
+      <select name="personas"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+      <input type="radio" name="casa" value="1 dormitorio" /><input type="radio" name="casa" value="2 dormitorios" />
+      <textarea name="mensaje"></textarea>
+    </form>
+
+    <form name="reserva" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="reserva" />
+      <input name="bot-field" />
+      <input name="casa" />
+      <input name="entrada" />
+      <input name="salida" />
+      <input name="noches" />
+      <input name="nombre" />
+      <input name="telefono" />
+      <input name="adultos" />
+      <input name="menores" />
+      <input name="mascotas" />
+      <input name="moneda" />
+      <input name="precio_noche" />
+      <input name="total" />
+      <input name="sena" />
+      <input name="detalle_precio" />
+      <input name="mensaje" />
+    </form>
+  </body>
+</html>
