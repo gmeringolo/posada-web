@@ -99,9 +99,15 @@ export function formatoPrecio(monto: number, moneda: Moneda): string {
   return moneda === "USD" ? `US$ ${n}` : `$ ${n}`;
 }
 
-/** Precio por noche más bajo de un tipo de casa (para "desde US$ X"). */
+/**
+ * Precio por noche más bajo de un tipo de casa (para "desde US$ X").
+ * Solo mira las tarifas que se anuncian (no las ocultas) y, si hay en dólares, compara solo esas
+ * para no mezclar monedas.
+ */
 export function precioDesde(tipo: Tipo, tarifas: Tarifa[]): { precio: number; moneda: Moneda } | null {
-  const lista = tarifas.filter((t) => t.tipo === tipo);
+  const visibles = tarifas.filter((t) => t.tipo === tipo && !t.oculta);
+  const enDolares = visibles.filter((t) => t.moneda === "USD");
+  const lista = enDolares.length ? enDolares : visibles;
   if (!lista.length) return null;
   const min = lista.reduce((a, b) => (b.precioNoche < a.precioNoche ? b : a));
   return { precio: min.precioNoche, moneda: min.moneda };

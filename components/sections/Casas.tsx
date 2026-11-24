@@ -81,7 +81,7 @@ function Tarjeta({ tipo }: { tipo: TipoCasa }) {
               irA("disponibilidad");
             }}
           >
-            Ver disponibilidad
+            Disponibilidad
           </Boton>
         </div>
       </div>
