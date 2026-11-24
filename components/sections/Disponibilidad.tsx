@@ -4,7 +4,7 @@ import { AlertCircle, ArrowLeft, CalendarSearch, CircleCheck, CircleX, Info, Loa
 import { useEffect, useState, useSyncExternalStore, type FormEvent } from "react";
 import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
-import { enviarFormularioNetlify } from "@/lib/formularios";
+import { enviarFormularioNetlify, MENSAJE_ERROR_ENVIO } from "@/lib/formularios";
 import { casasLibres, fechasLibresCercanas, obtenerReservas, type Reserva } from "@/lib/disponibilidad";
 import { formatoCorto, formatoLargo, hoyISO, noches as contarNoches, sumarDias, type ISODate } from "@/lib/fechas";
 import { calcularPrecio, formatoPrecio, textoDesglose, type ResultadoPrecio } from "@/lib/precio";
@@ -177,7 +177,6 @@ function FormularioReserva({
   onCerrar: () => void;
 }) {
   const [envio, setEnvio] = useState<Envio>("inicial");
-  const [respaldo, setRespaldo] = useState("");
   const [adultos, setAdultos] = useState(Math.max(1, personas));
   const [menores, setMenores] = useState(0);
   const n = contarNoches(entrada, salida);
@@ -198,22 +197,6 @@ function FormularioReserva({
       trackEvent("reserva_submit", { tipo, noches: n, personas: adultos + menores });
     } catch (err) {
       console.warn("[reserva]", err);
-      // Si no se pudo enviar, armamos el mismo pedido para mandarlo por WhatsApp
-      const d = new FormData(form);
-      const v = (k: string) => String(d.get(k) ?? "").trim();
-      setRespaldo(
-        [
-          "Hola! Quiero hacer una consulta de reserva.",
-          `Casa: ${casa}`,
-          `Entrada: ${formatoCorto(entrada)} · Salida: ${formatoCorto(salida)} (${n} noches)`,
-          `Nombre: ${v("nombre")} · Teléfono: ${v("telefono")}`,
-          `Adultos: ${v("adultos")} · Menores: ${v("menores")} · Mascotas: ${v("mascotas")}`,
-          ok ? `Total: ${formatoPrecio(ok.total, ok.moneda)}` : "",
-          v("mensaje") ? `Mensaje: ${v("mensaje")}` : "",
-        ]
-          .filter(Boolean)
-          .join("\n"),
-      );
       setEnvio("error");
     }
   }
@@ -334,14 +317,9 @@ function FormularioReserva({
         <input id="r-mensaje" name="mensaje" className="campo" placeholder="Algo que quieras contarnos (opcional)" />
       </div>
       {envio === "error" && (
-        <div role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
-          <p>No pudimos enviar tu consulta. Mandala por WhatsApp con un toque: ya va con todos tus datos.</p>
-          {respaldo && (
-            <LinkWhatsApp ubicacion="reserva-respaldo" mensaje={respaldo} tamano="sm" className="mt-2.5 w-full">
-              Enviar por WhatsApp
-            </LinkWhatsApp>
-          )}
-        </div>
+        <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
+          {MENSAJE_ERROR_ENVIO}
+        </p>
       )}
       <button
         type="submit"

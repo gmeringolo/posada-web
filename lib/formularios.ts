@@ -14,3 +14,12 @@ export async function enviarFormularioNetlify(form: HTMLFormElement): Promise<vo
   });
   if (!res.ok) throw new Error(String(res.status));
 }
+
+/**
+ * Texto del error al enviar. En la compu (npm run dev) Netlify Forms no existe,
+ * así que el envío siempre falla: lo aclaramos para no confundir al probar.
+ */
+export const MENSAJE_ERROR_ENVIO =
+  process.env.NODE_ENV === "development"
+    ? "En tu compu (npm run dev) los formularios no se pueden enviar: probalo en la web publicada en Netlify."
+    : "No pudimos enviar tu consulta. Probá de nuevo en unos minutos o escribinos por WhatsApp.";

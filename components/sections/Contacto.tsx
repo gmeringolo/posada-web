@@ -4,7 +4,10 @@ import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { enlaces } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
-import { enviarFormularioNetlify } from "@/lib/formularios";
+import {
+  enviarFormularioNetlify,
+  MENSAJE_ERROR_ENVIO,
+} from "@/lib/formularios";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
 import { useEstado } from "@/components/layout/Estado";
 
@@ -188,7 +191,10 @@ function Formulario() {
           </div>
           <div className="grid gap-4 sm:col-span-2 sm:grid-cols-[9.5rem_1fr]">
             <div>
-              <label htmlFor="c-personas" className="etiqueta whitespace-nowrap">
+              <label
+                htmlFor="c-personas"
+                className="etiqueta whitespace-nowrap"
+              >
                 Cantidad de personas
               </label>
               <select
@@ -245,8 +251,7 @@ function Formulario() {
               role="alert"
               className="rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800 sm:col-span-2"
             >
-              No pudimos enviar tu consulta. Probá de nuevo o escribinos por
-              WhatsApp.
+              {MENSAJE_ERROR_ENVIO}
             </p>
           )}
           <button
