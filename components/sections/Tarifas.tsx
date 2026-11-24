@@ -40,6 +40,9 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
   const lista = tarifas.filter((x) => x.tipo === tipo);
   const colores = casas.filter((c) => c.tipo === tipo);
   if (!lista.length) return null;
+  const columnas = lista.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3";
+  // Posiciones de los meses de temporada alta (tienen que ser consecutivos)
+  const alta = lista.flatMap((x, i) => (x.temporadaAlta ? [i] : []));
   return (
     <div className="aparecer overflow-hidden rounded-3xl bg-white shadow-card ring-1 ring-primary-100/70">
       <div className="relative h-[clamp(110px,15svh,170px)]">
@@ -56,14 +59,26 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
         </div>
       </div>
       <div className="p-5 sm:p-6">
-        <ul className={`grid grid-cols-2 gap-3 ${lista.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3"}`}>
+        {/* Cartel "Temporada alta" único, extendido sobre los meses que la forman (desde tablet) */}
+        {alta.length > 0 && (
+          <div className={`relative z-10 -mb-2.5 hidden gap-3 sm:grid ${columnas}`} aria-hidden="true">
+            <span
+              className="rounded-full bg-primary-600 py-0.5 text-center text-[0.65rem] font-extrabold tracking-wider whitespace-nowrap text-white uppercase"
+              style={{ gridColumn: `${alta[0] + 1} / span ${alta.length}` }}
+            >
+              Temporada alta
+            </span>
+          </div>
+        )}
+        <ul className={`grid grid-cols-2 gap-3 ${columnas}`}>
           {lista.map((x) => (
             <li key={x.nombre} className="relative flex flex-col justify-center rounded-2xl bg-sand px-2 pt-5 pb-3 text-center ring-1 ring-primary-100/70">
               {x.temporadaAlta && (
-                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-2.5 py-0.5 text-[0.65rem] font-extrabold tracking-wider whitespace-nowrap text-white uppercase">
+                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 rounded-full bg-primary-600 px-2.5 py-0.5 text-[0.65rem] font-extrabold tracking-wider whitespace-nowrap text-white uppercase sm:hidden">
                   Temporada alta
                 </span>
               )}
+              {x.temporadaAlta && <span className="sr-only">Temporada alta: </span>}
               <p className="text-[0.8rem] leading-tight font-bold text-primary-800">{x.nombre}</p>
               {x.fechas && <p className="text-[0.7rem] text-muted">{x.fechas}</p>}
               <p className="mt-1.5 text-2xl font-extrabold whitespace-nowrap text-primary-900 xl:text-[1.7rem]">{formatoPrecio(x.precioNoche, x.moneda)}</p>

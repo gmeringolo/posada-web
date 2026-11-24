@@ -14,6 +14,7 @@ declare global {
 export type Evento =
   | "whatsapp_click"
   | "form_submit"
+  | "reserva_submit"
   | "availability_check"
   | "gallery_open"
   | "video_play"

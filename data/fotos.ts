@@ -20,10 +20,9 @@ export type Foto = {
 
 export const filtrosGaleria: { id: "todas" | CategoriaFoto; nombre: string }[] = [
   { id: "todas", nombre: "Todas" },
-  { id: "1dorm", nombre: "Casas Roja, Azul y Verde" },
-  { id: "mostaza", nombre: "Casa Mostaza" },
+  { id: "1dorm", nombre: "1 dormitorio" },
+  { id: "mostaza", nombre: "2 dormitorios" },
   { id: "exterior", nombre: "Exterior" },
-  { id: "zona", nombre: "La playa y la zona" },
 ];
 
 export const fotos: Foto[] = [

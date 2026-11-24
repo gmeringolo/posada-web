@@ -84,11 +84,16 @@ La categoría `zona` activa sola el filtro "La playa y la zona" de la galería.
 
 El archivo `netlify.toml` ya le dice a Netlify cómo armar la web (`npm run build`, carpeta `out`) y redirige `www` y `http` al dominio principal.
 
-### Formulario (Netlify Forms)
+### Formularios (Netlify Forms)
 
-1. Después del primer deploy, entrá a **Forms** en Netlify: tiene que aparecer el formulario **consulta**. Si no aparece, revisá en *Site configuration → Forms* que la detección de formularios esté activada y volvé a publicar.
-2. Para recibir cada consulta por email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, elegí el formulario `consulta` y poné **gmeringolo@gmail.com**.
-3. Si agregás un campo al formulario (`components/sections/Contacto.tsx`), agregalo también en `public/__forms.html`.
+La web tiene dos formularios separados:
+
+- **consulta**: el de la sección Contacto (informativo).
+- **reserva**: el pedido de reserva que se abre al tocar **Reservar** en Disponibilidad. Trae todos los datos que carga la app de reservas: casa, entrada, salida, noches, nombre, teléfono, adultos, menores, mascotas, moneda, precio por noche, total, seña (50 %) y mensaje.
+
+1. Después del deploy, entrá a **Forms** en Netlify: tienen que aparecer **consulta** y **reserva**. Si no aparecen, revisá en *Site configuration → Forms* que la detección de formularios esté activada y volvé a publicar.
+2. Para recibir cada envío por email: **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**. Creá una notificación para `consulta` y otra para `reserva` (o una sola eligiendo *Any form*) y poné **gmeringolo@gmail.com**.
+3. Si agregás un campo a un formulario (`components/sections/Contacto.tsx` o `components/sections/Disponibilidad.tsx`), agregalo también en `public/__forms.html`.
 
 ### Google Analytics 4
 
@@ -98,8 +103,8 @@ El archivo `netlify.toml` ya le dice a Netlify cómo armar la web (`npm run buil
 
 Mientras no esté el ID, Analytics no se carga y no aparece el aviso de cookies. Con el ID, Analytics se carga **solo si el visitante acepta** las cookies.
 
-**Eventos que se miden:** `whatsapp_click` (con dónde se tocó), `form_submit`, `availability_check` (fechas, noches, casas libres y precio), `gallery_open`, `video_play`, `review_link_click` y `directions_click`.
-En GA4, entrá a **Administrar → Eventos** y marcá `whatsapp_click` y `form_submit` como **eventos clave**: son las consultas que genera la web.
+**Eventos que se miden:** `whatsapp_click` (con dónde se tocó), `form_submit`, `reserva_submit`, `availability_check` (fechas, noches, casas libres y precio), `gallery_open`, `video_play`, `review_link_click` y `directions_click`.
+En GA4, entrá a **Administrar → Eventos** y marcá `whatsapp_click`, `form_submit` y `reserva_submit` como **eventos clave**: son las consultas que genera la web.
 
 ### Consulta de disponibilidad (Supabase)
 

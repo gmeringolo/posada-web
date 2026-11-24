@@ -101,8 +101,8 @@ describe("calcularPrecio", () => {
     });
     // 27 de noviembre de 2026 es viernes: último fin de semana de la promo
     expect(calcularPrecio("1dorm", "2026-11-27", "2026-11-29", tarifasSitio, promosSitio)).toMatchObject({ estado: "ok", total: 4500 });
-    // entre semana en mayo: a consultar
-    expect(calcularPrecio("1dorm", "2027-05-10", "2027-05-12", tarifasSitio, promosSitio).estado).toBe("consultar");
+    // entre semana en mayo: tarifa "Marzo a Nov." (US$ 50 la noche)
+    expect(calcularPrecio("1dorm", "2027-05-10", "2027-05-12", tarifasSitio, promosSitio)).toMatchObject({ estado: "ok", total: 100, moneda: "USD" });
   });
 
   it("sitio: la Mostaza en diciembre queda a consultar", () => {

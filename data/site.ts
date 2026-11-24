@@ -105,8 +105,8 @@ export const tiposDeCasa: Record<
     camas: ["Dormitorio 1: cama de 2 plazas", "Dormitorio 2: cama marinera"],
     descripcion:
       "Living con biblioteca, cocina equipada y una barbacoa cerrada con parrillero y mesa para 6, rodeada de verde.",
-    foto: "/images/mostaza/barbacoa-sm.webp",
-    fotoAlt: "Barbacoa cerrada con mesa de madera en la casa Mostaza",
+    foto: "/images/mostaza/living-sm.webp",
+    fotoAlt: "Living con sillones y biblioteca en la casa Mostaza",
   },
 };
 
@@ -153,13 +153,13 @@ export const temporada = "Temporada verano 2026–2027";
 export const tarifas: Tarifa[] = [
   // Casas de 1 dormitorio
   { tipo: "1dorm", nombre: "Diciembre", fechas: "1 al 22", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
-  { tipo: "1dorm", nombre: "Fin de año y enero", fechas: "23/12 al 31/01", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
+  { tipo: "1dorm", nombre: "Enero", fechas: "23/12 al 31/01", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD", temporadaAlta: true },
-  { tipo: "1dorm", nombre: "Marzo", desde: "03-01", hasta: "03-31", precioNoche: 50, moneda: "USD" },
+  { tipo: "1dorm", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
   { tipo: "mostaza", nombre: "Enero", desde: "01-01", hasta: "01-31", precioNoche: 100, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
   { tipo: "mostaza", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 90, moneda: "USD", minimoNoches: 15, temporadaAlta: true },
-  { tipo: "mostaza", nombre: "Marzo", desde: "03-01", hasta: "03-31", precioNoche: 80, moneda: "USD", minimoNoches: 15 },
+  { tipo: "mostaza", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 80, moneda: "USD", minimoNoches: 15 },
 ];
 
 /** Estadía mínima (en noches) de cada tipo de casa. */
@@ -323,6 +323,5 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
 /* ------------------------------------------------------------------ */
 
 export const videos: { src: string; poster: string; titulo: string }[] = [
-  { src: "/videos/azul.mp4", poster: "/videos/azul-poster.webp", titulo: "Recorrida por la casa Azul y el deck" },
-  { src: "/videos/azul2.mp4", poster: "/videos/azul2-poster.webp", titulo: "Recorrida por el interior de la casa Azul" },
+  { src: "/videos/recorrido.mp4", poster: "/videos/recorrido-poster.webp", titulo: "Recorrido completo por las casas" },
 ];

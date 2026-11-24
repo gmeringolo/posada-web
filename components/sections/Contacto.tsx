@@ -4,6 +4,7 @@ import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { enlaces } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
+import { enviarFormularioNetlify } from "@/lib/formularios";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
 import { useEstado } from "@/components/layout/Estado";
 
@@ -62,16 +63,7 @@ function Formulario() {
     if (!form.reportValidity()) return;
     setEnvio("enviando");
     try {
-      const datos = new FormData(form);
-      const body = new URLSearchParams(
-        datos as unknown as Record<string, string>,
-      ).toString();
-      const res = await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body,
-      });
-      if (!res.ok) throw new Error(String(res.status));
+      await enviarFormularioNetlify(form);
       setEnvio("ok");
       trackEvent("form_submit", { casa, personas });
       form.reset();
@@ -127,7 +119,7 @@ function Formulario() {
               <input name="bot-field" tabIndex={-1} autoComplete="off" />
             </label>
           </p>
-          <div className="sm:col-span-2">
+          <div className="sm:col-span-2 lg:col-span-1">
             <label htmlFor="c-nombre" className="etiqueta">
               Nombre *
             </label>
@@ -141,6 +133,19 @@ function Formulario() {
             />
           </div>
           <div>
+            <label htmlFor="c-tel" className="etiqueta">
+              Teléfono / WhatsApp
+            </label>
+            <input
+              id="c-tel"
+              name="telefono"
+              type="tel"
+              autoComplete="tel"
+              className="campo"
+              placeholder="099 123 456"
+            />
+          </div>
+          <div className="lg:col-span-2">
             <label htmlFor="c-email" className="etiqueta">
               Email *
             </label>
@@ -152,19 +157,6 @@ function Formulario() {
               autoComplete="email"
               className="campo"
               placeholder="tu@email.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="c-tel" className="etiqueta">
-              Teléfono / WhatsApp
-            </label>
-            <input
-              id="c-tel"
-              name="telefono"
-              type="tel"
-              autoComplete="tel"
-              className="campo"
-              placeholder="099 123 456"
             />
           </div>
           <div>
@@ -213,11 +205,11 @@ function Formulario() {
             </div>
             <fieldset>
               <legend className="etiqueta">Casa de preferencia</legend>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex min-h-[50px] flex-wrap items-center gap-x-6 gap-y-2">
                 {["1 dormitorio", "2 dormitorios"].map((v) => (
                   <label
                     key={v}
-                    className="flex cursor-pointer items-center gap-2 rounded-xl bg-white px-3 py-2.5 ring-1 ring-primary-100 has-checked:ring-2 has-checked:ring-primary-500"
+                    className="flex cursor-pointer items-center gap-2 font-semibold text-primary-900"
                   >
                     <input
                       type="radio"
@@ -225,7 +217,7 @@ function Formulario() {
                       value={v}
                       checked={casa === v}
                       onChange={() => setCasa(v)}
-                      className="accent-primary-600"
+                      className="size-4 accent-primary-600"
                     />
                     {v}
                   </label>

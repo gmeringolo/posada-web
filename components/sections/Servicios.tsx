@@ -13,7 +13,7 @@ export function Servicios() {
           id="servicios-titulo"
           etiqueta="Comodidades"
           titulo="Todo lo que necesitás para descansar"
-          intro="Cada casa es independiente y está totalmente equipada. Solo traé tu ropa de cama y toallas."
+          intro="Cada casa es independiente y está totalmente equipada."
         />
 
         <div className="grid gap-4 sm:grid-cols-3">
