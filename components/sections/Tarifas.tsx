@@ -39,7 +39,7 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
   const lista = tarifas.filter((x) => x.tipo === tipo && !x.oculta);
   const colores = casas.filter((c) => c.tipo === tipo);
   if (!lista.length) return null;
-  const columnas = lista.length >= 4 ? "sm:grid-cols-4" : "sm:grid-cols-3";
+  const columnas = lista.length >= 4 ? "sm:grid-cols-4" : lista.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2";
   // Posiciones de los meses de temporada alta (tienen que ser consecutivos)
   const alta = lista.flatMap((x, i) => (x.temporadaAlta ? [i] : []));
   return (

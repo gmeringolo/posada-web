@@ -275,7 +275,7 @@ describe("calcularPrecio", () => {
         promosSitio,
       ),
     ).toMatchObject({ estado: "ok", total: 4500 });
-    // entre semana en mayo: tarifa "Marzo a Nov." (US$ 50 la noche)
+    // entre semana en mayo: tarifa "Marzo a Nov." ($ 2.000 la noche)
     expect(
       calcularPrecio(
         "1dorm",
@@ -284,7 +284,7 @@ describe("calcularPrecio", () => {
         tarifasSitio,
         promosSitio,
       ),
-    ).toMatchObject({ estado: "ok", total: 100, moneda: "USD" });
+    ).toMatchObject({ estado: "ok", total: 4000, moneda: "UYU" });
   });
 
   it("sitio: la Mostaza en diciembre: US$ 80 hasta el 22 y US$ 100 desde el 23", () => {
