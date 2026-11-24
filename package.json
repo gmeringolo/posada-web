@@ -12,9 +12,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@next/third-parties": "16.4.3",
+    "@next/third-parties": "16.4.6",
     "lucide-react": "^1.64.0",
-    "next": "16.4.3",
+    "next": "16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "simple-icons": "^16.36.0"
@@ -26,7 +26,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.39.5",
-    "eslint-config-next": "16.4.3",
+    "eslint-config-next": "16.4.6",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vitest": "^5.0.5"
