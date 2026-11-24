@@ -170,11 +170,11 @@ export const tarifas: Tarifa[] = [
 export const minimoNoches: Record<TipoCasa, number> = { "1dorm": 2, mostaza: 15 };
 
 export const promos: Promo[] = [
-  // Fin de semana de viernes a domingo, del 1 de abril al 30 de noviembre
+  // Fin de semana de viernes a domingo en temporada baja, del 1 de marzo al 30 de noviembre
   {
     tipo: "1dorm",
     nombre: "Promo fin de semana",
-    desde: "04-01",
+    desde: "03-01",
     hasta: "11-30",
     noches: 2,
     precioTotal: 4500,
@@ -183,11 +183,12 @@ export const promos: Promo[] = [
   },
 ];
 
-/** Precios fuera de temporada (marzo a noviembre). Vacío = solo se muestra "Consultá". */
-export const preciosFueraDeTemporada: { tipo: TipoCasa; detalle: string }[] = [
-  { tipo: "1dorm", detalle: "US$ 50 por noche (mínimo 2 noches)" },
-  { tipo: "mostaza", detalle: "US$ 80 por noche (mínimo 15 noches)" },
-];
+/** Temporada baja, entre semana: precio por noche en las casas de 1 dormitorio (recuadro azul de Tarifas). */
+export const tarifaEntreSemana: { tipo: TipoCasa; precioNoche: number; moneda: "USD" | "UYU" } = {
+  tipo: "1dorm",
+  precioNoche: 2000,
+  moneda: "UYU",
+};
 
 /* ------------------------------------------------------------------ */
 /* Antes de reservar (vacío = no se muestra)                           */
@@ -305,7 +306,7 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
   {
     pregunta: "¿Alquilan fuera de temporada?",
     respuesta:
-      "Sí, estamos abiertos todo el año. De marzo a noviembre las casas de 1 dormitorio salen US$ 50 la noche (mínimo 2 noches) y la casa Mostaza US$ 80 la noche (mínimo 15 noches). Además, de abril a noviembre el fin de semana de viernes a domingo en las casas de 1 dormitorio sale $ 4.500. Para estadías largas, consultanos por WhatsApp.",
+      "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale $ 2.000 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad. La casa Mostaza sale US$ 80 la noche (mínimo 15 noches).",
   },
   { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
   {

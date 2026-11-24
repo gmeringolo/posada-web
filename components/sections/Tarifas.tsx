@@ -5,7 +5,7 @@ import {
   antesDeReservar,
   casas,
   minimoNoches,
-  preciosFueraDeTemporada,
+  tarifaEntreSemana as entreSemana,
   promos,
   tarifas,
   tiposDeCasa,
@@ -140,45 +140,39 @@ export function PromosYCondiciones() {
               />
               <div className="relative sm:max-w-[60%]">
                 <p className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-extrabold tracking-wider text-white uppercase">
-                  <Sparkles className="size-3.5" aria-hidden="true" /> {promo.nombre}
+                  <Sparkles className="size-3.5" aria-hidden="true" /> Temporada baja
                 </p>
-                <p className="mt-4 text-lg font-bold">Viernes a domingo · {promo.noches} noches</p>
+                <p className="mt-1.5 text-xs font-bold">Marzo a noviembre</p>
+                <p className="mt-3 text-lg font-bold">Viernes a domingo · {promo.noches} noches</p>
                 <p className="text-5xl font-extrabold">{formatoPrecio(promo.precioTotal, promo.moneda)}</p>
-                <p className="mt-1 text-sm font-semibold">Casas de 1 dormitorio · precio total · del 1 de abril al 30 de noviembre</p>
+                <p className="mt-1 text-sm font-semibold">Válido para casas de 1 dormitorio. Con late check-out sujeto a disponibilidad.</p>
                 <LinkWhatsApp
                   ubicacion="tarifas-promo"
                   mensaje={`Hola! Quiero consultar por la ${promo.nombre} (viernes a domingo, ${promo.noches} noches). Fechas: …`}
                   variante="primario"
                   className="mt-5"
                 >
-                  Consultar la promo
+                  Consultar
                 </LinkWhatsApp>
               </div>
             </div>
           )}
 
           <div className="aparecer rounded-3xl bg-primary-900 p-6 text-white shadow-card sm:p-8">
-            <p className="text-xs font-bold tracking-[0.15em] text-accent uppercase">Fuera de temporada · marzo a noviembre</p>
-            <h3 className="mt-2 text-2xl text-white sm:text-3xl">Abiertos todo el año</h3>
-            <p className="mt-3 text-white/85">
-              Precios por casa y por noche, para hasta 4 personas. ¿Una estadía larga para teletrabajar? Consultanos.
+            <p className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-extrabold tracking-wider text-ink uppercase">Temporada baja</p>
+            <h3 className="mt-3 text-2xl text-white sm:text-3xl">¿Buscás escapar de la rutina entre semana?</h3>
+            <p className="mt-3 text-5xl font-extrabold">
+              {formatoPrecio(entreSemana.precioNoche, entreSemana.moneda)}
+              <span className="text-lg font-bold text-white/85"> por noche</span>
             </p>
-            {preciosFueraDeTemporada.length > 0 && (
-              <ul className="mt-4 space-y-1.5">
-                {preciosFueraDeTemporada.map((p) => (
-                  <li key={p.tipo + p.detalle} className="font-semibold">
-                    {tiposDeCasa[p.tipo].titulo}: {p.detalle}
-                  </li>
-                ))}
-              </ul>
-            )}
+            <p className="mt-1 text-sm font-semibold text-white/85">Válido para casas de 1 dormitorio.</p>
             <LinkWhatsApp
-              ubicacion="tarifas-fuera-temporada"
-              mensaje="Hola! Quiero consultar precios fuera de temporada. Fechas: … Cantidad de personas: …"
+              ubicacion="tarifas-entre-semana"
+              mensaje="Hola! Quiero consultar por la tarifa entre semana de temporada baja. Fechas: … Cantidad de personas: …"
               variante="acento"
               className="mt-5"
             >
-              Consultar precios
+              Consultar
             </LinkWhatsApp>
           </div>
         </div>

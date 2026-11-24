@@ -129,15 +129,6 @@ export function Navbar({ conOpiniones }: { conOpiniones: boolean }) {
               </a>
             </li>
           ))}
-          <li className="mt-2 mb-3">
-            <a
-              href="#contacto"
-              onClick={() => setAbierto(false)}
-              className="block rounded-full bg-primary-600 px-5 py-3.5 text-center text-lg font-bold text-white"
-            >
-              Contacto
-            </a>
-          </li>
         </ul>
       </div>
     </header>
