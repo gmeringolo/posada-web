@@ -65,11 +65,14 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="contenedor mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/60 sm:flex-row">
-        <p className="text-center sm:text-left">
-          <span className="block sm:inline">© {anio} {negocio.nombre}, todos los derechos reservados.</span>
-          <span className="hidden sm:inline"> · </span>
-          <span className="mt-1 block sm:mt-0 sm:inline">Diseño y desarrollo: Gianella Meringolo</span>
+      <div className="contenedor mt-12 flex flex-col items-center gap-3 border-t border-white/10 pt-6 text-xs text-white/60 lg:flex-row lg:justify-between">
+        <p className="text-center lg:text-left">© {anio} {negocio.nombre}, todos los derechos reservados.</p>
+        {/* En computadora va a la derecha, dejando lugar al botón flotante de WhatsApp */}
+        <p className="credito-footer text-center lg:text-right">
+          Diseño y desarrollo:{" "}
+          <a href="https://gmeringolo.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-white/80 hover:text-white hover:underline">
+            Gianella Meringolo
+          </a>
         </p>
       </div>
     </footer>

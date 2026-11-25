@@ -12,37 +12,54 @@ export function LaZona() {
       <div className="contenedor">
         <TituloSeccion id="zona-titulo" etiqueta="La zona" titulo="Bello Horizonte, en la Costa de Oro" intro={zona.intro} compacto />
 
-        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
-          {/* Foto + cómo llegar */}
-          <div className="flex flex-col gap-4 lg:col-span-3">
-            <div className="aparecer overflow-hidden rounded-3xl">
-              <img
-                src="/images/playa/bajada-playa.webp"
-                alt="Bajada de madera entre los médanos hacia la playa de Bello Horizonte"
-                loading="lazy"
-                className="h-[clamp(160px,28svh,360px)] w-full object-cover"
-              />
-            </div>
-            <div className={`grid gap-4 ${zona.comoLlegar.omnibus ? "sm:grid-cols-2" : ""}`}>
-              <div className="aparecer rounded-2xl bg-primary-900 p-5 text-white">
-                <p className="flex items-center gap-2 font-bold">
-                  <Car className="size-5 text-accent" aria-hidden="true" /> En auto
-                </p>
-                <p className="mt-1.5 text-sm text-white/85">{zona.comoLlegar.auto}</p>
-              </div>
-              {zona.comoLlegar.omnibus && (
-                <div className="aparecer rounded-2xl bg-sand p-5 ring-1 ring-primary-100/70">
-                  <p className="flex items-center gap-2 font-bold text-primary-900">
-                    <Bus className="size-5 text-primary-500" aria-hidden="true" /> En ómnibus
-                  </p>
-                  <p className="mt-1.5 text-sm text-muted">{zona.comoLlegar.omnibus}</p>
-                </div>
-              )}
-            </div>
+        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
+          {/* Foto: en computadora ocupa las 3 columnas */}
+          <div className="aparecer overflow-hidden rounded-3xl lg:col-span-3">
+            <img
+              src="/images/playa/bajada-playa.webp"
+              alt="Bajada de madera entre los médanos hacia la playa de Bello Horizonte"
+              loading="lazy"
+              className="h-[clamp(160px,26svh,340px)] w-full object-cover"
+            />
           </div>
 
+          {/* Cómo llegar: lado a lado en tablet, apilados en computadora */}
+          <div className={`grid gap-4 ${zona.comoLlegar.omnibus ? "sm:grid-cols-2 lg:grid-cols-1" : ""}`}>
+            <div className="aparecer rounded-2xl bg-primary-900 p-5 text-white">
+              <p className="flex items-center gap-2 font-bold">
+                <Car className="size-5 text-accent" aria-hidden="true" /> En auto
+              </p>
+              <p className="mt-1.5 text-sm text-white/85">{zona.comoLlegar.auto}</p>
+            </div>
+            {zona.comoLlegar.omnibus && (
+              <div className="aparecer rounded-2xl bg-sand p-5 ring-1 ring-primary-100/70">
+                <p className="flex items-center gap-2 font-bold text-primary-900">
+                  <Bus className="size-5 text-primary-500" aria-hidden="true" /> En bus
+                </p>
+                <p className="mt-1.5 text-sm text-muted">{zona.comoLlegar.omnibus}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Comercios cercanos */}
+          {zona.comercios.length > 0 && (
+            <div className="aparecer flex flex-col rounded-3xl bg-primary-600 px-5 py-4 text-white">
+              <h3 className="font-sans text-base font-bold text-white">Comercios cercanos</h3>
+              <ul className="mt-1 flex flex-1 flex-col justify-around divide-y divide-white/15">
+                {zona.comercios.map((c) => (
+                  <li key={c.nombre} className="flex items-center gap-3 py-2.5 [@media(max-height:820px)]:py-2">
+                    <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/10 text-accent">
+                      <Icono nombre={c.icono} className="size-5" />
+                    </span>
+                    <span className="text-[0.95rem] font-semibold">{c.nombre}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Distancias */}
-          <div className="flex flex-col rounded-3xl bg-sand px-5 py-2 ring-1 ring-primary-100/70 lg:col-span-2">
+          <div className="flex flex-col rounded-3xl bg-sand px-5 py-2 ring-1 ring-primary-100/70">
             <h3 className="sr-only">Distancias</h3>
             <ul className="flex flex-1 flex-col justify-around divide-y divide-primary-100">
               {distancias.map((d) => (

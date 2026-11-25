@@ -32,7 +32,7 @@ export function Servicios() {
 
         <ul className="mt-6 grid gap-x-8 gap-y-5 rounded-3xl bg-sand p-6 sm:grid-cols-2 sm:p-10 lg:grid-cols-3">
           {resto.map((c) => (
-            <li key={c.titulo} className="aparecer flex items-start gap-4">
+            <li key={c.titulo} className={`aparecer flex gap-4 ${c.detalle ? "items-start" : "items-center"}`}>
               <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-white text-primary-600 shadow-sm">
                 <Icono nombre={c.icono} />
               </span>

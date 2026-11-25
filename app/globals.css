@@ -84,6 +84,15 @@
 }
 
 @layer components {
+  /* Crédito del footer: el botón flotante de WhatsApp ocupa ~84px desde el borde derecho.
+     El texto termina a 2rem (padding) + el margen del contenedor (max-w-6xl = 72rem);
+     se agrega el padding que falte para no quedar debajo del botón. */
+  .credito-footer {
+    @media (width >= 64rem) {
+      padding-right: max(0px, calc(3.5rem - max(0px, (100vw - 72rem) / 2)));
+    }
+  }
+
   .contenedor {
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }

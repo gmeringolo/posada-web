@@ -119,7 +119,7 @@ export const tiposDeCasa: Record<
 export const comodidades: { icono: string; titulo: string; detalle?: string; destacada?: boolean }[] = [
   { icono: "Waves", titulo: "A media cuadra de la playa", destacada: true },
   { icono: "PawPrint", titulo: "Aceptamos mascotas", detalle: "Son parte de la familia", destacada: true },
-  { icono: "CalendarCheck", titulo: "Abierto todo el año", destacada: true },
+  { icono: "Trees", titulo: "Entorno verde y tranquilo", destacada: true },
   { icono: "Bath", titulo: "Baño completo con calefón" },
   {
     icono: "CookingPot",
@@ -131,6 +131,8 @@ export const comodidades: { icono: string; titulo: string; detalle?: string; des
   { icono: "Wifi", titulo: "Wi-Fi" },
   { icono: "Flame", titulo: "Parrillero techado individual" },
   { icono: "Umbrella", titulo: "Sillas de playa" },
+  { icono: "Car", titulo: "Estacionamiento en el complejo" },
+  { icono: "Users", titulo: "Para hasta 4 personas" },
 ];
 
 export const notaRopaBlanca = "No incluyen sábanas ni toallas.";
@@ -156,7 +158,7 @@ export const tarifas: Tarifa[] = [
   { tipo: "1dorm", nombre: "Diciembre", desde: "12-01", hasta: "12-22", precioNoche: 50, moneda: "USD" },
   { tipo: "1dorm", nombre: "Enero", desde: "12-23", hasta: "01-31", precioNoche: 70, moneda: "USD", temporadaAlta: true },
   { tipo: "1dorm", nombre: "Febrero", desde: "02-01", hasta: "02-29", precioNoche: 60, moneda: "USD", temporadaAlta: true },
-  { tipo: "1dorm", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 2000, moneda: "UYU" },
+  { tipo: "1dorm", nombre: "Marzo a Nov.", desde: "03-01", hasta: "11-30", precioNoche: 50, moneda: "USD" },
   // Casa Mostaza (mínimo 15 noches)
   // Diciembre: se cotiza en Disponibilidad pero no se muestra en Tarifas (oculta)
   { tipo: "mostaza", nombre: "Diciembre", desde: "12-01", hasta: "12-22", precioNoche: 80, moneda: "USD", minimoNoches: 15, oculta: true },
@@ -186,8 +188,8 @@ export const promos: Promo[] = [
 /** Temporada baja, entre semana: precio por noche en las casas de 1 dormitorio (recuadro azul de Tarifas). */
 export const tarifaEntreSemana: { tipo: TipoCasa; precioNoche: number; moneda: "USD" | "UYU" } = {
   tipo: "1dorm",
-  precioNoche: 2000,
-  moneda: "UYU",
+  precioNoche: 50,
+  moneda: "USD",
 };
 
 /* ------------------------------------------------------------------ */
@@ -200,7 +202,7 @@ export const antesDeReservar: { icono: string; titulo: string; texto: string }[]
   {
     icono: "CalendarX",
     titulo: "Cancelación flexible",
-    texto: "Si cancelás hasta 5 días antes del check-in, te devolvemos la seña.",
+    texto: "Si cancelás hasta 10 días antes del check-in, te devolvemos la seña.",
   },
   { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
   { icono: "Car", titulo: "Estacionamiento", texto: "En la entrada del complejo." },
@@ -270,6 +272,14 @@ export const zona = {
     { icono: "Plane", lugar: "Aeropuerto de Carrasco", distancia: "≈ 35 min" },
     { icono: "Building2", lugar: "Montevideo", distancia: "≈ 1 h" },
   ],
+  // Comercios cercanos (recuadro azul de La zona)
+  comercios: [
+    { icono: "Martini", nombre: "El Chiringuito" },
+    { icono: "ShoppingCart", nombre: "Supermercado Bello Horizonte" },
+    { icono: "Store", nombre: "Almacén Rey Lagarto" },
+    { icono: "Trophy", nombre: "Club Bello Horizonte" },
+    { icono: "Trophy", nombre: "Club Costa Azul" },
+  ],
   // Qué hacer cerca (vacío = no se muestra). TODO confirmar con la posada.
   queHacer: [] as { titulo: string; texto: string; foto?: string }[],
   comoLlegar: {
@@ -301,12 +311,12 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
   {
     pregunta: "¿Qué pasa si tengo que cancelar?",
     respuesta:
-      "Tenemos cancelación flexible: si cancelás hasta 5 días antes de la fecha de check-in, te devolvemos la seña. Si cancelás después, la seña no se devuelve.",
+      "Tenemos cancelación flexible: si cancelás hasta 10 días antes de la fecha de check-in, te devolvemos la seña. Si cancelás después, la seña no se devuelve.",
   },
   {
     pregunta: "¿Alquilan fuera de temporada?",
     respuesta:
-      "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale $ 2.000 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad. La casa Mostaza sale US$ 80 la noche (mínimo 15 noches).",
+      "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale US$ 50 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad. La casa Mostaza sale US$ 80 la noche (mínimo 15 noches).",
   },
   { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
   {

@@ -104,7 +104,7 @@ export function Tarifas() {
         <TituloSeccion
           id="tarifas-titulo"
           etiqueta="Tarifas"
-          titulo="Tarifas temporada 2026–2027"
+          titulo="Temporada 2026–2027"
           intro="Precios por casa y por noche, para hasta 4 personas."
           compacto
         />

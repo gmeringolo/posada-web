@@ -23,6 +23,11 @@ import {
   Wallet,
   Waves,
   Wifi,
+  Martini,
+  ShoppingCart,
+  Store,
+  Trees,
+  Trophy,
   type LucideIcon,
 } from "lucide-react";
 
@@ -52,6 +57,11 @@ const ICONOS: Record<string, LucideIcon> = {
   Wallet,
   Waves,
   Wifi,
+  Martini,
+  ShoppingCart,
+  Store,
+  Trees,
+  Trophy,
 };
 
 export function Icono({ nombre, className = "size-6" }: { nombre: string; className?: string }) {
