@@ -6,7 +6,7 @@ import { centrarEnPantalla } from "@/lib/centrar";
 import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { enviarFormularioNetlify, MENSAJE_ERROR_ENVIO } from "@/lib/formularios";
-import { casasLibres, fechasLibresCercanas, nochesSinLugar, obtenerReservas, type Reserva } from "@/lib/disponibilidad";
+import { casasLibres, fechasLibresCercanas, nochesSinLugar, obtenerReservas, solicitarReserva, type Reserva, type ResultadoPedido } from "@/lib/disponibilidad";
 import { formatoCorto, formatoLargo, hoyISO, noches as contarNoches, sumarDias, type ISODate } from "@/lib/fechas";
 import { calcularPrecio, formatoPrecio, textoDesglose, type ResultadoPrecio } from "@/lib/precio";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
@@ -15,7 +15,7 @@ import { LinkWhatsApp } from "@/components/ui/LinkWhatsApp";
 import { Calendario } from "@/components/ui/Calendario";
 
 type Carga = "cargando" | "ok" | "error";
-type Envio = "inicial" | "enviando" | "ok" | "error";
+type Envio = "inicial" | "enviando" | "ok" | "error" | "ocupado";
 const TIPOS: TipoCasa[] = ["1dorm", "mostaza"];
 const MAX_PERSONAS = 4;
 
@@ -170,6 +170,7 @@ function FormularioReserva({
   personas,
   libres,
   onCerrar,
+  onActualizar,
 }: {
   tipo: TipoCasa;
   entrada: ISODate;
@@ -177,8 +178,12 @@ function FormularioReserva({
   personas: number;
   libres: string[];
   onCerrar: () => void;
+  /** Vuelve a cargar la disponibilidad (para que las fechas apartadas se vean ocupadas). */
+  onActualizar: () => void;
 }) {
   const [envio, setEnvio] = useState<Envio>("inicial");
+  // true = las fechas quedaron apartadas en la base (pre-reserva pendiente de aprobación)
+  const [apartada, setApartada] = useState(false);
   const exito = useRef<HTMLDivElement>(null);
   // Al enviar, llevamos el mensaje de éxito al centro de la pantalla (sobre todo en celular)
   useEffect(() => {
@@ -198,14 +203,49 @@ function FormularioReserva({
     const form = e.currentTarget;
     if (excede || !form.reportValidity()) return;
     setEnvio("enviando");
+    const datos = new FormData(form);
+    const texto = (campo: string) => String(datos.get(campo) ?? "").trim();
+
+    // 1) Apartar las fechas en la base (pre-reserva pendiente). Los bots (campo trampa completo) no apartan nada.
+    let pedido: ResultadoPedido = { estado: "error" };
+    if (!texto("bot-field")) {
+      pedido = await solicitarReserva(supabase, {
+        tipo,
+        entrada,
+        salida,
+        nombre: texto("nombre"),
+        telefono: texto("telefono"),
+        adultos,
+        menores,
+        mascotas: Number(texto("mascotas")) || 0,
+        moneda: ok?.moneda,
+        precioNoche: precioNoche ?? undefined,
+        total: ok?.total,
+        mensaje: texto("mensaje"),
+      });
+    }
+    if (pedido.estado === "sin-lugar") {
+      setEnvio("ocupado");
+      onActualizar();
+      return;
+    }
+    if (pedido.estado === "ok") {
+      const nombreCasa = casas.find((c) => c.id === pedido.casa)?.nombre ?? pedido.casa;
+      (form.elements.namedItem("casa") as HTMLInputElement).value = `Casa ${nombreCasa} (apartada, pendiente de aprobación)`;
+    }
+
+    // 2) Email con la consulta (Netlify Forms). Si las fechas ya quedaron apartadas, un fallo acá no es grave:
+    //    la pre-reserva ya está en la app de reservas.
     try {
       await enviarFormularioNetlify(form);
-      setEnvio("ok");
-      trackEvent("reserva_submit", { tipo, noches: n, personas: adultos + menores });
     } catch (err) {
       console.warn("[reserva]", err);
-      setEnvio("error");
+      if (pedido.estado !== "ok") return setEnvio("error");
     }
+    setApartada(pedido.estado === "ok");
+    setEnvio("ok");
+    onActualizar();
+    trackEvent("reserva_submit", { tipo, noches: n, personas: adultos + menores, apartada: pedido.estado === "ok" });
   }
 
   if (envio === "ok")
@@ -213,13 +253,24 @@ function FormularioReserva({
       <div ref={exito} className="grid place-items-center rounded-3xl bg-white p-6 text-center shadow-card ring-1 ring-primary-100/70" role="status">
         <div>
           <CircleCheck className="mx-auto size-14 text-green-600" aria-hidden="true" />
-          <p className="mt-4 font-display text-2xl text-primary-900">¡Recibimos tu consulta de reserva!</p>
+          <p className="mt-4 font-display text-2xl text-primary-900">¡Recibimos tu pedido de reserva!</p>
           <div className="mt-4 rounded-2xl bg-accent-soft p-4 text-sm text-primary-900">
-            <p className="font-bold">Todavía no es una reserva confirmada.</p>
-            <p className="mt-2">
-              La disponibilidad que muestra la web es orientativa. A la brevedad te escribimos por WhatsApp para confirmarte la
-              reserva y para coordinar la seña del 50 %.
-            </p>
+            {apartada ? (
+              <>
+                <p className="font-bold">Te apartamos las fechas.</p>
+                <p className="mt-2">
+                  Todavía no es una reserva confirmada: a la brevedad te escribimos por WhatsApp para confirmártela y para coordinar
+                  la seña del 50 %.
+                </p>
+              </>
+            ) : (
+              <>
+                <p className="font-bold">Todavía no es una reserva confirmada.</p>
+                <p className="mt-2">
+                  A la brevedad te escribimos por WhatsApp para confirmarte la disponibilidad y para coordinar la seña del 50 %.
+                </p>
+              </>
+            )}
           </div>
           <button type="button" className="mt-6 font-bold text-primary-600 underline" onClick={onCerrar}>
             Volver
@@ -256,7 +307,7 @@ function FormularioReserva({
 
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h3 className="text-xl sm:text-2xl">Consulta de reserva</h3>
+          <h3 className="text-xl sm:text-2xl">Pedido de reserva</h3>
           <p className="mt-0.5 text-sm font-semibold text-muted">
             {tiposDeCasa[tipo].titulo} · {formatoCorto(entrada).slice(0, 5)} al {formatoCorto(salida).slice(0, 5)} · {n} noches
           </p>
@@ -323,6 +374,17 @@ function FormularioReserva({
         </label>
         <input id="r-mensaje" name="mensaje" className="campo" placeholder="Algo que quieras contarnos (opcional)" />
       </div>
+      {envio === "ocupado" && (
+        <div role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
+          <p>Justo alguien pidió estas fechas y ya no quedan casas libres. Elegí otras fechas o escribinos por WhatsApp.</p>
+          <LinkWhatsApp
+            ubicacion="reserva-sin-lugar"
+            tamano="sm"
+            className="mt-2"
+            mensaje={mensajeWhatsApp(tipo, entrada, salida, adultos + menores, precio)}
+          />
+        </div>
+      )}
       {envio === "error" && (
         <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm font-semibold text-red-800">
           {MENSAJE_ERROR_ENVIO}
@@ -339,12 +401,12 @@ function FormularioReserva({
           </>
         ) : (
           <>
-            <Send className="size-5" aria-hidden="true" /> Enviar consulta de reserva
+            <Send className="size-5" aria-hidden="true" /> Enviar pedido de reserva
           </>
         )}
       </button>
       <p className="mt-2 text-center text-xs text-muted">
-        {ok && <>Total {formatoPrecio(ok.total, ok.moneda)} · </>}Es una consulta: te confirmamos la reserva por WhatsApp.
+        {ok && <>Total {formatoPrecio(ok.total, ok.moneda)} · </>}Las fechas quedan apartadas hasta que te confirmemos por WhatsApp.
       </p>
     </form>
   );
@@ -418,7 +480,8 @@ export function Disponibilidad() {
     if (buscado) centrarEnPantalla(resultados.current);
   }, [buscado]);
 
-  // Carga las fechas ocupadas al abrir la página
+  // Carga las fechas ocupadas al abrir la página (y de nuevo después de pedir una reserva)
+  const [version, setVersion] = useState(0);
   useEffect(() => {
     if (!hoy) return;
     const ctrl = new AbortController();
@@ -433,7 +496,7 @@ export function Disponibilidad() {
         setCarga("error");
       });
     return () => ctrl.abort();
-  }, [hoy]);
+  }, [hoy, version]);
 
   function buscar(e?: FormEvent, ent = entrada, sal = salida) {
     e?.preventDefault();
@@ -549,6 +612,7 @@ export function Disponibilidad() {
                   personas={buscado.personas}
                   libres={carga === "ok" ? casasLibres(reservando, buscado.entrada, buscado.salida, reservas) : []}
                   onCerrar={() => setReservando(null)}
+                  onActualizar={() => setVersion((v) => v + 1)}
                 />
               </div>
             )}

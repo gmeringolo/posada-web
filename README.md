@@ -116,6 +116,10 @@ La web lee las fechas ocupadas de la app **Posada reservas**, sin ver datos de h
 
 Si la función no existe o Supabase no responde, la sección muestra el precio estimado y el botón de WhatsApp, sin romper la página.
 
+### Pre-reservas (fechas apartadas al pedir una reserva)
+
+Al enviar el formulario de reserva, las fechas quedan apartadas como **pendientes de aprobación** en la app de reservas, con aviso por Telegram. Puesta en marcha y detalles: [`docs/prereservas.md`](docs/prereservas.md).
+
 ---
 
 ## Checklist de lanzamiento

@@ -121,3 +121,66 @@ export function nochesSinLugar(desde: ISODate, hasta: ISODate, reservas: Reserva
   }
   return sinLugar;
 }
+
+export type PedidoReserva = {
+  tipo: Tipo;
+  entrada: ISODate;
+  salida: ISODate;
+  nombre: string;
+  telefono: string;
+  adultos: number;
+  menores: number;
+  mascotas: number;
+  moneda?: "USD" | "UYU";
+  precioNoche?: number;
+  total?: number;
+  mensaje?: string;
+};
+
+export type ResultadoPedido =
+  | { estado: "ok"; casa: CasaId }
+  | { estado: "sin-lugar" } // otra persona pidió esas fechas antes
+  | { estado: "error" }; // problema técnico: la consulta igual llega por email
+
+/**
+ * Aparta las fechas: guarda una pre-reserva pendiente con la función `solicitar_reserva` de Supabase
+ * (ver supabase/prereservas.sql). La base asigna la casa y rechaza si ya no hay lugar.
+ */
+export async function solicitarReserva(config: { url: string; anonKey: string }, p: PedidoReserva): Promise<ResultadoPedido> {
+  if (!config.url || !config.anonKey) return { estado: "error" };
+  try {
+    const res = await fetch(`${config.url.replace(/\/$/, "")}/rest/v1/rpc/solicitar_reserva`, {
+      method: "POST",
+      headers: {
+        apikey: config.anonKey,
+        Authorization: `Bearer ${config.anonKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        p_tipo: p.tipo,
+        p_inicio: p.entrada,
+        p_fin: p.salida,
+        p_nombre: p.nombre,
+        p_telefono: p.telefono,
+        p_adultos: p.adultos,
+        p_ninos: p.menores,
+        p_mascotas: p.mascotas,
+        p_moneda: p.moneda ?? null,
+        p_precio_noche: p.precioNoche ?? null,
+        p_total: p.total ?? null,
+        p_comentarios: p.mensaje || null,
+      }),
+    });
+    if (res.ok) {
+      const casa = await res.json();
+      return typeof casa === "string" ? { estado: "ok", casa: casa as CasaId } : { estado: "error" };
+    }
+    const error = await res.json().catch(() => null);
+    if (error?.code === "PH020") return { estado: "sin-lugar" };
+    console.warn("[pre-reserva]", res.status, error);
+    return { estado: "error" };
+  } catch (e) {
+    console.warn("[pre-reserva]", e);
+    return { estado: "error" };
+  }
+}
