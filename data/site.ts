@@ -131,7 +131,7 @@ export const comodidades: { icono: string; titulo: string; detalle?: string; des
   { icono: "Wifi", titulo: "Wi-Fi" },
   { icono: "Flame", titulo: "Parrillero techado individual" },
   { icono: "Umbrella", titulo: "Sillas de playa" },
-  { icono: "Car", titulo: "Estacionamiento en el complejo" },
+  { icono: "Car", titulo: "Estacionamiento al frente" },
   { icono: "Users", titulo: "Para hasta 4 personas" },
 ];
 
@@ -205,7 +205,7 @@ export const antesDeReservar: { icono: string; titulo: string; texto: string }[]
     texto: "Si cancelás hasta 10 días antes del check-in, te devolvemos la seña.",
   },
   { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
-  { icono: "Car", titulo: "Estacionamiento", texto: "En la entrada del complejo." },
+  { icono: "Car", titulo: "Estacionamiento", texto: "Al frente del complejo, junto a la portera." },
   { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas." },
 ];
 
@@ -318,7 +318,7 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
     respuesta:
       "Sí, estamos abiertos todo el año. En temporada baja (marzo a noviembre), en las casas de 1 dormitorio la noche entre semana sale US$ 50 y el fin de semana de viernes a domingo $ 4.500, con late check-out sujeto a disponibilidad. La casa Mostaza sale US$ 80 la noche (mínimo 15 noches).",
   },
-  { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, hay estacionamiento en la entrada del complejo." },
+  { pregunta: "¿Hay estacionamiento?", respuesta: "Sí, se puede estacionar al frente del complejo, junto a la portera." },
   {
     pregunta: "¿Cómo llego en ómnibus?",
     respuesta: "Con el 711 Costa Azul: bajate en la parada del Club Bello Horizonte, que queda a 2 cuadras.",
