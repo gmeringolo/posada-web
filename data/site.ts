@@ -272,8 +272,8 @@ export const zona = {
     { icono: "Martini", nombre: "El Chiringuito", distancia: "Media cuadra" },
     { icono: "Store", nombre: "Almacén Rey Lagarto", distancia: "Media cuadra" },
     { icono: "Trophy", nombre: "Club Bello Horizonte", distancia: "2 cuadras" },
+    { icono: "ShoppingBasket", nombre: "Minimercado Pedro", distancia: "2 cuadras" },
     { icono: "ShoppingCart", nombre: "Supermercado Bello Horizonte", distancia: "10 cuadras" },
-    { icono: "Trophy", nombre: "Club Costa Azul", distancia: "10 cuadras" },
   ],
   // Qué hacer cerca (vacío = no se muestra). TODO confirmar con la posada.
   queHacer: [] as { titulo: string; texto: string; foto?: string }[],
