@@ -1,17 +1,18 @@
 "use client";
 
-import { AlertCircle, ArrowLeft, CalendarSearch, CircleCheck, CircleX, Info, LoaderCircle, Send } from "lucide-react";
-import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
+import { AlertCircle, ArrowLeft, CalendarDays, CalendarSearch, CircleCheck, CircleX, Info, LoaderCircle, Send } from "lucide-react";
+import { useEffect, useMemo, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { centrarEnPantalla } from "@/lib/centrar";
 import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { enviarFormularioNetlify, MENSAJE_ERROR_ENVIO } from "@/lib/formularios";
-import { casasLibres, fechasLibresCercanas, obtenerReservas, type Reserva } from "@/lib/disponibilidad";
+import { casasLibres, fechasLibresCercanas, nochesSinLugar, obtenerReservas, type Reserva } from "@/lib/disponibilidad";
 import { formatoCorto, formatoLargo, hoyISO, noches as contarNoches, sumarDias, type ISODate } from "@/lib/fechas";
 import { calcularPrecio, formatoPrecio, textoDesglose, type ResultadoPrecio } from "@/lib/precio";
 import { TituloSeccion } from "@/components/ui/TituloSeccion";
 import { Boton } from "@/components/ui/Boton";
 import { LinkWhatsApp } from "@/components/ui/LinkWhatsApp";
+import { Calendario } from "@/components/ui/Calendario";
 
 type Carga = "cargando" | "ok" | "error";
 type Envio = "inicial" | "enviando" | "ok" | "error";
@@ -349,6 +350,29 @@ function FormularioReserva({
   );
 }
 
+/** Campo de fecha que abre el calendario propio (en lugar del selector del navegador). */
+function CampoFecha({ id, etiqueta, valor, activo, onAbrir }: { id: string; etiqueta: string; valor: ISODate; activo: boolean; onAbrir: () => void }) {
+  return (
+    <div>
+      <span id={`${id}-etiqueta`} className="mb-1.5 block text-sm font-bold text-white">
+        {etiqueta}
+      </span>
+      <button
+        id={id}
+        type="button"
+        onClick={onAbrir}
+        aria-haspopup="dialog"
+        aria-expanded={activo}
+        aria-labelledby={`${id}-etiqueta ${id}`}
+        className={`campo flex items-center justify-between gap-2 text-left ${activo ? "border-primary-400 ring-4 ring-primary-100" : ""}`}
+      >
+        <span className={valor ? "" : "text-muted/70"}>{valor ? formatoLargo(valor) : "Elegí fecha"}</span>
+        <CalendarDays className="size-5 shrink-0 text-primary-500" aria-hidden="true" />
+      </button>
+    </div>
+  );
+}
+
 /* ------------------------------ Sección ------------------------------ */
 
 const sinSuscripcion = () => () => {};
@@ -365,6 +389,25 @@ export function Disponibilidad() {
   const [reservando, setReservando] = useState<TipoCasa | null>(null);
   const [error, setError] = useState("");
   const resultados = useRef<HTMLDivElement>(null);
+  const formulario = useRef<HTMLFormElement>(null);
+  const panel = useRef<HTMLDivElement>(null);
+  const [calendario, setCalendario] = useState<"entrada" | "salida" | null>(null);
+  // Noches sin lugar en ninguna casa: se tachan en el calendario
+  const sinLugar = useMemo(() => (carga === "ok" && hoy ? nochesSinLugar(hoy, sumarDias(hoy, 540), reservas) : new Set<ISODate>()), [carga, hoy, reservas]);
+
+  // Calendario abierto: se cierra al tocar afuera y se asegura que se vea entero
+  useEffect(() => {
+    if (!calendario) return;
+    const fuera = (e: PointerEvent) => {
+      if (!formulario.current?.contains(e.target as Node)) setCalendario(null);
+    };
+    document.addEventListener("pointerdown", fuera);
+    return () => document.removeEventListener("pointerdown", fuera);
+  }, [calendario]);
+  const abierto = calendario !== null;
+  useEffect(() => {
+    if (abierto) panel.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }, [abierto]);
   // Al buscar, llevamos los resultados al centro de la pantalla (sobre todo en celular)
   useEffect(() => {
     if (buscado) centrarEnPantalla(resultados.current);
@@ -393,6 +436,7 @@ export function Disponibilidad() {
     if (sal <= ent) return setError("La salida tiene que ser después de la entrada.");
     if (hoy && ent < hoy) return setError("La entrada no puede ser en el pasado.");
     setError("");
+    setCalendario(null);
     setReservando(null);
     setBuscado({ entrada: ent, salida: sal, personas });
     const libres = carga === "ok" ? TIPOS.map((t) => casasLibres(t, ent, sal, reservas).length) : [];
@@ -424,40 +468,30 @@ export function Disponibilidad() {
         />
 
         <form
+          ref={formulario}
           onSubmit={buscar}
-          className="aparecer mx-auto grid max-w-4xl gap-4 rounded-3xl bg-primary-900 p-5 shadow-soft sm:grid-cols-[1fr_1fr_auto] sm:items-end lg:grid-cols-[1fr_1fr_auto_auto] sm:p-6"
+          className="aparecer relative mx-auto grid max-w-4xl gap-4 rounded-3xl bg-primary-900 p-5 shadow-soft sm:grid-cols-[1fr_1fr_auto] sm:items-end lg:grid-cols-[1fr_1fr_auto_auto] sm:p-6"
         >
-          <div>
-            <label htmlFor="d-entrada" className="mb-1.5 block text-sm font-bold text-white">
-              Entrada
-            </label>
-            <input
-              id="d-entrada"
-              type="date"
-              className="campo"
-              min={hoy || undefined}
-              value={entrada}
-              onChange={(e) => {
-                setEntrada(e.target.value);
-                if (salida && e.target.value >= salida) setSalida("");
-              }}
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="d-salida" className="mb-1.5 block text-sm font-bold text-white">
-              Salida
-            </label>
-            <input
-              id="d-salida"
-              type="date"
-              className="campo"
-              min={entrada ? sumarDias(entrada, 1) : hoy || undefined}
-              value={salida}
-              onChange={(e) => setSalida(e.target.value)}
-              required
-            />
-          </div>
+          <CampoFecha id="d-entrada" etiqueta="Entrada" valor={entrada} activo={calendario === "entrada"} onAbrir={() => setCalendario("entrada")} />
+          <CampoFecha id="d-salida" etiqueta="Salida" valor={salida} activo={calendario === "salida"} onAbrir={() => setCalendario(entrada ? "salida" : "entrada")} />
+          {calendario && (
+            <div ref={panel} className="z-30 sm:absolute sm:inset-x-0 sm:top-full sm:right-auto sm:mt-2 sm:w-[40rem] sm:max-w-full">
+              <Calendario
+                entrada={entrada}
+                salida={salida}
+                foco={calendario}
+                hoy={hoy}
+                sinLugar={sinLugar}
+                onCambiar={(r) => {
+                  setEntrada(r.entrada);
+                  setSalida(r.salida);
+                  setError("");
+                  setCalendario(r.completo ? null : r.foco);
+                }}
+                onCerrar={() => setCalendario(null)}
+              />
+            </div>
+          )}
           <div>
             <label htmlFor="d-personas" className="mb-1.5 block text-sm font-bold text-white">
               Personas

@@ -108,3 +108,16 @@ export async function obtenerReservas(
   if (!res.ok) throw new Error(`Supabase respondió ${res.status}`);
   return normalizarReservas(await res.json());
 }
+
+/**
+ * Noches sin lugar en ninguna casa (las cuatro ocupadas) entre `desde` y `hasta` (exclusivo).
+ * Se usan para tachar días en el calendario de la consulta.
+ */
+export function nochesSinLugar(desde: ISODate, hasta: ISODate, reservas: Reserva[]): Set<ISODate> {
+  const todas = [...CASAS_POR_TIPO["1dorm"], ...CASAS_POR_TIPO.mostaza];
+  const sinLugar = new Set<ISODate>();
+  for (const noche of listaNoches(desde, hasta)) {
+    if (todas.every((c) => nocheOcupada(c, noche, reservas))) sinLugar.add(noche);
+  }
+  return sinLugar;
+}
