@@ -102,10 +102,10 @@ export const tiposDeCasa: Record<
   mostaza: {
     titulo: "Casa Mostaza",
     subtitulo: "La más amplia, con barbacoa cerrada",
-    resumen: ["2 dormitorios", "Hasta 4 personas", "Estadía mínima 15 noches"],
+    resumen: ["2 dormitorios", "Hasta 4 personas", "Estufa a leña", "Estadía mínima 15 noches"],
     camas: ["Dormitorio 1: cama de 2 plazas", "Dormitorio 2: cama marinera"],
     descripcion:
-      "Living con biblioteca, cocina equipada y una barbacoa cerrada con parrillero y mesa para 6, rodeada de verde.",
+      "Living con biblioteca y estufa a leña, cocina equipada y una barbacoa cerrada con parrillero y mesa para 6, rodeada de verde.",
     foto: "/images/mostaza/living-sm.webp",
     fotoAlt: "Living con sillones y biblioteca en la casa Mostaza",
   },
