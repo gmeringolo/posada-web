@@ -95,7 +95,7 @@ export const tiposDeCasa: Record<
     resumen: ["1 dormitorio", "Hasta 4 personas", "50 m² techados"],
     camas: ["Dormitorio: cama de 2 plazas (140 × 180)", "Living: cama marinera"],
     descripcion:
-      "Casas independientes con cocina integrada, aire acondicionado en el dormitorio y deck techado con parrillero propio.",
+      "Casas independientes con cocina integrada, aire acondicionado y deck techado con parrillero propio.",
     foto: "/images/exterior/casas-colores-sm.webp",
     fotoAlt: "Casas roja, azul y verde con deck techado",
   },
@@ -126,7 +126,7 @@ export const comodidades: { icono: string; titulo: string; detalle?: string; des
     titulo: "Cocina completa",
     detalle: "Vajilla para 6, cocina a gas, heladera con freezer, microondas y jarra eléctrica",
   },
-  { icono: "AirVent", titulo: "Aire acondicionado en el dormitorio" },
+  { icono: "AirVent", titulo: "Aire acondicionado" },
   { icono: "Tv", titulo: "TV cable (DirecTV)" },
   { icono: "Wifi", titulo: "Wi-Fi" },
   { icono: "Flame", titulo: "Parrillero techado individual" },
