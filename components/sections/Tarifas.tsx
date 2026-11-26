@@ -161,22 +161,31 @@ export function PromosYCondiciones() {
             </div>
           )}
 
-          <div className="aparecer rounded-3xl bg-primary-900 p-6 text-white shadow-card sm:p-8">
-            <p className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-extrabold tracking-wider text-ink uppercase">Temporada baja</p>
-            <h3 className="mt-3 text-2xl text-white sm:text-3xl">¿Buscás escapar de la rutina entre semana?</h3>
-            <p className="mt-3 text-5xl font-extrabold">
-              {formatoPrecio(entreSemana.precioNoche, entreSemana.moneda)}
-              <span className="text-lg font-bold text-white/85"> por noche</span>
-            </p>
-            <p className="mt-1 text-sm font-semibold text-white/85">Válido para casas de 1 dormitorio.</p>
-            <LinkWhatsApp
-              ubicacion="tarifas-entre-semana"
-              mensaje="Hola! Quiero consultar por la tarifa entre semana de temporada baja. Fechas: … Cantidad de personas: …"
-              variante="acento"
-              className="mt-5"
-            >
-              Consultar
-            </LinkWhatsApp>
+          <div className="aparecer relative overflow-hidden rounded-3xl bg-primary-900 p-6 text-white shadow-card sm:p-8">
+            <img
+              src="/images/exterior/casa-verde-entrada-sm.webp"
+              alt=""
+              loading="lazy"
+              className="absolute inset-y-0 right-0 hidden h-full w-2/5 object-cover sm:block"
+              style={{ maskImage: "linear-gradient(to right, transparent, black 45%)" }}
+            />
+            <div className="relative sm:max-w-[60%]">
+              <p className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-extrabold tracking-wider text-ink uppercase">Temporada baja</p>
+              <h3 className="mt-3 text-2xl text-white sm:text-3xl">¿Buscás escapar de la rutina entre semana?</h3>
+              <p className="mt-3 text-5xl font-extrabold">
+                {formatoPrecio(entreSemana.precioNoche, entreSemana.moneda)}
+                <span className="text-lg font-bold text-white/85"> por noche</span>
+              </p>
+              <p className="mt-1 text-sm font-semibold text-white/85">Válido para casas de 1 dormitorio.</p>
+              <LinkWhatsApp
+                ubicacion="tarifas-entre-semana"
+                mensaje="Hola! Quiero consultar por la tarifa entre semana de temporada baja. Fechas: … Cantidad de personas: …"
+                variante="acento"
+                className="mt-5"
+              >
+                Consultar
+              </LinkWhatsApp>
+            </div>
           </div>
         </div>
 
