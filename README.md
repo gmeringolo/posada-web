@@ -64,7 +64,7 @@ Todo se edita en **`data/site.ts`**. Si un dato queda vacío (`""` o `[]`), ese 
 - **Precios:** lista `tarifas`. Cada período tiene fechas `"MM-DD"` (desde y hasta, inclusive), precio por noche y, opcional, un texto `fechas` que se ve debajo del nombre. La sección Tarifas y el precio estimado de Disponibilidad usan la misma lista: se cambia en un solo lugar.
 - **Promo de fin de semana:** lista `promos` (hoy: casas de 1 dormitorio, viernes a domingo, $ 4.500, del 1/4 al 30/11).
 - **Precios fuera de temporada:** `preciosFueraDeTemporada`.
-- **Check-in, seña, cancelación, mascotas:** `antesDeReservar`.
+- **Check-in, seña, mascotas:** `antesDeReservar`.
 - **Opiniones:** `opiniones` (solo reales, copiadas de Google o Airbnb) y `calificaciones` (promedio y cantidad; con `promedio: 0` no se muestra).
 - **Preguntas frecuentes:** `preguntasFrecuentes` (las que no tienen respuesta no se muestran).
 - **La zona:** `zona` (distancias, qué hacer cerca, cómo llegar en ómnibus).

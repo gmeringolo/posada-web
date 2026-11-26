@@ -199,11 +199,6 @@ export const tarifaEntreSemana: { tipo: TipoCasa; precioNoche: number; moneda: "
 export const antesDeReservar: { icono: string; titulo: string; texto: string }[] = [
   { icono: "Clock", titulo: "Entrada y salida", texto: "Check-in a las 15 h\nCheck-out a las 12 h" },
   { icono: "Wallet", titulo: "Seña", texto: "Para confirmar la reserva pedimos una seña del 50 % del total." },
-  {
-    icono: "CalendarX",
-    titulo: "Cancelación flexible",
-    texto: "Si cancelás hasta 10 días antes del check-in, te devolvemos la seña.",
-  },
   { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
   { icono: "Car", titulo: "Estacionamiento", texto: "Al frente del complejo, junto a la portera." },
   { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas." },
@@ -307,11 +302,6 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
     pregunta: "¿Cómo reservo?",
     respuesta:
       "Consultá disponibilidad por WhatsApp o con el formulario. Para confirmar la reserva pedimos una seña del 50 % del total.",
-  },
-  {
-    pregunta: "¿Qué pasa si tengo que cancelar?",
-    respuesta:
-      "Tenemos cancelación flexible: si cancelás hasta 10 días antes de la fecha de check-in, te devolvemos la seña. Si cancelás después, la seña no se devuelve.",
   },
   {
     pregunta: "¿Alquilan fuera de temporada?",
