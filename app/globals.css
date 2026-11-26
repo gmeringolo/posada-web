@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "react-day-picker/style.css";
 
 @theme {
   /* Azul principal de Posada Horizonte (#1E5077) y su escala */
@@ -152,5 +153,80 @@
   .scroll-x::-webkit-scrollbar {
     display: none;
   }
+}
+
+/* ------------------------------------------------------------------ */
+/* Calendario de la consulta (react-day-picker) con los colores del sitio */
+/* ------------------------------------------------------------------ */
+.calendario {
+  --rdp-accent-color: var(--color-primary-600);
+  --rdp-accent-background-color: var(--color-primary-50);
+  --rdp-day-height: 2.5rem;
+  --rdp-day-width: 2.5rem;
+  --rdp-day_button-height: 2.375rem;
+  --rdp-day_button-width: 2.375rem;
+  --rdp-today-color: var(--color-primary-700);
+  --rdp-disabled-opacity: 0.35;
+  --rdp-months-gap: 2.5rem;
+  font-size: 0.875rem;
+  margin-inline: auto;
+  width: fit-content;
+}
+@media (width >= 40rem) {
+  .calendario {
+    --rdp-day-height: 2.75rem;
+    --rdp-day-width: 2.75rem;
+    --rdp-day_button-height: 2.625rem;
+    --rdp-day_button-width: 2.625rem;
+  }
+}
+.calendario .rdp-months {
+  flex-wrap: nowrap;
+  max-width: none;
+}
+.calendario .rdp-caption_label {
+  color: var(--color-primary-900);
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+.calendario .rdp-weekday {
+  color: var(--color-muted);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.calendario .rdp-day_button {
+  transition: background-color 150ms;
+}
+.calendario .rdp-day:not(.rdp-disabled):not(.rdp-range_start):not(.rdp-range_end) .rdp-day_button:hover {
+  background-color: var(--color-primary-100);
+}
+/* Hoy: solo un punto amarillo debajo del número */
+.calendario .rdp-today:not(.rdp-range_start):not(.rdp-range_end) .rdp-day_button {
+  position: relative;
+  font-weight: 800;
+}
+.calendario .rdp-today:not(.rdp-range_start):not(.rdp-range_end) .rdp-day_button::after {
+  content: "";
+  position: absolute;
+  bottom: 0.3rem;
+  left: 50%;
+  width: 0.25rem;
+  height: 0.25rem;
+  margin-left: -0.125rem;
+  border-radius: 9999px;
+  background: var(--color-accent);
+}
+.calendario .rdp-range_start .rdp-day_button,
+.calendario .rdp-range_end .rdp-day_button {
+  font-weight: 700;
+}
+/* Salida tentativa (bajo el puntero, todavía sin elegir) */
+.calendario .calendario-previa .rdp-day_button {
+  background-color: var(--color-primary-100);
+  color: var(--color-primary-900);
+}
+.calendario .calendario-sin-lugar.rdp-disabled .rdp-day_button {
+  text-decoration: line-through;
 }
 

@@ -475,7 +475,7 @@ export function Disponibilidad() {
           <CampoFecha id="d-entrada" etiqueta="Entrada" valor={entrada} activo={calendario === "entrada"} onAbrir={() => setCalendario("entrada")} />
           <CampoFecha id="d-salida" etiqueta="Salida" valor={salida} activo={calendario === "salida"} onAbrir={() => setCalendario(entrada ? "salida" : "entrada")} />
           {calendario && (
-            <div ref={panel} className="z-30 sm:absolute sm:inset-x-0 sm:top-full sm:right-auto sm:mt-2 sm:w-[40rem] sm:max-w-full">
+            <div ref={panel} className="z-30 sm:absolute sm:inset-x-0 sm:top-full sm:right-auto sm:mt-2 sm:w-max sm:max-w-full">
               <Calendario
                 entrada={entrada}
                 salida={salida}

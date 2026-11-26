@@ -1,4 +1,4 @@
-import { diaSemana, sumarDias, type ISODate } from "./fechas";
+import { sumarDias, type ISODate } from "./fechas";
 
 /**
  * Lógica del calendario de la consulta de disponibilidad (sin React, para poder testearla).
@@ -48,14 +48,4 @@ export function elegirDia(dia: ISODate, rango: Rango, foco: Foco, sinLugar: Set<
   return salidaValida
     ? { entrada: dia, salida: rango.salida, foco: "entrada", completo: true }
     : { entrada: dia, salida: "", foco: "salida", completo: false };
-}
-
-/** Semanas de un mes (lunes a domingo); null = casillero vacío. `mes` es 0–11. */
-export function semanasDelMes(anio: number, mes: number): (ISODate | null)[][] {
-  const primero = `${anio}-${String(mes + 1).padStart(2, "0")}-01`;
-  const vacios = (diaSemana(primero) + 6) % 7; // lunes = 0
-  const dias: (ISODate | null)[] = Array(vacios).fill(null);
-  for (let d = primero; Number(d.slice(5, 7)) === mes + 1; d = sumarDias(d, 1)) dias.push(d);
-  while (dias.length % 7) dias.push(null);
-  return Array.from({ length: dias.length / 7 }, (_, i) => dias.slice(i * 7, i * 7 + 7));
 }

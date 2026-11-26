@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { diaDeshabilitado, elegirDia, primeraSinLugar, semanasDelMes } from "@/lib/calendario";
+import { diaDeshabilitado, elegirDia, primeraSinLugar } from "@/lib/calendario";
 import { nochesSinLugar, type Reserva } from "@/lib/disponibilidad";
 
 const sinLugar = new Set(["2027-01-10", "2027-01-11"]);
@@ -43,12 +43,6 @@ describe("calendario", () => {
   it("primeraSinLugar", () => {
     expect(primeraSinLugar("2027-01-05", sinLugar)).toBe("2027-01-10");
     expect(primeraSinLugar("2027-01-12", sinLugar, 30)).toBeNull();
-  });
-
-  it("semanas del mes empiezan en lunes", () => {
-    const s = semanasDelMes(2026, 11); // diciembre 2026: el 1 es martes
-    expect(s[0]).toEqual([null, "2026-12-01", "2026-12-02", "2026-12-03", "2026-12-04", "2026-12-05", "2026-12-06"]);
-    expect(s.flat().filter(Boolean)).toHaveLength(31);
   });
 
   it("nochesSinLugar: solo cuando las cuatro casas están ocupadas", () => {
