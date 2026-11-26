@@ -419,7 +419,7 @@ export function Disponibilidad() {
 
         <form
           onSubmit={buscar}
-          className="aparecer mx-auto grid max-w-4xl gap-4 rounded-3xl bg-primary-900 p-5 shadow-soft sm:grid-cols-[1fr_1fr_auto_auto] sm:items-end sm:p-6"
+          className="aparecer mx-auto grid max-w-4xl gap-4 rounded-3xl bg-primary-900 p-5 shadow-soft sm:grid-cols-[1fr_1fr_auto] sm:items-end lg:grid-cols-[1fr_1fr_auto_auto] sm:p-6"
         >
           <div>
             <label htmlFor="d-entrada" className="mb-1.5 block text-sm font-bold text-white">
@@ -466,12 +466,12 @@ export function Disponibilidad() {
           </div>
           <button
             type="submit"
-            className="inline-flex h-[50px] items-center justify-center gap-2 rounded-full bg-accent px-6 font-bold text-ink shadow-card transition hover:bg-accent-hover"
+            className="inline-flex h-[50px] items-center justify-center gap-2 rounded-full bg-accent px-6 sm:col-span-3 lg:col-span-1 font-bold text-ink shadow-card transition hover:bg-accent-hover"
           >
             <CalendarSearch className="size-5" aria-hidden="true" /> Ver disponibilidad
           </button>
           {error && (
-            <p role="alert" className="font-semibold text-accent sm:col-span-4">
+            <p role="alert" className="font-semibold text-accent sm:col-span-3 lg:col-span-4">
               {error}
             </p>
           )}

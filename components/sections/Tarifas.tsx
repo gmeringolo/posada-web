@@ -80,7 +80,7 @@ function Bloque({ tipo, foto }: { tipo: TipoCasa; foto: string }) {
               {x.temporadaAlta && <span className="sr-only">Temporada alta: </span>}
               <p className="text-[0.8rem] leading-tight font-bold text-primary-800">{x.nombre}</p>
               {x.fechas && <p className="text-[0.7rem] text-muted">{x.fechas}</p>}
-              <p className="mt-1.5 text-2xl font-extrabold whitespace-nowrap text-primary-900 xl:text-[1.7rem]">{formatoPrecio(x.precioNoche, x.moneda)}</p>
+              <p className="mt-1.5 text-2xl font-extrabold whitespace-nowrap text-primary-900 sm:text-xl xl:text-[1.7rem]">{formatoPrecio(x.precioNoche, x.moneda)}</p>
               <p className="text-xs text-muted">por noche</p>
             </li>
           ))}
@@ -135,17 +135,17 @@ export function PromosYCondiciones() {
                 src="/images/casas-1dorm/deck-mesa-sm.webp"
                 alt=""
                 loading="lazy"
-                className="absolute inset-y-0 right-0 hidden h-full w-2/5 object-cover sm:block"
+                className="absolute inset-y-0 right-0 h-full w-2/5 object-cover"
                 style={{ maskImage: "linear-gradient(to right, transparent, black 45%)" }}
               />
-              <div className="relative sm:max-w-[60%]">
-                <p className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-xs font-extrabold tracking-wider text-white uppercase">
+              <div className="relative max-w-[64%] sm:max-w-[60%]">
+                <p className="inline-flex items-center gap-1.5 rounded-full bg-ink px-3 py-1 text-[0.65rem] sm:text-xs font-extrabold tracking-wider text-white uppercase">
                   <Sparkles className="size-3.5" aria-hidden="true" /> Temporada baja
                 </p>
                 <p className="mt-1.5 text-xs font-bold">Marzo a noviembre</p>
-                <p className="mt-3 text-lg font-bold">Viernes a domingo · {promo.noches} noches</p>
-                <p className="text-5xl font-extrabold">{formatoPrecio(promo.precioTotal, promo.moneda)}</p>
-                <p className="mt-1 text-sm font-semibold">Válido para casas de 1 dormitorio.
+                <p className="mt-3 text-base font-bold sm:text-lg">Viernes a domingo · {promo.noches} noches</p>
+                <p className="text-4xl font-extrabold sm:text-5xl">{formatoPrecio(promo.precioTotal, promo.moneda)}</p>
+                <p className="mt-1 text-xs font-semibold sm:text-sm">Válido para casas de 1 dormitorio.
                   <br />
                   Con late check-out sujeto a disponibilidad.
                 </p>
@@ -166,17 +166,17 @@ export function PromosYCondiciones() {
               src="/images/exterior/casa-verde-entrada-sm.webp"
               alt=""
               loading="lazy"
-              className="absolute inset-y-0 right-0 hidden h-full w-2/5 object-cover sm:block"
+              className="absolute inset-y-0 right-0 h-full w-2/5 object-cover"
               style={{ maskImage: "linear-gradient(to right, transparent, black 45%)" }}
             />
-            <div className="relative sm:max-w-[60%]">
-              <p className="inline-flex rounded-full bg-accent px-3 py-1 text-xs font-extrabold tracking-wider text-ink uppercase">Temporada baja</p>
-              <h3 className="mt-3 text-2xl text-white sm:text-3xl">¿Buscás escapar de la rutina entre semana?</h3>
-              <p className="mt-3 text-5xl font-extrabold">
+            <div className="relative max-w-[64%] sm:max-w-[60%]">
+              <p className="inline-flex rounded-full bg-accent px-3 py-1 text-[0.65rem] sm:text-xs font-extrabold tracking-wider text-ink uppercase">Temporada baja</p>
+              <h3 className="mt-3 text-xl text-white sm:text-3xl">¿Buscás escapar de la rutina entre semana?</h3>
+              <p className="mt-3 text-4xl font-extrabold sm:text-5xl">
                 {formatoPrecio(entreSemana.precioNoche, entreSemana.moneda)}
-                <span className="text-lg font-bold text-white/85"> por noche</span>
+                <span className="block text-base font-bold text-white/85 sm:inline sm:text-lg"> por noche</span>
               </p>
-              <p className="mt-1 text-sm font-semibold text-white/85">Válido para casas de 1 dormitorio.</p>
+              <p className="mt-1 text-xs font-semibold text-white/85 sm:text-sm">Válido para casas de 1 dormitorio.</p>
               <LinkWhatsApp
                 ubicacion="tarifas-entre-semana"
                 mensaje="Hola! Quiero consultar por la tarifa entre semana de temporada baja. Fechas: … Cantidad de personas: …"

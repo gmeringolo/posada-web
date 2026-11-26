@@ -12,9 +12,9 @@ export function LaZona() {
       <div className="contenedor">
         <TituloSeccion id="zona-titulo" etiqueta="La zona" titulo="Bello Horizonte, en la Costa de Oro" intro={zona.intro} compacto />
 
-        <div className="grid gap-4 lg:grid-cols-3 lg:gap-6">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {/* Foto: en computadora ocupa las 3 columnas */}
-          <div className="aparecer overflow-hidden rounded-3xl lg:col-span-3">
+          <div className="aparecer overflow-hidden rounded-3xl sm:col-span-2 lg:col-span-3">
             <img
               src="/images/playa/bajada-playa.webp"
               alt="Bajada de madera entre los médanos hacia la playa de Bello Horizonte"
@@ -24,7 +24,7 @@ export function LaZona() {
           </div>
 
           {/* Cómo llegar: lado a lado en tablet, apilados en computadora */}
-          <div className={`grid gap-4 ${zona.comoLlegar.omnibus ? "sm:grid-cols-2 lg:grid-cols-1" : ""}`}>
+          <div className={`grid gap-4 sm:col-span-2 lg:col-span-1 ${zona.comoLlegar.omnibus ? "sm:grid-cols-2 lg:grid-cols-1" : ""}`}>
             <div className="aparecer rounded-2xl bg-primary-900 p-5 text-white">
               <p className="flex items-center gap-2 font-bold">
                 <Car className="size-5 text-accent" aria-hidden="true" /> En auto
