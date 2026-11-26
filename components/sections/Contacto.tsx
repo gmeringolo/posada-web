@@ -2,6 +2,7 @@
 
 import { CircleCheck, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import { centrarEnPantalla } from "@/lib/centrar";
 import { enlaces } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -52,7 +53,7 @@ function Formulario() {
   const exito = useRef<HTMLDivElement>(null);
   // Al enviar, el formulario se achica: llevamos el mensaje de éxito al centro de la pantalla
   useEffect(() => {
-    if (envio === "ok") exito.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (envio === "ok") centrarEnPantalla(exito.current);
   }, [envio]);
   // Valores iniciales: lo que venga precargado desde Disponibilidad
   const [entrada, setEntrada] = useState(consulta.entrada ?? "");

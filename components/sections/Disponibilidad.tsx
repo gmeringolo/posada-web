@@ -2,6 +2,7 @@
 
 import { AlertCircle, ArrowLeft, CalendarSearch, CircleCheck, CircleX, Info, LoaderCircle, Send } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
+import { centrarEnPantalla } from "@/lib/centrar";
 import { casas, minimoNoches, promos, supabase, tarifas, tiposDeCasa, type TipoCasa } from "@/data/site";
 import { trackEvent } from "@/lib/analytics";
 import { enviarFormularioNetlify, MENSAJE_ERROR_ENVIO } from "@/lib/formularios";
@@ -180,7 +181,7 @@ function FormularioReserva({
   const exito = useRef<HTMLDivElement>(null);
   // Al enviar, llevamos el mensaje de éxito al centro de la pantalla (sobre todo en celular)
   useEffect(() => {
-    if (envio === "ok") exito.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (envio === "ok") centrarEnPantalla(exito.current);
   }, [envio]);
   const [adultos, setAdultos] = useState(Math.max(1, personas));
   const [menores, setMenores] = useState(0);
@@ -363,6 +364,11 @@ export function Disponibilidad() {
   const [buscado, setBuscado] = useState<{ entrada: ISODate; salida: ISODate; personas: number } | null>(null);
   const [reservando, setReservando] = useState<TipoCasa | null>(null);
   const [error, setError] = useState("");
+  const resultados = useRef<HTMLDivElement>(null);
+  // Al buscar, llevamos los resultados al centro de la pantalla (sobre todo en celular)
+  useEffect(() => {
+    if (buscado) centrarEnPantalla(resultados.current);
+  }, [buscado]);
 
   // Carga las fechas ocupadas al abrir la página
   useEffect(() => {
@@ -478,7 +484,7 @@ export function Disponibilidad() {
         </form>
 
         {buscado && (
-          <div className="mx-auto mt-8 grid max-w-4xl items-start gap-5 md:grid-cols-2">
+          <div ref={resultados} className="mx-auto mt-8 grid max-w-4xl items-start gap-5 md:grid-cols-2">
             {TIPOS.filter((t) => !reservando || t === reservando).map((t) => (
               <TarjetaResultado
                 key={t}
