@@ -390,6 +390,11 @@ export function Disponibilidad() {
   const [error, setError] = useState("");
   const resultados = useRef<HTMLDivElement>(null);
   const formulario = useRef<HTMLFormElement>(null);
+  const reserva = useRef<HTMLDivElement>(null);
+  // Al tocar "Reservar", llevamos el formulario a la pantalla (sobre todo en celular, donde queda abajo)
+  useEffect(() => {
+    if (reservando) centrarEnPantalla(reserva.current);
+  }, [reservando]);
   const panel = useRef<HTMLDivElement>(null);
   const [calendario, setCalendario] = useState<"entrada" | "salida" | null>(null);
   // Noches sin lugar en ninguna casa: se tachan en el calendario
@@ -536,7 +541,7 @@ export function Disponibilidad() {
             ))}
             {reservando && (
               // El formulario ocupa el lugar de la otra tarjeta: a la derecha de las casas de 1 dormitorio, a la izquierda de la Mostaza
-              <div className={reservando === "mostaza" ? "md:order-first" : ""}>
+              <div ref={reserva} className={reservando === "mostaza" ? "md:order-first" : ""}>
                 <FormularioReserva
                   tipo={reservando}
                   entrada={buscado.entrada}
