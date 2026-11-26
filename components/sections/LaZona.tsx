@@ -43,15 +43,16 @@ export function LaZona() {
 
           {/* Comercios cercanos */}
           {zona.comercios.length > 0 && (
-            <div className="aparecer flex flex-col rounded-3xl bg-primary-600 px-5 py-4 text-white">
-              <h3 className="font-sans text-base font-bold text-white">Comercios cercanos</h3>
-              <ul className="mt-1 flex flex-1 flex-col justify-around divide-y divide-white/15">
+            <div className="aparecer flex flex-col rounded-3xl bg-primary-600 px-5 py-2 text-white">
+              <h3 className="sr-only">Comercios cercanos</h3>
+              <ul className="flex flex-1 flex-col justify-around divide-y divide-white/15">
                 {zona.comercios.map((c) => (
                   <li key={c.nombre} className="flex items-center gap-3 py-2.5 [@media(max-height:820px)]:py-2">
                     <span className="grid size-9 shrink-0 place-items-center rounded-xl bg-white/10 text-accent">
                       <Icono nombre={c.icono} className="size-5" />
                     </span>
-                    <span className="text-[0.95rem] font-semibold">{c.nombre}</span>
+                    <span className="flex-1 text-[0.95rem] font-semibold">{c.nombre}</span>
+                    <span className="text-right text-sm font-bold whitespace-nowrap text-accent">{c.distancia}</span>
                   </li>
                 ))}
               </ul>

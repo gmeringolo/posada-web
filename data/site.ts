@@ -272,13 +272,13 @@ export const zona = {
     { icono: "Plane", lugar: "Aeropuerto de Carrasco", distancia: "≈ 35 min" },
     { icono: "Building2", lugar: "Montevideo", distancia: "≈ 1 h" },
   ],
-  // Comercios cercanos (recuadro azul de La zona)
+  // Comercios cercanos (recuadro azul de La zona), del más cerca al más lejos. 1 km ≈ 10 cuadras.
   comercios: [
-    { icono: "Martini", nombre: "El Chiringuito" },
-    { icono: "ShoppingCart", nombre: "Supermercado Bello Horizonte" },
-    { icono: "Store", nombre: "Almacén Rey Lagarto" },
-    { icono: "Trophy", nombre: "Club Bello Horizonte" },
-    { icono: "Trophy", nombre: "Club Costa Azul" },
+    { icono: "Martini", nombre: "El Chiringuito", distancia: "Media cuadra" },
+    { icono: "Store", nombre: "Almacén Rey Lagarto", distancia: "Media cuadra" },
+    { icono: "Trophy", nombre: "Club Bello Horizonte", distancia: "2 cuadras" },
+    { icono: "ShoppingCart", nombre: "Supermercado Bello Horizonte", distancia: "10 cuadras" },
+    { icono: "Trophy", nombre: "Club Costa Azul", distancia: "10 cuadras" },
   ],
   // Qué hacer cerca (vacío = no se muestra). TODO confirmar con la posada.
   queHacer: [] as { titulo: string; texto: string; foto?: string }[],
