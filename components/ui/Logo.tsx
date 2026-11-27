@@ -17,7 +17,7 @@ export function Logo({ variante = "azul", tamano = "normal", className = "" }: P
       width={640}
       height={198}
       decoding="async"
-      className={`block w-auto ${tamano === "grande" ? "h-12" : "h-9 sm:h-10"} ${className}`}
+      className={`block w-auto ${tamano === "grande" ? "h-12" : "h-11 sm:h-[52px]"} ${className}`}
     />
   );
 }
