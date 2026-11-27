@@ -8,9 +8,9 @@ const nunito = Nunito({ subsets: ["latin"], variable: "--font-nunito", display: 
 const dmSerif = DM_Serif_Display({ subsets: ["latin"], weight: "400", variable: "--font-dm-serif", display: "swap" });
 const dancing = Dancing_Script({ subsets: ["latin"], weight: ["500", "600"], variable: "--font-dancing", display: "swap" });
 
-const titulo = "Posada Horizonte · Casas en alquiler en Bello Horizonte, Canelones";
+const titulo = "Posada Horizonte · Casas y cabañas en alquiler en Bello Horizonte, Canelones";
 const descripcion =
-  "Alquiler de casas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Costa de Oro. Para hasta 4 personas, aceptamos mascotas y abrimos todo el año. Consultá disponibilidad y precios de temporada.";
+  "Alquiler de casas y cabañas totalmente equipadas a media cuadra de la playa en Bello Horizonte, Costa de Oro. Para hasta 4 personas, aceptamos mascotas y abrimos todo el año. Consultá disponibilidad y precios de temporada.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(negocio.url),
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   keywords: [
     "alquiler de casas Bello Horizonte",
+    "cabañas Bello Horizonte",
+    "cabañas en alquiler Costa de Oro",
     "casas en alquiler Canelones",
     "Costa de Oro",
     "alquiler temporada",

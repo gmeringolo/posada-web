@@ -320,6 +320,11 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
     respuesta: "Con el 711 Costa Azul: bajate en la parada del Club Bello Horizonte, que queda a 2 cuadras.",
   },
   {
+    pregunta: "¿Son cabañas o casas?",
+    respuesta:
+      "Son casas independientes, como cabañas: cada una tiene su propia entrada, deck techado con parrillero y todo el equipamiento, a media cuadra de la playa en Bello Horizonte.",
+  },
+  {
     pregunta: "¿Cuántas personas entran en cada casa?",
     respuesta:
       "Todas las casas son para hasta 4 personas. Las casas Roja, Azul y Verde tienen un dormitorio con cama de 2 plazas y una cama marinera en el living. La casa Mostaza tiene dos dormitorios: uno con cama de 2 plazas y otro con cama marinera.",
