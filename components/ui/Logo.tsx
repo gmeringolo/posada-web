@@ -14,8 +14,8 @@ export function Logo({ variante = "azul", tamano = "normal", className = "" }: P
     <img
       src={`/images/logo-${variante}.webp`}
       alt="Posada Horizonte"
-      width={544}
-      height={168}
+      width={640}
+      height={198}
       decoding="async"
       className={`block w-auto ${tamano === "grande" ? "h-12" : "h-9 sm:h-10"} ${className}`}
     />
