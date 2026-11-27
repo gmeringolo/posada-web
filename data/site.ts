@@ -202,6 +202,7 @@ export const antesDeReservar: { icono: string; titulo: string; texto: string }[]
   { icono: "PawPrint", titulo: "Mascotas", texto: "Aceptamos todas las mascotas." },
   { icono: "Car", titulo: "Estacionamiento", texto: "Al frente del complejo, junto a la portera." },
   { icono: "BedDouble", titulo: "Ropa de cama", texto: "No incluyen sábanas ni toallas." },
+  { icono: "KeyRound", titulo: "Ingreso autónomo", texto: "Un día antes te enviamos por WhatsApp la casa y el código." },
 ];
 
 /* ------------------------------------------------------------------ */
@@ -298,6 +299,11 @@ export const preguntasFrecuentes: { pregunta: string; respuesta: string }[] = [
     respuesta: "No, las casas no incluyen sábanas ni toallas. Todo lo demás está equipado: cocina, vajilla para 6, heladera, microondas y parrillero.",
   },
   { pregunta: "¿Cuál es el horario de entrada y salida?", respuesta: "El check-in es a las 15 h y el check-out a las 12 h." },
+  {
+    pregunta: "¿Cómo es el ingreso a la casa?",
+    respuesta:
+      "El ingreso es autónomo. El día antes de tu llegada te enviamos por WhatsApp el color de la casa donde te vas a alojar y el código de la cajita donde está la llave. Así podés llegar a cualquier hora a partir de las 15 h. Solo te pedimos que nos avises tu horario aproximado de llegada, para estar atentos por cualquier cosa que necesites.",
+  },
   {
     pregunta: "¿Cómo reservo?",
     respuesta:
